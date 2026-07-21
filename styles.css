@@ -7,6 +7,7 @@
   --line: rgba(8, 8, 8, 0.14);
   --signal: rgba(29, 118, 104, 0.18);
   --signal-soft: rgba(29, 118, 104, 0.08);
+  --scroll-alpha: 0;
   --font-sans: "Noto Sans JP", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: Georgia, "Times New Roman", "Yu Mincho", "Hiragino Mincho ProN", serif;
 }
@@ -20,6 +21,7 @@ html {
 }
 
 body {
+  position: relative;
   margin: 0;
   overflow-x: hidden;
   background: var(--bg);
@@ -32,12 +34,30 @@ body {
 body::before {
   position: fixed;
   inset: 0;
-  z-index: -2;
+  z-index: -3;
   pointer-events: none;
   content: "";
   background:
     linear-gradient(140deg, rgba(255, 254, 251, 0.86), rgba(247, 246, 242, 0.9)),
     linear-gradient(180deg, rgba(255, 254, 251, 0.92), rgba(247, 246, 242, 0.96));
+}
+
+.scroll-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: var(--scroll-alpha);
+  mix-blend-mode: multiply;
+  transition: opacity 360ms ease;
+}
+
+.scroll-atmosphere__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 a {
@@ -197,6 +217,8 @@ img {
 }
 
 main {
+  position: relative;
+  z-index: 1;
   width: min(1120px, calc(100% - 40px));
   margin: 0 auto;
 }
@@ -284,11 +306,23 @@ h3 {
 }
 
 .section {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
   gap: clamp(32px, 8vw, 96px);
   padding: clamp(72px, 10vw, 124px) 0;
   border-bottom: 1px solid var(--line);
+}
+
+.section::after {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 50vw);
+  z-index: -1;
+  width: 100vw;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(8, 8, 8, 0.14), transparent);
 }
 
 .section__head {
@@ -439,6 +473,7 @@ h3 {
 }
 
 .contact {
+  position: relative;
   max-width: 820px;
   padding: clamp(72px, 10vw, 124px) 0;
 }
@@ -459,6 +494,8 @@ h3 {
 }
 
 .footer {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   gap: 20px;
