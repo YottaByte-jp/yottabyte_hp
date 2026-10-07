@@ -1,0 +1,22 @@
+{
+  "generator": "built-in image_gen",
+  "generated": "2026-10-08",
+  "assets": [
+    {
+      "file": "public/generated/01-office-hero.webp",
+      "prompt": "docs/image-prompts/01-office-hero.txt"
+    },
+    {
+      "file": "public/generated/02-office-light.webp",
+      "prompt": "docs/image-prompts/02-office-light.txt"
+    },
+    {
+      "file": "public/generated/03-development.webp",
+      "prompt": "docs/image-prompts/03-development.txt"
+    },
+    {
+      "file": "public/generated/04-workshop.webp",
+      "prompt": "docs/image-prompts/04-workshop.txt"
+    }
+  ]
+}

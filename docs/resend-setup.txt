@@ -1,0 +1,51 @@
+YottaByte Resend接続 完了記録（2026-10-08）
+
+対象サイト：/Users/raio/yottabyte_hp
+ブランチ：feat/studio-corporate-recreation
+指定アカウント・通知先：raio20061114@gmail.com
+操作：Chrome拡張機能経由
+
+完了した設定
+・Resendへ指定Googleアカウントでログイン。
+・mail.yottabyte.jpをTokyoリージョンで登録し、Resendでverifiedを確認。
+・お名前.comでTXT1件とCNAME2件を追加。既存のWeb用A4件・NS4件を保持。ネームサーバー変更なし。
+・権威DNS、Google DNS、Cloudflare DNSで3件の値の一致を確認。
+・Cloudflareへ指定Googleアカウントでログインし、メールアドレス確認を完了。
+・Worker yottabyte-contactを作成し、送信処理を反映。
+・API URL：https://yottabyte-contact.raio20061114.workers.dev/contact
+・ALLOWED_ORIGINS設定、CONTACT_RATE_LIMITER（Namespace610814、5回/60秒）を登録。
+・ユーザー承認後、ResendのYottaByte website contactというAPIキーを1件作成。
+・権限はSending access、Domainは承認済みのAll domains。
+・CloudflareでSecret RESEND_API_KEYの登録を読み戻して確認。
+・公開出力153ファイルに実際のAPIキーの値が含まれないことを確認。Gitにも含めず、転送用の一時ファイルは接続確認後に削除。
+
+実送信の確認
+・ユーザー承認済みのテストメールをフォームから1通送信。
+・送信日時：2026-10-08 06:51 JST（Gmail表示）。
+・送信元：YottaByte お問い合わせ <contact@mail.yottabyte.jp>
+・通知先：raio20061114@gmail.com
+・件名：【YottaByte】システム開発・業務改善について
+・本文末尾：Resend接続確認用のテストです。実際のご相談ではありません。
+・ResendのメールID：01a11859-394b-7da4-b462-1cb5f6710f37
+・Resendでdeliveredを確認。Sending一覧のメールは1件。
+・指定Gmailの受信トレイで同じ件名・送信元・本文を開いて確認。
+・フォームはAPI成功後に/contact-thanks/へ遷移し、「お問い合わせを受け付けました」を表示。
+・テスト用onboarding@resend.devは使用せず、認証済みの独自ドメインから送信。
+
+実装と検証
+・フォームのメールアプリ方式の案内を削除し、送信ボタンと完了ページを変更。
+・必須入力、同意、エラー表示、入力保持、PC・スマホ表示を確認。
+・通知先はサーバー側で固定し、訪問者の入力アドレスをReply-Toに設定。
+・フォームの重複操作を防ぎ、Resendの冪等性キーで同じ入力の再試行に対応。
+・GitHub Pagesの静的ビルドに公開API URLを設定。
+・送信処理の単体テスト9件、lint、静的ビルド、git diff --check成功。
+・Cloudflareのログ設定は既存の有効状態を維持。
+
+メール設定完了時点の公開状況（ホームページ本番公開前の記録）
+・Workerの送信処理は公開・接続済み。
+・新しい会社ホームページはローカルプレビューで確認済み。本番ホームページへの公開、マージ、コミットは行っていない。
+・ローカルプレビュー：http://127.0.0.1:3003/contact/
+
+補足
+・Python urllibによる疎通はCloudflare error1010で拒否されたため、アプリの成否と混同せず、Chromeの実フォーム操作とGmail受信で確認した。
+・秘密のキーや認証リンクの値は本記録に含めない。

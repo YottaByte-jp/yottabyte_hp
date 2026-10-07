@@ -1,5 +1,13 @@
 # Third-party notices
 
+## Current implementation
+
+The current corporate pages are independently authored. Studio's public demo was used to inspect layout and typography; its source code and image files are not included. The four photographs in `public/generated/` were newly generated using the built-in image generation tool. The business diagram and icons are newly authored SVGs.
+
+Noto Sans JP and Lato are distributed under the SIL Open Font License 1.1. Copyright and license notices are included in `public/licenses/NotoSansJP-OFL.txt` and `public/licenses/Lato-OFL.txt`.
+
+The notice below is retained for the legacy microCMS assets still present in the repository.
+
 ## microCMS Simple Corporate Site Template
 
 This website's information architecture and corporate-site composition were adapted from the microCMS official “Simple Corporate Site Template”.

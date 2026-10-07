@@ -1,62 +1,140 @@
 'use client';
-
-import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
-
-const navigation = [
-  { href: '#services', label: '事業内容' },
-  { href: '#about', label: '私たちについて' },
-  { href: '#profile', label: '代表' },
-  { href: '#contact', label: 'お問い合わせ' },
-];
-
+import { useEffect, useRef, useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { navigation } from '@/app/_data/site';
+import { Icon } from './TemplateParts';
 export function SiteHeader() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-
-  const close = () => setIsOpen(false);
-
+  const open = isOpen || pathname === '/navigation/';
+  const trigger = useRef<HTMLButtonElement>(null);
+  const drawer = useRef<HTMLDivElement>(null);
+  const close = () => {
+    setIsOpen(false);
+    if (pathname === '/navigation/') router.replace('/');
+  };
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    const previousTrigger = trigger.current;
+    document.body.style.overflow = 'hidden';
+    drawer.current?.querySelector<HTMLButtonElement>('button')?.focus();
+    const keydown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+        if (pathname === '/navigation/') router.replace('/');
+      }
+      if (event.key === 'Tab') {
+        const focusable = drawer.current?.querySelectorAll<HTMLElement>('a[href],button');
+        if (!focusable?.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener('keydown', keydown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', keydown);
+      previousTrigger?.focus();
+    };
+  }, [open, pathname, router]);
   return (
-    <header className="site-header">
-      <Link className="brand" href="/#top" aria-label="YottaByte ホーム" onClick={close}>
-        <Image
-          className="brand-mark"
-          src="/yottabyte_logo-removebg-preview.png"
-          alt=""
-          width={500}
-          height={500}
-          priority
-        />
-        <span>YottaByte</span>
-      </Link>
-
-      <nav
-        className={`site-nav${isOpen ? ' site-nav--open' : ''}`}
-        aria-label="メインナビゲーション"
-      >
-        <ul>
-          {navigation.map((item) => (
-            <li key={item.href}>
-              <a href={item.href} onClick={close}>
+    <>
+      <header className="site-header">
+        <div className="header-inner">
+          <Link className="brand" href="/" aria-label="YottaByte ホーム" onClick={close}>
+            <span className="brand-mark" aria-hidden="true" />
+            YOTTABYTE
+          </Link>
+          <nav className="desktop-nav" aria-label="メインナビゲーション">
+            {navigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={pathname.startsWith(item.href) ? 'active' : ''}
+                aria-current={pathname.startsWith(item.href) ? 'page' : undefined}
+              >
                 {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <button className="menu-button menu-button--close" type="button" onClick={close}>
-          <Image src="/close.svg" alt="メニューを閉じる" width={24} height={24} priority />
-        </button>
-      </nav>
-
-      <button
-        className="menu-button"
-        type="button"
-        aria-expanded={isOpen}
-        aria-label="メニューを開く"
-        onClick={() => setIsOpen(true)}
-      >
-        <Image src="/menu.svg" alt="" width={24} height={24} priority />
-      </button>
-    </header>
+              </Link>
+            ))}
+            <Link className="header-pill header-pill--black" href="/contact/#form">
+              協業相談
+              <Icon name="external" />
+            </Link>
+            <Link className="header-pill" href="/contact/">
+              お問い合わせ
+              <Icon name="mail" />
+            </Link>
+          </nav>
+          <button
+            className="menu-trigger"
+            aria-label="メニューを開く"
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            type="button"
+            onClick={() => setIsOpen(true)}
+            ref={trigger}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+      </header>
+      {open ? (
+        <div className="menu-overlay">
+          <button
+            className="menu-backdrop"
+            type="button"
+            aria-label="メニューを閉じる"
+            onClick={close}
+            tabIndex={-1}
+          />
+          <div
+            className="menu-drawer"
+            id="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+            aria-label="メニュー"
+            ref={drawer}
+          >
+            <button className="menu-close" aria-label="閉じる" type="button" onClick={close}>
+              ×
+            </button>
+            <nav>
+              <Link href="/" onClick={close}>
+                ホーム
+              </Link>
+              {navigation.map((item) => (
+                <Link href={item.href} key={item.href} onClick={close}>
+                  {item.label}
+                </Link>
+              ))}
+              <Link
+                className="header-pill header-pill--black"
+                href="/contact/#form"
+                onClick={close}
+              >
+                協業相談
+                <Icon name="external" />
+              </Link>
+              <Link className="header-pill" href="/contact/" onClick={close}>
+                お問い合わせ
+                <Icon name="mail" />
+              </Link>
+            </nav>
+          </div>
+        </div>
+      ) : null}
+    </>
   );
 }

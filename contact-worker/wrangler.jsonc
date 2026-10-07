@@ -1,0 +1,18 @@
+{
+  "name": "yottabyte-contact",
+  "main": "index.mjs",
+  "compatibility_date": "2026-10-07",
+  "workers_dev": true,
+  "vars": {
+    "RESEND_FROM": "contact@mail.yottabyte.jp",
+    "ALLOWED_ORIGINS": "https://yottabyte.jp,https://www.yottabyte.jp,http://127.0.0.1:3003,http://localhost:3003",
+  },
+  "ratelimits": [
+    {
+      "name": "CONTACT_RATE_LIMITER",
+      "namespace_id": "610814",
+      "simple": { "limit": 5, "period": 60 },
+    },
+  ],
+  "observability": { "enabled": true },
+}

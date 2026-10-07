@@ -1,22 +1,32 @@
 import type { Metadata, Viewport } from 'next';
-import { Noto_Sans_JP } from 'next/font/google';
+import { Lato, Noto_Sans_JP } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { SiteFooter } from '@/app/_components/SiteFooter';
 import { SiteHeader } from '@/app/_components/SiteHeader';
+import { RevealController } from '@/app/_components/Interactions';
 import './globals.css';
 
 const notoSansJp = Noto_Sans_JP({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600', '700', '900'],
   display: 'swap',
   variable: '--font-noto-sans-jp',
+});
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['100', '400', '700', '900'],
+  display: 'swap',
+  variable: '--font-lato',
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://yottabyte.jp'),
-  title: 'YottaByte | Freelance Engineer',
+  title: {
+    default: '合同会社YottaByte | システム開発・業務改善・AI活用',
+    template: '%s | 合同会社YottaByte',
+  },
   description:
-    'YottaByteは、フリーランスエンジニアとしてWeb開発、業務改善、AI活用、技術設計を支援する屋号です。',
+    '合同会社YottaByteは、システム開発、業務改善・自動化、AI・LLM活用、技術設計を通じて事業の課題解決を支援します。',
   alternates: {
     canonical: '/',
   },
@@ -29,9 +39,9 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     url: 'https://yottabyte.jp',
     siteName: 'YottaByte',
-    title: 'YottaByte | Freelance Engineer',
+    title: '合同会社YottaByte | システム開発・業務改善・AI活用',
     description:
-      'YottaByteは、フリーランスエンジニアとしてWeb開発、業務改善、AI活用、技術設計を支援する屋号です。',
+      '合同会社YottaByteは、システム開発、業務改善・自動化、AI・LLM活用、技術設計を通じて事業の課題解決を支援します。',
     images: [
       {
         url: '/yottabyte_logo.png',
@@ -55,12 +65,13 @@ type RootLayoutProps = Readonly<{
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="ja" className={notoSansJp.variable}>
+    <html lang="ja" className={`${notoSansJp.variable} ${lato.variable}`}>
       <body>
         <a className="skip-link" href="#main-content">
           本文へ移動
         </a>
         <SiteHeader />
+        <RevealController />
         {children}
         <SiteFooter />
       </body>
