@@ -15,6 +15,8 @@ npm run build
 
 `npm run build`は`out/`に静的ファイルを生成します。公開先は`https://yottabyte.jp/`で、`main`への反映時にGitHub ActionsからGitHub Pagesへデプロイします。既存の`public/CNAME`を維持しています。
 
+本番ビルドはWebpackを使用します。GitHub Actionsで発生したTurbopackのGoogle Fonts処理エラーを回避し、Noto Sans JPとLatoを同じ設定でセルフホストします。
+
 ## ページ構成
 
 トップ、企業情報、事業内容、事業詳細、対応事例一覧・カテゴリ・記事、お知らせ一覧・カテゴリ・記事、お問い合わせ、送信完了、個人情報保護方針、モバイルメニュー、404の15種類の画面です。記事やカテゴリを含めた具体的なURLは`app/_data/site.ts`の`routePaths`に定義しています。
