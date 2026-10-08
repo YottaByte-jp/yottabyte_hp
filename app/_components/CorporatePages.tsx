@@ -613,7 +613,35 @@ function PrivacyPage() {
             </section>
           ))}
           <section>
-            <h2>第5条 お問い合わせ窓口</h2>
+            <h2>第5条 アクセス解析</h2>
+            <p>
+              当サイトは、利用状況の分析と改善のためにGoogle Analyticsを利用します。
+              Cookieなどを利用して、閲覧したページ、利用環境、アクセス元などの情報を収集します。
+              お問い合わせフォームに入力された氏名、メールアドレス、電話番号、ご相談内容はGoogle
+              Analyticsへ送信しません。
+            </p>
+            <p>
+              情報の取り扱いについては
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Googleのプライバシーポリシー
+              </a>
+              をご確認ください。ブラウザーのCookie設定や
+              <a
+                href="https://tools.google.com/dlpage/gaoptout"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Analyticsオプトアウトアドオン
+              </a>
+              でデータ収集を制限できます。
+            </p>
+          </section>
+          <section>
+            <h2>第6条 お問い合わせ窓口</h2>
             <p>
               {company.name}
               <br />

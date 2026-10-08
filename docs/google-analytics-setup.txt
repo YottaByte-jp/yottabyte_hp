@@ -1,0 +1,35 @@
+Google Analytics 設定記録（2026-10-09）
+
+対象サイト：https://yottabyte.jp/
+所有者：raio20061114@gmail.com
+アカウント：合同会社YottaByte（411392345）
+プロパティ：YottaByte コーポレートサイト（558195951）
+Webストリーム：YottaByte Webサイト（16078736479）
+測定ID：G-HY3D6EJ7XP
+タイムゾーン：日本時間（GMT+09:00）
+通貨：日本円（JPY）
+業種：コンピュータ、電化製品
+規模：1～10名（ユーザー確認済み）
+ビジネス目標：見込み顧客の発掘、Web/アプリのトラフィックの分析
+
+Chrome拡張機能経由で設定。ユーザーによる利用規約同意の承認後に作成を確定。
+既存のwebnicアカウントとそのアプリの設定は変更していない。
+会社用アカウントの任意のデータ共有4項目はすべて無効。
+拡張計測ではページビューとスクロール等を有効にし、離脱クリック・サイト内検索・フォームの操作を無効。
+測定IDは公開情報。APIキーやMeasurement Protocol Secretは不要で、作成していない。
+generate_leadをキーイベントとして登録済み（コードで作成、イベントごとに1回、金額は未設定）。
+完了ページのURLによる派生イベントは作成していない。
+
+実装
+・Next.jsのafterInteractiveで全ページ共通のGoogleタグを初期化
+・yottabyte.jpとwww.yottabyte.jp以外ではGoogleタグを読み込まない
+・ページ遷移は拡張計測機能のブラウザー履歴イベントで計測
+・フォームAPI成功時にgenerate_lead（form_id=contactのみ）を送信
+・氏名、メールアドレス、電話番号、問い合わせ本文はGAへ送信しない
+・Googleシグナルと広告パーソナライズは無効
+・アクセス解析の説明とオプトアウト案内を個人情報保護方針へ追加
+
+検証
+node --test tests/analytics.test.mjs：3件成功
+npm run lint、npm run build、Prettier、git diff --checkで確認
+本番のデータ受信確認記録と画面はDownloads/YottaByte_GoogleAnalytics設定_2026-10-09へ保存

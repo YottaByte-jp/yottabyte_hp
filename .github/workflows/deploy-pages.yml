@@ -36,6 +36,7 @@ jobs:
       - name: Build static site
         env:
           NEXT_PUBLIC_CONTACT_ENDPOINT: https://yottabyte-contact.raio20061114.workers.dev/contact
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: G-HY3D6EJ7XP
         run: npm run build
 
       - name: Upload Pages artifact

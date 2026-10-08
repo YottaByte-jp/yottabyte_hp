@@ -4,6 +4,7 @@ import type { ReactNode } from 'react';
 import { SiteFooter } from '@/app/_components/SiteFooter';
 import { SiteHeader } from '@/app/_components/SiteHeader';
 import { RevealController } from '@/app/_components/Interactions';
+import { GoogleAnalytics } from '@/app/_components/GoogleAnalytics';
 import './globals.css';
 
 const notoSansJp = Noto_Sans_JP({
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <RevealController />
         {children}
         <SiteFooter />
+        <GoogleAnalytics />
       </body>
     </html>
   );
