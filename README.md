@@ -43,6 +43,16 @@ node --test contact-worker/index.test.mjs
 
 無料枠はResendが月3,000通・1日100通、Cloudflare Workersが1日100,000リクエストです。設定・実送信の確認状況は`docs/resend-setup.txt`に記録します。
 
+## アクセス解析
+
+GA4の測定IDを`NEXT_PUBLIC_GA_MEASUREMENT_ID`に設定すると、Googleタグを全ページで読み込みます。計測対象は`yottabyte.jp`と`www.yottabyte.jp`だけで、ローカルプレビューではGoogleへ送信しません。ページ遷移はGA4の拡張計測機能で計測します。
+
+お問い合わせのAPIが成功した場合だけ`generate_lead`を送信します。送信データは固定のフォームIDだけで、氏名・メールアドレス・電話番号・問い合わせ本文は含めません。計測が無効または失敗してもフォームの完了処理を続けます。Googleシグナルと広告のパーソナライズは無効です。
+
+```sh
+node --test tests/analytics.test.mjs
+```
+
 ## 参考
 
 - [Studioの参考テンプレート](https://studio.design/ja/store/templates/dKwa5VYWX7)

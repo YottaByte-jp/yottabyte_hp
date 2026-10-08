@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { faqs, company } from '@/app/_data/site';
+import { trackContactSubmission } from '@/app/_lib/analytics';
 import type { FormEvent } from 'react';
 export function RevealController() {
   const pathname = usePathname();
@@ -96,6 +97,7 @@ export function ContactForm() {
         );
         return;
       }
+      trackContactSubmission();
       router.push('/contact-thanks/');
     } catch {
       setError('送信結果を確認できませんでした。入力内容を変えずに再度お試しください。');
