@@ -64,7 +64,7 @@ test('notification has a fixed recipient, visitor Reply-To and a retry-safe key'
   assert.equal(response.status, 200);
   assert.deepEqual(await response.json(), { ok: true, id: 'mock-email-id' });
   assert.equal(sent.url, 'https://api.resend.com/emails');
-  assert.deepEqual(sent.body.to, ['raio20061114@gmail.com']);
+  assert.deepEqual(sent.body.to, ['contact@yottabyte.jp']);
   assert.equal(sent.body.from, 'YottaByte お問い合わせ <contact@mail.yottabyte.jp>');
   assert.equal(sent.body.reply_to, valid.email);
   assert.ok(sent.body.text.includes(valid.message));

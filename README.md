@@ -31,7 +31,9 @@ npm run build
 
 ## お問い合わせ
 
-フォームはCloudflare Workersの送信処理からResendへ接続します。送信元は`contact@mail.yottabyte.jp`、通知先は`raio20061114@gmail.com`に固定し、入力されたメールアドレスをReply-Toに設定します。入力チェック、同意、隠し項目、1分あたり5回の送信制限、Resendの冪等性キーを使用しています。
+サイトに掲載する連絡先とフォームの通知先は`contact@yottabyte.jp`です。通知はImprovMXを経由して、既存のGmailへ転送されます。
+
+フォームはCloudflare Workersの送信処理からResendへ接続します。送信元は`contact@mail.yottabyte.jp`、通知先は`contact@yottabyte.jp`に固定し、入力されたメールアドレスをReply-Toに設定します。入力チェック、同意、隠し項目、1分あたり5回の送信制限、Resendの冪等性キーを使用しています。
 
 送信処理は`contact-worker/index.mjs`、設定は`contact-worker/wrangler.jsonc`です。Resendがメールを受け付けた応答を確認した場合だけ、フォームが`/contact-thanks/`へ遷移します。失敗・応答不明の場合は入力内容を保持します。
 
