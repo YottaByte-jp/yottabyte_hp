@@ -2,7 +2,7 @@ export const company = {
   name: '合同会社YottaByte',
   representative: '加藤獅',
   address: '神奈川県三浦郡葉山町木古庭426-1',
-  email: 'raio20061114@gmail.com',
+  email: 'contact@yottabyte.jp',
 };
 
 export const photos = {

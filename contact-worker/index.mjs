@@ -4,7 +4,7 @@ const topics = new Set([
   '協業について',
   'その他',
 ]);
-const recipient = 'raio20061114@gmail.com';
+const recipient = 'contact@yottabyte.jp';
 const maxBytes = 20000;
 
 function reply(status, data, origin, extraHeaders = {}) {
