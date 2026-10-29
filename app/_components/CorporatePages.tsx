@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { cases, company, news, newsCategories, photos, services } from '@/app/_data/site';
 import { FAQ, ContactForm } from './Interactions';
-import { RegionalCoverage, TechnologyVisual } from './TechnologyVisual';
 import {
   Breadcrumb,
   BusinessDiagram,
@@ -52,14 +51,9 @@ export function HomePage() {
           <h1>
             湘南の事業に、
             <br />
-            最先端の技術を。
+            最先端の技術を
           </h1>
           <p>LOCAL ROOTS. FORWARD THINKING.</p>
-          <p className="hero-copy__lead">
-            葉山を拠点に、逗子・横須賀から広がる事業の挑戦へ。
-            <br />
-            生成AI・LLM、システム開発、業務自動化を、使える仕組みに。
-          </p>
         </div>
         <div className="hero-photo">
           <Photo
@@ -72,17 +66,6 @@ export function HomePage() {
             <Icon />
           </a>
         </div>
-        <p className="hero-photo-credit">
-          葉山・一色海岸 · Photo:{' '}
-          <a
-            href="https://commons.wikimedia.org/wiki/File:晩秋の夕富士._葉山一色海岸で撮影_Pcs34560_IMG9972.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Pcs34560
-          </a>{' '}
-          / Public domain
-        </p>
       </section>
       <section className="home-company" id="company">
         <div className="container home-company__grid" data-reveal>
@@ -113,7 +96,7 @@ export function HomePage() {
           <div className="service-grid">
             {services.map((s) => (
               <article className="service-card" key={s.id}>
-                <TechnologyVisual kind={s.id} />
+                <Photo src={s.image} />
                 <p className="eyebrow">{s.en}</p>
                 <h3>{s.title}</h3>
                 <p>{s.summary}</p>
@@ -125,7 +108,7 @@ export function HomePage() {
           </div>
         </div>
       </section>
-      <RegionalCoverage />
+      <RoundedBanner src={photos.development} reverse />
       <CaseSection />
       <section className="home-news">
         <div className="container home-news__grid" data-reveal>
@@ -139,6 +122,8 @@ export function HomePage() {
         </div>
       </section>
       <section className="partner-banner">
+        <Photo src={photos.workshop} />
+        <div className="partner-banner__shade" />
         <div className="container partner-banner__copy" data-reveal>
           <SectionHeading>PARTNER</SectionHeading>
           <h2 className="large-copy">一緒に、事業の課題を解決へ。</h2>
@@ -181,7 +166,7 @@ function CompanyPage() {
   return (
     <>
       <PageTitle en="COMPANY" title="企業情報" />
-      <RoundedBanner src={photos.hero} />
+      <RoundedBanner src={photos.office} />
       <section className="section mission-section">
         <div className="container mission-grid" data-reveal>
           <SectionHeading>MISSION</SectionHeading>
@@ -232,22 +217,7 @@ function CompanyPage() {
                 代表　{company.representative}
               </p>
             </div>
-            <aside className="message-principle">
-              <p className="eyebrow">OUR STARTING POINT</p>
-              <p className="large-copy">
-                葉山から、
-                <br />
-                技術で応える。
-              </p>
-              <p>
-                地域の事業を理解すること。
-                <br />
-                新しい技術を、使える形にすること。
-                <br />
-                その両方を、大切にしています。
-              </p>
-              <span>HAYAMA · SHONAN</span>
-            </aside>
+            <Photo src={photos.portrait} className="message-photo" position="60% center" />
           </div>
         </div>
       </section>
@@ -269,12 +239,29 @@ function CompanyPage() {
           </div>
         </div>
       </section>
+      <RoundedBanner src={photos.hero} reverse />
       <section className="section company-profile">
         <div className="container" data-reveal>
           <SectionHeading>COMPANY PROFILE</SectionHeading>
           <CompanyFacts />
         </div>
       </section>
+      <div className="photo-marquee" aria-label="事業イメージ">
+        <div className="photo-marquee__track">
+          {[
+            cases[0].image,
+            cases[1].image,
+            cases[2].image,
+            cases[3].image,
+            cases[0].image,
+            cases[1].image,
+            cases[2].image,
+            cases[3].image,
+          ].map((src, i) => (
+            <Photo src={src} key={`${src}-${i}`} />
+          ))}
+        </div>
+      </div>
       <Breadcrumb items={[{ label: '企業情報' }]} />
       <ContactBand />
     </>
@@ -284,7 +271,7 @@ function CompanyPage() {
 function ServicePage() {
   return (
     <>
-      <PageTitle en="SERVICE" title="湘南のシステム開発・業務改善・AI活用" />
+      <PageTitle en="SERVICE" title="事業内容" />
       <RoundedBanner src={photos.workshop} />
       <section className="section business-model">
         <div className="container" data-reveal>
@@ -328,8 +315,8 @@ function ServicePage() {
                     </CircleLink>
                   ) : null}
                 </div>
-                <TechnologyVisual
-                  kind={s.id}
+                <Photo
+                  src={s.image}
                   className={`service-detail-photo service-detail-photo--${i}`}
                 />
               </article>
@@ -351,18 +338,22 @@ function ServiceDetailPage() {
     [
       '業務の整理・可視化',
       '日々の作業や情報の流れを整理し、改善すべき課題と優先順位を具体化します。',
+      '/illustrations/case-technical-planning.svg',
     ],
     [
       'システム連携・自動化',
       'APIや業務ツールを組み合わせ、転記や集計などの繰り返し作業を仕組みに変えます。',
+      '/illustrations/service-automation.svg',
     ],
     [
       '業務システムの設計・開発',
       '現場の使い方に合わせて、kintoneやWebアプリケーションなどの業務システムを設計します。',
+      '/illustrations/service-development.svg',
     ],
     [
       '運用と継続的な改善',
       '導入後の運用を確認し、実際の課題や利用者の声に合わせた改善を支援します。',
+      '/illustrations/case-web-development.svg',
     ],
   ];
   const flow = [
@@ -376,7 +367,7 @@ function ServiceDetailPage() {
   return (
     <>
       <PageTitle en={s.en} title={s.title} />
-      <RoundedBanner src={photos.development} />
+      <RoundedBanner src={photos.workshop} />
       <section className="section">
         <div className="container detail-lead" data-reveal>
           <div>
@@ -392,20 +383,21 @@ function ServiceDetailPage() {
               ))}
             </ul>
           </div>
-          <TechnologyVisual kind="automation" className="detail-lead__visual" />
+          <Photo src={photos.development} />
         </div>
       </section>
       <section className="section white-corner">
         <div className="container" data-reveal>
           <SectionHeading>SOLUTIONS</SectionHeading>
           <div className="solutions">
-            {solutions.map(([title, body], i) => (
+            {solutions.map(([title, body, image], i) => (
               <article key={title}>
                 <div className="solution-number">0{i + 1}</div>
                 <div>
                   <h3 className="large-copy">{title}</h3>
                   <p>{body}</p>
                 </div>
+                <Photo src={image} />
               </article>
             ))}
           </div>
@@ -512,6 +504,7 @@ function ArticlePage({ kind, id }: { kind: 'case' | 'news'; id: string }) {
           <span className="badge">{category}</span>
         </div>
         <h1>{item.title}</h1>
+        {'image' in item ? <Photo src={item.image} className="article-photo" /> : null}
         <div className="article-body">
           <p>{item.body}</p>
           {isCase ? (
@@ -530,6 +523,7 @@ function ArticlePage({ kind, id }: { kind: 'case' | 'news'; id: string }) {
                 <li>開発・実装・動作確認</li>
                 <li>運用を見据えた改善のご相談</li>
               </ul>
+              <Photo src={photos.workshop} className="article-photo" />
             </>
           ) : (
             <p>詳しいご相談は、お問い合わせページからご連絡ください。</p>

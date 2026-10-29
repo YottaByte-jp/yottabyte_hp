@@ -7,6 +7,7 @@ export const company = {
 
 export const photos = {
   coast: '/images/shonan-hayama.webp',
+  portrait: '/images/company-message.webp',
   hero: '/generated/01-office-hero.webp',
   office: '/generated/02-office-light.webp',
   development: '/generated/03-development.webp',
@@ -22,10 +23,10 @@ export const navigation = [
 
 export const services = [
   {
-    id: 'development' as const,
+    id: 'development',
     en: 'SYSTEM DEVELOPMENT',
     title: 'システム開発',
-    image: photos.development,
+    image: '/illustrations/service-development.svg',
     summary: 'Webサービスから社内の業務システムまで。湘南の事業に合う仕組みを設計・開発',
     description:
       '企画・要件整理から画面設計、データベース・API設計、実装、保守・改善まで対応します。事業の目的と日々の運用を理解し、必要な機能を一緒に具体化します。',
@@ -38,10 +39,10 @@ export const services = [
     ],
   },
   {
-    id: 'automation' as const,
+    id: 'automation',
     en: 'AUTOMATION SUPPORT',
     title: '業務改善・自動化',
-    image: photos.workshop,
+    image: '/illustrations/service-automation.svg',
     summary: '転記・集計・情報の分散を、kintoneやAPI連携で改善。日々の手作業を仕組みに',
     description:
       '日々の作業や情報の流れを整理し、システム連携や自動化で業務を改善します。現場の使いやすさを大切に、導入後の運用まで見据えた仕組みを設計します。',
@@ -54,10 +55,10 @@ export const services = [
     ],
   },
   {
-    id: 'ai' as const,
+    id: 'ai',
     en: 'AI & LLM SOLUTIONS',
     title: 'AI・LLM活用',
-    image: photos.office,
+    image: '/illustrations/service-ai.svg',
     summary: '社内検索、文章生成、問い合わせ対応。生成AI・LLMを、実務で使える機能へ',
     description:
       'AIを使うこと自体を目的にせず、業務に役立つ使い方を一緒に考えます。文章生成、問い合わせ対応、社内検索など、利用場面に合わせた設計と実装を行います。',
@@ -77,28 +78,28 @@ export const cases = [
     id: 'web-development',
     category: 'development',
     title: '企画から実装・運用まで、Webアプリケーション開発を支援',
-    image: photos.development,
+    image: '/illustrations/case-web-development.svg',
     body: '新規サービスの企画・要件整理から、画面設計、API実装、保守運用までを支援します。初期開発だけでなく、利用者の声を受けた改善も視野に入れて設計します。',
   },
   {
     id: 'business-automation',
     category: 'automation',
     title: '業務の流れを整理し、手作業を減らす仕組みづくりを支援',
-    image: photos.workshop,
+    image: '/illustrations/case-business-automation.svg',
     body: '繰り返しの入力、集計や転記など、日々の運用で負担になっている作業を整理します。kintoneやAPI連携などを組み合わせ、現場の運用に合った仕組みを作ります。',
   },
   {
     id: 'ai-integration',
     category: 'ai',
     title: '既存サービスにAI機能を組み込み、実務での活用を支援',
-    image: photos.hero,
+    image: '/illustrations/case-ai-integration.svg',
     body: '問い合わせ対応、文章の作成、情報検索などの課題に合わせて、AI機能の設計と実装を行います。小さく検証し、必要な機能と使い方を具体化していきます。',
   },
   {
     id: 'technical-planning',
     category: 'development',
     title: '構想を実装できる単位へ整理し、開発方針の具体化を支援',
-    image: photos.office,
+    image: '/illustrations/case-technical-planning.svg',
     body: '作るべきものと優先順位を整理し、システムの構成や技術の選択を検討します。事業の段階や運用体制に合う開発方針を一緒に考えます。',
   },
 ];
@@ -148,10 +149,6 @@ export const news = [
 ];
 
 export const faqs = [
-  [
-    '葉山・逗子・横須賀の企業から相談できますか？',
-    'はい。葉山町を拠点に、逗子・横須賀・鎌倉など湘南・三浦半島の企業のご相談に対応しています。システム開発、業務改善・自動化、生成AIの活用など、課題を整理する段階からご相談ください。',
-  ],
   [
     '構想の段階から相談できますか？',
     'はい。具体的な仕様が決まっていない段階でも、課題や目的を整理するところからご相談いただけます。',

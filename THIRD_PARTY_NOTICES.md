@@ -12,7 +12,11 @@ Noto Sans JP and Lato are distributed under the SIL Open Font License 1.1. Copyr
 
 Source: https://commons.wikimedia.org/wiki/File:晩秋の夕富士._葉山一色海岸で撮影_Pcs34560_IMG9972.jpg
 
-Provenance is also recorded in `public/licenses/Hayama-photo.txt`, and a source credit appears beneath the photograph.
+Provenance is also recorded in `public/licenses/Hayama-photo.txt`.
+
+## Corporate illustrations and portrait
+
+The service and case diagrams in `public/illustrations/` are independently authored SVG artwork. They illustrate service concepts and are not customer screenshots or delivery records. `public/images/company-message.webp` is a resized WebP copy of the existing corporate portrait, `public/DSC_2003.jpg`.
 
 The notice below is retained for the legacy microCMS assets still present in the repository.
 

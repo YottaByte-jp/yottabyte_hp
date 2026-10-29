@@ -9,7 +9,6 @@ export function SiteFooter() {
             <Link className="footer-brand" href="/">
               YOTTABYTE
             </Link>
-            <p className="footer-region">湘南・葉山から、システム開発とAI活用を。</p>
             <p className="footer-company">
               {company.name}
               <br />
