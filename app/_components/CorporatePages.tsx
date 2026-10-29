@@ -57,7 +57,7 @@ export function HomePage() {
       <section className="home-hero">
         <div className="container hero-copy">
           <h1>
-            湘南の事業に、
+            湘南の企業に、
             <br />
             最先端の技術を
           </h1>
