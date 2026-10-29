@@ -29,9 +29,6 @@ function CaseSection({ category, compact = false }: { category?: string; compact
     <section className={`section case-section${compact ? ' case-section--compact' : ''}`}>
       <div className="container">
         <SectionHeading>CASE</SectionHeading>
-        {compact ? null : (
-          <p className="section-intro">代表が携わった開発・改善の取り組みをご紹介します。</p>
-        )}
         <CaseGrid category={category} limit={3} />
         <div className="align-right">
           <CircleLink href="/case/">対応事例をみる</CircleLink>
@@ -443,12 +440,9 @@ function CaseListPage({ category }: { category?: string }) {
   const label = services.find((s) => s.id === category)?.title;
   return (
     <>
-      <PageTitle en="CASE" title={label ?? '対応事例'} />
-      <section className="listing-section">
+      <PageTitle en="CASE" title={label ?? '対応事例'} compact />
+      <section className="listing-section listing-section--compact">
         <div className="container">
-          <p className="section-intro">
-            代表の開発経験をもとに、取り組みをご紹介します。顧客名・サービス名は非公開としています。
-          </p>
           <nav className="category-nav" aria-label="対応事例のカテゴリ">
             <Link href="/case/" aria-current={!category ? 'page' : undefined}>
               すべての記事
@@ -477,23 +471,25 @@ function NewsListPage({ category }: { category?: string }) {
   const label = newsCategories.find((c) => c.id === category)?.label;
   return (
     <>
-      <PageTitle en="NEWS" title={label ?? 'お知らせ'} />
-      <section className="listing-section">
+      <PageTitle en="NEWS" title={label ?? 'お知らせ'} compact />
+      <section className="listing-section listing-section--compact">
         <div className="container">
-          <nav className="category-nav" aria-label="お知らせのカテゴリ">
-            <Link href="/news/" aria-current={!category ? 'page' : undefined}>
-              すべての記事
-            </Link>
-            {newsCategories.map((c) => (
-              <Link
-                key={c.id}
-                href={`/news/category/${c.id}/`}
-                aria-current={c.id === category ? 'page' : undefined}
-              >
-                {c.label}
+          {newsCategories.length > 1 ? (
+            <nav className="category-nav" aria-label="お知らせのカテゴリ">
+              <Link href="/news/" aria-current={!category ? 'page' : undefined}>
+                すべての記事
               </Link>
-            ))}
-          </nav>
+              {newsCategories.map((c) => (
+                <Link
+                  key={c.id}
+                  href={`/news/category/${c.id}/`}
+                  aria-current={c.id === category ? 'page' : undefined}
+                >
+                  {c.label}
+                </Link>
+              ))}
+            </nav>
+          ) : null}
           <NewsList category={category} />
         </div>
       </section>
@@ -516,7 +512,7 @@ function ArticlePage({ kind, id }: { kind: 'case' | 'news'; id: string }) {
     <>
       <article className="article-panel">
         <div className="article-meta">
-          <span>{'date' in item ? item.date : '代表の開発経験'}</span>
+          <span>{'date' in item ? item.date : '開発事例'}</span>
           <span className="badge">{category}</span>
         </div>
         <h1>{item.title}</h1>

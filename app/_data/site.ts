@@ -87,47 +87,15 @@ export const services = [
 
 export const cases = caseStudies;
 
-export const newsCategories = [
-  { id: 'company', label: '会社情報' },
-  { id: 'service', label: 'サービス' },
-  { id: 'news', label: 'お知らせ' },
-];
+export const newsCategories = [{ id: 'news', label: 'お知らせ' }];
 
 export const news = [
   {
-    id: 'company-information',
-    date: '2026.10',
-    category: 'company',
-    title: '合同会社YottaByteの会社情報について',
-    body: '合同会社YottaByteは神奈川県葉山町を拠点に、システム開発、業務改善・自動化、AI・LLM活用を通じて事業の課題解決を支援します。会社概要や代表メッセージ、大切にしている考えは企業情報ページからご覧いただけます。',
-  },
-  {
-    id: 'system-development',
-    date: '2026.10',
-    category: 'service',
-    title: 'システム開発のご相談について',
-    body: 'Webアプリケーションや業務システムの企画・要件整理、設計、実装、保守・改善のご相談に対応します。構想の段階でも、お気軽にお問い合わせください。',
-  },
-  {
-    id: 'automation-support',
-    date: '2026.10',
-    category: 'service',
-    title: '業務改善・自動化の支援内容について',
-    body: '日々の手作業や情報の分散、属人化した運用などの課題を整理し、使い続けられる仕組みづくりを支援します。事業内容ページで支援内容をご紹介しています。',
-  },
-  {
-    id: 'ai-solutions',
-    date: '2026.10',
-    category: 'service',
-    title: 'AI・LLM活用のご相談について',
-    body: '問い合わせ対応、文章生成、社内検索など、業務に合うAIの使い方を一緒に検討します。既存サービスへの組み込みや、プロトタイプ開発のご相談も承ります。',
-  },
-  {
-    id: 'contact-guide',
+    id: 'website-launch',
     date: '2026.10',
     category: 'news',
-    title: 'お問い合わせのご案内',
-    body: '新規開発、既存システムの改善、AI活用や技術設計のご相談は、お問い合わせページからご連絡ください。ご相談内容を確認し、個別にご案内いたします。',
+    title: 'ホームページを開設しました',
+    body: 'このたび、合同会社YottaByteのホームページを開設しました。サービス内容や対応事例、企業情報などをご案内しています。今後ともよろしくお願いいたします。',
   },
 ];
 
@@ -159,6 +127,6 @@ export const routePaths = [
   '/404',
   ...services.map((s) => `/case/category/${s.id}`),
   ...cases.map((c) => `/case/${c.id}`),
-  ...newsCategories.map((c) => `/news/category/${c.id}`),
+  ...(newsCategories.length > 1 ? newsCategories.map((c) => `/news/category/${c.id}`) : []),
   ...news.map((n) => `/news/${n.id}`),
 ];

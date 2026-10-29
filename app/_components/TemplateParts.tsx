@@ -67,9 +67,17 @@ export function SectionHeading({
 }) {
   return <h2 className={`section-heading ${className}`}>{children}</h2>;
 }
-export function PageTitle({ en, title }: { en: string; title: string }) {
+export function PageTitle({
+  en,
+  title,
+  compact = false,
+}: {
+  en: string;
+  title: string;
+  compact?: boolean;
+}) {
   return (
-    <div className="page-title">
+    <div className={`page-title${compact ? ' page-title--compact' : ''}`}>
       <div className="container">
         <p className="page-title__en">{en}</p>
         <h1>{title}</h1>

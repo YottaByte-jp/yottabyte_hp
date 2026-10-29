@@ -23,12 +23,12 @@ const pages: Record<string, { title: string; description: string }> = {
   case: {
     title: 'システム開発・業務改善・AI活用の対応事例',
     description:
-      'Webサービス、決済、kintone・会計API連携、データ可視化、生成AI、API保守の開発事例。代表の開発経験をもとに、案件ごとの取り組み、担当範囲、使用技術をご紹介します。顧客名・サービス名は非公開としています。',
+      'Webサービス、決済、kintone・会計API連携、データ可視化、生成AI、API保守の開発事例。案件ごとの取り組み、担当範囲、使用技術をご紹介します。',
   },
   news: {
     title: 'お知らせ',
     description:
-      '葉山・湘南のIT企業、合同会社YottaByteからのお知らせ。会社情報、システム開発・業務改善・AI活用のサービス情報、ご相談のご案内を掲載しています。',
+      '葉山・湘南のIT企業、合同会社YottaByteからのお知らせ。ホームページの開設など、会社からのご案内を掲載しています。',
   },
   contact: {
     title: 'お問い合わせ｜システム開発・AI活用のご相談',
@@ -58,7 +58,7 @@ export function getPageSeo(path: string) {
     const service = services.find((item) => item.id === path.split('/')[2]);
     return {
       title: `${service?.title ?? 'サービス'}の対応事例`,
-      description: `${service?.title ?? 'サービス'}の開発・改善事例。代表の開発経験をもとに、取り組みと担当範囲、使用技術をご紹介します。顧客名・サービス名は非公開としています。`,
+      description: `${service?.title ?? 'サービス'}の開発・改善事例。案件ごとの取り組みと担当範囲、使用技術をご紹介します。`,
     };
   }
   if (path.startsWith('news/category/')) {

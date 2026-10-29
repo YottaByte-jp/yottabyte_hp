@@ -693,6 +693,9 @@ textarea:focus-visible {
   font-weight: 700;
   line-height: 1.7;
 }
+.page-title.page-title--compact {
+  padding-bottom: 24px;
+}
 .mission-grid {
   display: grid;
   grid-template-columns: 286px minmax(0, 1fr);
@@ -962,6 +965,13 @@ textarea:focus-visible {
 }
 .listing-section {
   padding: 60px 0 110px;
+}
+.listing-section.listing-section--compact {
+  padding-top: 24px;
+}
+.listing-section--compact .category-nav {
+  row-gap: 12px;
+  margin-bottom: 24px;
 }
 .category-nav {
   display: flex;
