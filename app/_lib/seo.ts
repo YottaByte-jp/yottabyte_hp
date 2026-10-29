@@ -1,39 +1,39 @@
 import { cases, company, news, newsCategories, services } from '@/app/_data/site';
 
-export const siteTitle = '湘南・葉山のシステム開発・AI活用 | 合同会社YottaByte';
+export const siteTitle = '葉山・湘南のシステム開発・AI活用｜全国対応 | 合同会社YottaByte';
 export const siteDescription =
-  '湘南・葉山のIT企業、合同会社YottaByte。逗子・横須賀・鎌倉など湘南・三浦半島の企業に、Webシステム開発、kintone・APIによる業務改善・自動化、生成AI・LLM活用を支援します。構想の整理から設計・実装・運用までご相談ください。';
+  '葉山・湘南を拠点とするIT企業、合同会社YottaByte。Webシステム開発、kintone・APIによる業務改善・自動化、生成AI・LLM活用を支援します。横須賀・三浦半島エリアにも対応し、東京・大阪をはじめ全国からのご依頼を承ります。';
 
 const pages: Record<string, { title: string; description: string }> = {
   company: {
-    title: '企業情報｜湘南・葉山のIT企業',
+    title: '企業情報｜葉山・湘南のIT企業',
     description:
-      '合同会社YottaByteの企業情報。神奈川県三浦郡葉山町を拠点に、逗子・横須賀など湘南・三浦半島の企業のシステム開発・業務改善・生成AI活用を支援します。会社概要、代表メッセージ、大切にしている考えをご紹介します。',
+      '合同会社YottaByteの企業情報。葉山・湘南を拠点に、システム開発・業務改善・生成AI活用を支援します。横須賀・三浦半島エリアにも対応し、全国からご相談・ご依頼を承ります。会社概要、代表メッセージ、大切にしている考えをご紹介します。',
   },
   service: {
-    title: '湘南のシステム開発・業務改善・AI活用',
+    title: '葉山・湘南のシステム開発・業務改善・AI活用',
     description:
-      '葉山・逗子・横須賀など湘南のシステム開発・AI活用ならYottaByteへ。Webアプリ開発、kintone構築、API連携、業務自動化、社内検索や問い合わせ対応への生成AI・LLM導入を、設計から実装・運用まで支援します。',
+      '葉山・湘南を拠点に全国対応。YottaByteがWebアプリ開発、kintone構築、API連携、業務自動化、生成AI・LLM導入を設計から実装・運用まで支援します。湘南地域に加え、横須賀・三浦半島エリアからのご相談も承ります。',
   },
   'service/automation': {
-    title: '湘南の業務改善・自動化｜kintone・API連携',
+    title: '葉山・湘南の業務改善・自動化｜kintone・API連携',
     description:
-      '湘南・葉山のYottaByteが、逗子・横須賀などの企業の業務改善・自動化を支援。転記・集計・情報の分散を見直し、kintoneやAPI連携、業務システム開発で使い続けられる仕組みをつくります。',
+      '葉山・湘南のYottaByteが、全国の企業の業務改善・自動化を支援。転記・集計・情報の分散を見直し、kintoneやAPI連携、業務システム開発で使い続けられる仕組みをつくります。横須賀・三浦半島エリアからもご相談いただけます。',
   },
   case: {
     title: 'システム開発・AI活用の対応例',
     description:
-      '湘南・葉山のYottaByteにご相談いただける支援内容の例。Webアプリケーション開発、業務自動化、生成AIの組み込み、技術設計など、構想の整理から運用・改善までの対応内容をご紹介します。',
+      '葉山・湘南を拠点に全国対応するYottaByteの支援内容の例。Webアプリケーション開発、業務自動化、生成AIの組み込み、技術設計など、構想の整理から運用・改善までの対応内容をご紹介します。',
   },
   news: {
     title: 'お知らせ',
     description:
-      '湘南・葉山のIT企業、合同会社YottaByteからのお知らせ。会社情報、システム開発・業務改善・AI活用のサービス情報、ご相談のご案内を掲載しています。',
+      '葉山・湘南のIT企業、合同会社YottaByteからのお知らせ。会社情報、システム開発・業務改善・AI活用のサービス情報、ご相談のご案内を掲載しています。',
   },
   contact: {
-    title: 'お問い合わせ｜湘南の開発・AI活用のご相談',
+    title: 'お問い合わせ｜システム開発・AI活用のご相談',
     description:
-      '湘南・葉山のYottaByteへのお問い合わせ。逗子・横須賀などの企業のシステム開発、業務改善・自動化、生成AI・LLM活用や協業について、構想の段階からご相談いただけます。',
+      '葉山・湘南のYottaByteへのお問い合わせ。東京・大阪をはじめ全国から、システム開発、業務改善・自動化、生成AI・LLM活用や協業のご相談・ご依頼を承ります。湘南地域、横須賀・三浦半島エリアの企業も、構想の段階からお気軽にご相談ください。',
   },
   'contact-thanks': {
     title: 'お問い合わせ完了',
@@ -58,14 +58,14 @@ export function getPageSeo(path: string) {
     const service = services.find((item) => item.id === path.split('/')[2]);
     return {
       title: `${service?.title ?? 'サービス'}の対応例`,
-      description: `湘南・葉山のYottaByteによる${service?.title ?? 'サービス'}の支援内容の例。${service?.description ?? ''}`,
+      description: `葉山・湘南を拠点に全国対応するYottaByteによる${service?.title ?? 'サービス'}の支援内容の例。${service?.description ?? ''}`,
     };
   }
   if (path.startsWith('news/category/')) {
     const category = newsCategories.find((item) => item.id === path.split('/')[2]);
     return {
       title: category?.id === 'news' ? 'お知らせ一覧' : `${category?.label ?? '会社'}のお知らせ`,
-      description: `合同会社YottaByteの${category?.label ?? '会社'}に関するお知らせ。湘南・葉山を拠点とするIT企業の最新情報をご案内します。`,
+      description: `合同会社YottaByteの${category?.label ?? '会社'}に関するお知らせ。葉山・湘南を拠点とするIT企業の最新情報をご案内します。`,
     };
   }
   const item = path.startsWith('case/')
@@ -91,7 +91,7 @@ export const organizationData = {
     addressLocality: '三浦郡葉山町',
     streetAddress: '木古庭426-1',
   },
-  areaServed: ['葉山町', '逗子市', '横須賀市', '鎌倉市'].map((name) => ({ '@type': 'City', name })),
+  areaServed: { '@type': 'Country', name: '日本' },
   knowsAbout: [
     'システム開発',
     'Webアプリケーション開発',

@@ -38,7 +38,7 @@ export const services = [
     en: 'SYSTEM DEVELOPMENT',
     title: 'システム開発',
     image: '/illustrations/service-development.svg',
-    summary: 'Webサービスから社内の業務システムまで。湘南の事業に合う仕組みを設計・開発',
+    summary: 'Webサービスから社内の業務システムまで。事業に合う仕組みを設計・開発',
     description:
       '企画・要件整理から画面設計、データベース・API設計、実装、保守・改善まで対応します。事業の目的と日々の運用を理解し、必要な機能を一緒に具体化します。',
     items: [
@@ -127,7 +127,7 @@ export const news = [
     date: '2026.10',
     category: 'company',
     title: '合同会社YottaByteの会社情報について',
-    body: '合同会社YottaByteは神奈川県葉山町を拠点に、システム開発、業務改善・自動化、AI・LLM活用を通じて事業の課題解決を支援します。逗子・横須賀など湘南・三浦半島の企業のご相談に対応しています。会社の基本情報は企業情報ページからご覧いただけます。',
+    body: '合同会社YottaByteは神奈川県葉山町を拠点に、システム開発、業務改善・自動化、AI・LLM活用を通じて事業の課題解決を支援します。葉山・湘南に根ざし、横須賀・三浦半島エリアにも対応。東京・大阪をはじめ、全国の企業からのご相談・ご依頼を承ります。会社の基本情報は企業情報ページからご覧いただけます。',
   },
   {
     id: 'system-development',

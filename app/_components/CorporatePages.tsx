@@ -80,12 +80,12 @@ export function HomePage() {
           <div>
             <SectionHeading>COMPANY</SectionHeading>
             <p className="large-copy">
-              湘南に根ざし、
+              葉山・湘南から、
               <br />
               技術で事業を前へ。
             </p>
             <p className="body-copy">
-              YottaByteは、神奈川県葉山町のIT企業です。地域の事業と現場を理解し、Webシステム開発、業務改善・自動化、生成AIの活用を支援します。構想の整理から設計、実装、運用・改善まで、技術と事業をつなぐパートナーとして向き合います。
+              YottaByteは、神奈川県葉山町を拠点とするIT企業です。Webシステム開発、業務改善・自動化、生成AIの活用を支援します。葉山・逗子・鎌倉など湘南地域に根ざし、横須賀・三浦半島エリアにも対応。東京・大阪をはじめ、全国の企業からのご相談・ご依頼を承ります。
             </p>
             <CircleLink href="/company/">企業情報をみる</CircleLink>
           </div>
@@ -220,7 +220,7 @@ function CompanyPage() {
                   開発だけで終わらせず、使い続けられる仕組みとして届けること。そのために、運用のしやすさや改善の積み重ねを大切にしています。
                 </p>
                 <p>
-                  逗子・横須賀など湘南・三浦半島の事業者にとって、技術のことを身近に相談できる存在へ。地域の事業と新しい技術をつなぎ、目の前の課題に丁寧に向き合ってまいります。
+                  葉山・逗子・鎌倉など湘南地域に根ざし、横須賀・三浦半島エリアにも対応しています。東京・大阪をはじめ全国の企業からのご依頼を承り、技術のことを身近に相談できるパートナーとして事業を支えます。
                 </p>
               </div>
               <p className="representative">
@@ -263,7 +263,7 @@ function CompanyPage() {
           <CompanyFacts />
         </div>
       </section>
-      <div className="photo-marquee" aria-label="湘南の風景">
+      <div className="photo-marquee" aria-label="湘南と横須賀の海辺の風景">
         <div className="photo-marquee__track">
           {[...companyGallery, ...companyGallery].map((image, i) => (
             <Photo src={image.src} alt={image.alt} key={`${image.src}-${i}`} />
@@ -294,9 +294,9 @@ function ServicePage() {
             課題解決と成長を
           </h2>
           <p className="body-copy">
-            葉山・逗子・横須賀など湘南・三浦半島の企業に、システム開発、業務改善・自動化、AI・LLM活用をご支援しています。
+            葉山・湘南を拠点に、全国の企業のシステム開発、業務改善・自動化、AI・LLM活用をご支援しています。
             <br />
-            目的と現場の状況を整理し、必要な技術と使い方を一緒に考えます。
+            湘南地域に加え、横須賀・三浦半島エリアの企業からのご相談にも対応しています。
           </p>
           <p className="body-copy">
             企画・要件整理から設計、実装、保守運用まで。技術を事業につなげ、使い続けられる仕組みとして届けます。
@@ -562,9 +562,9 @@ function ContactPage() {
       <section className="contact-section">
         <div className="contact-intro">
           <p>
-            葉山・逗子・横須賀をはじめ、湘南のシステム開発・業務改善・AI活用をご相談ください。
+            葉山・湘南のYottaByteが、システム開発・業務改善・AI活用をご支援します。
             <br />
-            下記の内容をご記入のうえ、お問い合わせください。
+            東京・大阪をはじめ全国からご相談いただけます。下記の内容をご記入のうえ、お問い合わせください。
           </p>
         </div>
         <ContactForm />
