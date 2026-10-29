@@ -65,10 +65,10 @@ export function HomePage() {
         </div>
         <div className="hero-photo">
           <Photo
-            src={photos.homeHero}
+            src={photos.coast}
             priority
-            alt="湘南の海が見えるオフィスでのシステム開発を表現したイメージ"
-            position="center"
+            alt="葉山・一色海岸から望む相模湾と富士山"
+            position="center 25%"
           />
           <a className="hero-scroll" href="#company" aria-label="企業情報へスクロール">
             <Icon />
@@ -174,7 +174,7 @@ function CompanyPage() {
   return (
     <>
       <PageTitle en="COMPANY" title="企業情報" />
-      <RoundedBanner src={photos.companyCoast} alt="葉山・森戸海岸の海辺" position="center 35%" />
+      <RoundedBanner src={photos.companyOffice} alt="湘南の海を望む明るいオフィスのイメージ" />
       <section className="section mission-section">
         <div className="container mission-grid" data-reveal>
           <SectionHeading>MISSION</SectionHeading>

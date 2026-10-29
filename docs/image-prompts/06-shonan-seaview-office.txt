@@ -1,0 +1,14 @@
+Use case: photorealistic-natural.
+Asset type: one landscape architectural photograph for the first wide image on the company-information page of a Japanese IT company. It is a conceptual office image, not a photograph or factual claim about the company's real premises. Generate only the photograph, not a website mockup.
+
+Input image 1: reference for the natural blue Shonan sea view, daylight, pale wood and calm contemporary office materials. Create a new, empty architectural office scene. No person or coding scene from the reference should remain.
+
+Primary request: a beautiful, believable small office overlooking the clean blue sea of the Shonan / Hayama / Zushi area of Japan. Broad windows make Sagami Bay and the low green coastline clearly visible. The office is completely unoccupied. There is no person working, no developer silhouette, and no reflection of a person.
+
+Scene/details: a modest low-rise Japanese coastal workspace, pale oak desks, comfortable understated office chairs, matte off-white walls, slender dark window frames, and a small amount of natural greenery. Clean, welcoming, practical and quietly sophisticated. A closed laptop, a simple notebook and one ordinary monitor with a neutral blank screen can establish an office; there must be no visible code editor, terminal, programming interface, or simulated software-development activity. Not a cafe, beach resort, luxury hotel suite or extravagant penthouse.
+
+Style: photorealistic editorial architectural photography, eye-level 28–35 mm lens, realistic material grain, natural subtle imperfections, bright soft daytime light, warm wood and cool blue water in a restrained natural balance. Keep the sea view sharp and properly exposed. No blown-out windows, heavy HDR, artificial neon or exaggerated cinematic grading.
+
+Composition: one high-resolution landscape image, 3:2 or slightly wider, at the highest available native resolution. Establish the interior clearly with desks and chairs in the foreground/middle, and a substantial unobstructed sea view beyond the windows. Place the important office-and-sea relationship in the central horizontal band so the website's existing wide banner crop still shows both. A narrow central mobile crop should also retain both the office and blue sea. No text overlay is needed.
+
+Avoid: all people, faces, hands, human shadows or reflections, active coding, readable screen text, logos, company signs, captions, watermarks, floating UI panels, holograms, tropical resort palms, skyscraper city views, duplicate furniture, overly symmetrical AI showrooms, impossible perspective, or a uniquely identifiable real company's office.

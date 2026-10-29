@@ -6,9 +6,9 @@ export const company = {
 };
 
 export const photos = {
-  homeHero: '/generated/05-shonan-development-hero.webp',
   coast: '/images/shonan-hayama.webp',
   portrait: '/images/company-message.webp',
+  companyOffice: '/generated/06-shonan-seaview-office.webp',
   companyCoast: '/images/shonan-morito.webp',
   companyLandscape: '/images/shonan-tateishi.webp',
   serviceCoast: '/images/shonan-zushi-fuji.webp',

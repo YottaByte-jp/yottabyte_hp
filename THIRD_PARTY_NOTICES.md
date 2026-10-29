@@ -2,7 +2,7 @@
 
 ## Current implementation
 
-The current corporate pages are independently authored. Studio's public demo was used to inspect layout and typography; its source code and image files are not included. The five images in `public/generated/` were newly generated using the built-in image generation tool. The homepage hero is a conceptual Shonan seaside development workspace, not a photograph of actual company premises or employees. The business diagram and icons are newly authored SVGs.
+The current corporate pages are independently authored. Studio's public demo was used to inspect layout and typography; its source code and image files are not included. The images in `public/generated/` were newly generated using the built-in image generation tool. They are conceptual business images, not photographs of actual company premises or employees. The person-at-desk image `05-shonan-development-hero.webp` is retained as an unused concept. The business diagram and icons are newly authored SVGs.
 
 Noto Sans JP and Lato are distributed under the SIL Open Font License 1.1. Copyright and license notices are included in `public/licenses/NotoSansJP-OFL.txt` and `public/licenses/Lato-OFL.txt`.
 

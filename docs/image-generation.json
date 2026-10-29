@@ -29,7 +29,19 @@
         "width": 1536,
         "height": 1024
       },
-      "concept_image": true
+      "concept_image": true,
+      "usage": "unused concept"
+    },
+    {
+      "file": "public/generated/06-shonan-seaview-office.webp",
+      "prompt": "docs/image-prompts/06-shonan-seaview-office.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "concept_image": true,
+      "usage": "company page first image"
     }
   ]
 }
