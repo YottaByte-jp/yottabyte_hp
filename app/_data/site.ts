@@ -13,7 +13,7 @@ export const photos = {
   companyLandscape: '/images/shonan-tateishi.webp',
   serviceCoast: '/images/shonan-zushi-fuji.webp',
   hero: '/generated/01-office-hero.webp',
-  office: '/generated/02-office-light.webp',
+  office: '/generated/07-shonan-office-lounge.webp',
   development: '/generated/03-development.webp',
   workshop: '/generated/04-workshop.webp',
 };

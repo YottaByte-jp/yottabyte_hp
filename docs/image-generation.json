@@ -9,7 +9,8 @@
     {
       "file": "public/generated/02-office-light.webp",
       "prompt": "docs/image-prompts/02-office-light.txt",
-      "generated": "2026-10-08"
+      "generated": "2026-10-08",
+      "usage": "source reference (not displayed)"
     },
     {
       "file": "public/generated/03-development.webp",
@@ -42,6 +43,18 @@
       },
       "concept_image": true,
       "usage": "company page first image"
+    },
+    {
+      "file": "public/generated/07-shonan-office-lounge.webp",
+      "prompt": "docs/image-prompts/07-shonan-office-lounge.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "source_image": "public/generated/02-office-light.webp",
+      "concept_image": true,
+      "usage": "homepage company section"
     }
   ]
 }

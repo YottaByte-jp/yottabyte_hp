@@ -89,7 +89,11 @@ export function HomePage() {
             </p>
             <CircleLink href="/company/">企業情報をみる</CircleLink>
           </div>
-          <Photo src={photos.office} className="home-company__photo" />
+          <Photo
+            src={photos.office}
+            className="home-company__photo"
+            alt="湘南の海を望むオフィスラウンジのイメージ"
+          />
         </div>
       </section>
       <section className="section home-services white-corner">
