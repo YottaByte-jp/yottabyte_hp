@@ -134,7 +134,7 @@ export function ContactBand() {
         <div>
           <h2>お問い合わせ</h2>
           <p>
-            新規開発、業務改善、AI活用や技術設計のご相談はこちらから。構想の段階でもお気軽にご連絡ください。
+            葉山・逗子・横須賀をはじめ、湘南のシステム開発・AI活用のご相談はこちらから。構想の段階でもお気軽にご連絡ください。
           </p>
           <CircleLink href="/contact/" light>
             お問い合わせはこちら
@@ -159,7 +159,10 @@ export function CaseGrid({ category, limit }: { category?: string; limit?: numbe
     <div className="case-grid">
       {filtered.slice(0, limit ?? filtered.length).map((item) => (
         <Link href={`/case/${item.id}/`} className="case-card" key={item.id} data-reveal>
-          <Photo src={item.image} />
+          <div className="case-card__visual" aria-hidden="true">
+            <span className="case-card__number">0{cases.indexOf(item) + 1}</span>
+            <span>{services.find((s) => s.id === item.category)?.en}</span>
+          </div>
           <div className="case-card__meta">
             <span className="badge">{services.find((s) => s.id === item.category)?.title}</span>
             <span>対応例</span>
@@ -241,6 +244,7 @@ export function CompanyFacts() {
     ['会社名', company.name],
     ['代表', company.representative],
     ['所在地', company.address],
+    ['対応エリア', '葉山・逗子・横須賀・鎌倉など湘南・三浦半島／オンラインでのご相談にも対応'],
     ['事業内容', 'システム開発／業務改善・自動化／AI・LLM活用／技術設計'],
     ['連絡先', company.email],
   ];

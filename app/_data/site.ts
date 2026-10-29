@@ -6,6 +6,7 @@ export const company = {
 };
 
 export const photos = {
+  coast: '/images/shonan-hayama.webp',
   hero: '/generated/01-office-hero.webp',
   office: '/generated/02-office-light.webp',
   development: '/generated/03-development.webp',
@@ -21,11 +22,11 @@ export const navigation = [
 
 export const services = [
   {
-    id: 'development',
+    id: 'development' as const,
     en: 'SYSTEM DEVELOPMENT',
     title: 'システム開発',
     image: photos.development,
-    summary: '事業の課題を整理し、使い続けられるWebアプリケーションや業務システムを開発',
+    summary: 'Webサービスから社内の業務システムまで。湘南の事業に合う仕組みを設計・開発',
     description:
       '企画・要件整理から画面設計、データベース・API設計、実装、保守・改善まで対応します。事業の目的と日々の運用を理解し、必要な機能を一緒に具体化します。',
     items: [
@@ -37,11 +38,11 @@ export const services = [
     ],
   },
   {
-    id: 'automation',
+    id: 'automation' as const,
     en: 'AUTOMATION SUPPORT',
     title: '業務改善・自動化',
     image: photos.workshop,
-    summary: '手作業や属人化した運用を見直し、現場で使い続けられる仕組みづくりを支援',
+    summary: '転記・集計・情報の分散を、kintoneやAPI連携で改善。日々の手作業を仕組みに',
     description:
       '日々の作業や情報の流れを整理し、システム連携や自動化で業務を改善します。現場の使いやすさを大切に、導入後の運用まで見据えた仕組みを設計します。',
     items: [
@@ -53,11 +54,11 @@ export const services = [
     ],
   },
   {
-    id: 'ai',
+    id: 'ai' as const,
     en: 'AI & LLM SOLUTIONS',
     title: 'AI・LLM活用',
     image: photos.office,
-    summary: '問い合わせ対応や社内検索など、実務の課題に合うAI機能の設計・開発を支援',
+    summary: '社内検索、文章生成、問い合わせ対応。生成AI・LLMを、実務で使える機能へ',
     description:
       'AIを使うこと自体を目的にせず、業務に役立つ使い方を一緒に考えます。文章生成、問い合わせ対応、社内検索など、利用場面に合わせた設計と実装を行います。',
     items: [
@@ -114,7 +115,7 @@ export const news = [
     date: '2026.10',
     category: 'company',
     title: '合同会社YottaByteの会社情報について',
-    body: '合同会社YottaByteは、システム開発、業務改善・自動化、AI・LLM活用を通じて、事業の課題解決を支援します。会社の基本情報は企業情報ページからご覧いただけます。',
+    body: '合同会社YottaByteは神奈川県葉山町を拠点に、システム開発、業務改善・自動化、AI・LLM活用を通じて事業の課題解決を支援します。逗子・横須賀など湘南・三浦半島の企業のご相談に対応しています。会社の基本情報は企業情報ページからご覧いただけます。',
   },
   {
     id: 'system-development',
@@ -147,6 +148,10 @@ export const news = [
 ];
 
 export const faqs = [
+  [
+    '葉山・逗子・横須賀の企業から相談できますか？',
+    'はい。葉山町を拠点に、逗子・横須賀・鎌倉など湘南・三浦半島の企業のご相談に対応しています。システム開発、業務改善・自動化、生成AIの活用など、課題を整理する段階からご相談ください。',
+  ],
   [
     '構想の段階から相談できますか？',
     'はい。具体的な仕様が決まっていない段階でも、課題や目的を整理するところからご相談いただけます。',

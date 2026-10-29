@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { cases, company, news, newsCategories, photos, services } from '@/app/_data/site';
 import { FAQ, ContactForm } from './Interactions';
+import { RegionalCoverage, TechnologyVisual } from './TechnologyVisual';
 import {
   Breadcrumb,
   BusinessDiagram,
@@ -49,30 +50,51 @@ export function HomePage() {
       <section className="home-hero">
         <div className="container hero-copy">
           <h1>
-            事業の課題を、
+            湘南の事業に、
             <br />
-            技術の力で解決へ
+            最先端の技術を。
           </h1>
-          <p>TECHNOLOGY FOR YOUR NEXT STEP.</p>
+          <p>LOCAL ROOTS. FORWARD THINKING.</p>
+          <p className="hero-copy__lead">
+            葉山を拠点に、逗子・横須賀から広がる事業の挑戦へ。
+            <br />
+            生成AI・LLM、システム開発、業務自動化を、使える仕組みに。
+          </p>
         </div>
         <div className="hero-photo">
-          <Photo src={photos.hero} priority />
+          <Photo
+            src={photos.coast}
+            priority
+            alt="葉山・一色海岸から望む相模湾と富士山"
+            position="center 25%"
+          />
           <a className="hero-scroll" href="#company" aria-label="企業情報へスクロール">
             <Icon />
           </a>
         </div>
+        <p className="hero-photo-credit">
+          葉山・一色海岸 · Photo:{' '}
+          <a
+            href="https://commons.wikimedia.org/wiki/File:晩秋の夕富士._葉山一色海岸で撮影_Pcs34560_IMG9972.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pcs34560
+          </a>{' '}
+          / Public domain
+        </p>
       </section>
       <section className="home-company" id="company">
         <div className="container home-company__grid" data-reveal>
           <div>
             <SectionHeading>COMPANY</SectionHeading>
             <p className="large-copy">
-              すべてのクライアントに
+              湘南に根ざし、
               <br />
-              使い続けられる仕組みを
+              技術で事業を前へ。
             </p>
             <p className="body-copy">
-              私たちは、システム開発を通じて事業の課題解決を支援する会社です。構想の整理から設計、実装、運用・改善まで、一つひとつの課題に向き合います。Web開発／業務改善・自動化／AI活用／技術設計などをご支援しています。
+              YottaByteは、神奈川県葉山町のIT企業です。地域の事業と現場を理解し、Webシステム開発、業務改善・自動化、生成AIの活用を支援します。構想の整理から設計、実装、運用・改善まで、技術と事業をつなぐパートナーとして向き合います。
             </p>
             <CircleLink href="/company/">企業情報をみる</CircleLink>
           </div>
@@ -82,16 +104,16 @@ export function HomePage() {
       <section className="section home-services white-corner">
         <div className="container" data-reveal>
           <SectionHeading>SERVICE</SectionHeading>
-          <h2 className="large-copy home-services__tagline">あらゆる課題を、技術で前へ。</h2>
+          <h2 className="large-copy home-services__tagline">身近な課題に、次の技術を。</h2>
           <p className="body-copy">
-            YottaByteが提供しているサービスはこちらからご覧ください。
+            社内の手作業から、新しいサービスの立ち上げまで。
             <br />
-            事業と運用に合う形でご支援します。
+            開発・自動化・AIを組み合わせ、事業に合う形でご支援します。
           </p>
           <div className="service-grid">
             {services.map((s) => (
               <article className="service-card" key={s.id}>
-                <Photo src={s.image} />
+                <TechnologyVisual kind={s.id} />
                 <p className="eyebrow">{s.en}</p>
                 <h3>{s.title}</h3>
                 <p>{s.summary}</p>
@@ -103,7 +125,7 @@ export function HomePage() {
           </div>
         </div>
       </section>
-      <RoundedBanner src={photos.development} reverse />
+      <RegionalCoverage />
       <CaseSection />
       <section className="home-news">
         <div className="container home-news__grid" data-reveal>
@@ -117,8 +139,6 @@ export function HomePage() {
         </div>
       </section>
       <section className="partner-banner">
-        <Photo src={photos.workshop} />
-        <div className="partner-banner__shade" />
         <div className="container partner-banner__copy" data-reveal>
           <SectionHeading>PARTNER</SectionHeading>
           <h2 className="large-copy">一緒に、事業の課題を解決へ。</h2>
@@ -161,7 +181,7 @@ function CompanyPage() {
   return (
     <>
       <PageTitle en="COMPANY" title="企業情報" />
-      <RoundedBanner src={photos.office} />
+      <RoundedBanner src={photos.hero} />
       <section className="section mission-section">
         <div className="container mission-grid" data-reveal>
           <SectionHeading>MISSION</SectionHeading>
@@ -194,7 +214,7 @@ function CompanyPage() {
               </h2>
               <div className="body-copy">
                 <p>
-                  合同会社YottaByteは、システム開発を中心に、業務改善・自動化、AI・LLM活用をご支援しています。
+                  合同会社YottaByteは、神奈川県葉山町を拠点とするIT企業です。システム開発を中心に、業務改善・自動化、AI・LLM活用をご支援しています。
                 </p>
                 <p>
                   構想の段階から、要件の整理、設計、実装、保守運用まで。一つひとつの事業や現場の状況を理解し、必要な機能と進め方を一緒に考えます。
@@ -203,7 +223,7 @@ function CompanyPage() {
                   開発だけで終わらせず、使い続けられる仕組みとして届けること。そのために、運用のしやすさや改善の積み重ねを大切にしています。
                 </p>
                 <p>
-                  技術と事業をつなぐパートナーとして、目の前の課題に丁寧に向き合ってまいります。
+                  逗子・横須賀など湘南・三浦半島の事業者にとって、技術のことを身近に相談できる存在へ。地域の事業と新しい技術をつなぎ、目の前の課題に丁寧に向き合ってまいります。
                 </p>
               </div>
               <p className="representative">
@@ -212,7 +232,22 @@ function CompanyPage() {
                 代表　{company.representative}
               </p>
             </div>
-            <Photo src={photos.office} className="message-photo" position="60% center" />
+            <aside className="message-principle">
+              <p className="eyebrow">OUR STARTING POINT</p>
+              <p className="large-copy">
+                葉山から、
+                <br />
+                技術で応える。
+              </p>
+              <p>
+                地域の事業を理解すること。
+                <br />
+                新しい技術を、使える形にすること。
+                <br />
+                その両方を、大切にしています。
+              </p>
+              <span>HAYAMA · SHONAN</span>
+            </aside>
           </div>
         </div>
       </section>
@@ -234,29 +269,12 @@ function CompanyPage() {
           </div>
         </div>
       </section>
-      <RoundedBanner src={photos.hero} reverse />
       <section className="section company-profile">
         <div className="container" data-reveal>
           <SectionHeading>COMPANY PROFILE</SectionHeading>
           <CompanyFacts />
         </div>
       </section>
-      <div className="photo-marquee" aria-label="事業イメージ">
-        <div className="photo-marquee__track">
-          {[
-            photos.development,
-            photos.office,
-            photos.workshop,
-            photos.hero,
-            photos.development,
-            photos.office,
-            photos.workshop,
-            photos.hero,
-          ].map((src, i) => (
-            <Photo src={src} key={`${src}-${i}`} />
-          ))}
-        </div>
-      </div>
       <Breadcrumb items={[{ label: '企業情報' }]} />
       <ContactBand />
     </>
@@ -266,7 +284,7 @@ function CompanyPage() {
 function ServicePage() {
   return (
     <>
-      <PageTitle en="SERVICE" title="事業内容" />
+      <PageTitle en="SERVICE" title="湘南のシステム開発・業務改善・AI活用" />
       <RoundedBanner src={photos.workshop} />
       <section className="section business-model">
         <div className="container" data-reveal>
@@ -277,7 +295,7 @@ function ServicePage() {
             課題解決と成長を
           </h2>
           <p className="body-copy">
-            システム開発、業務改善・自動化、AI・LLM活用の事業を軸に、事業の課題解決をご支援しています。
+            葉山・逗子・横須賀など湘南・三浦半島の企業に、システム開発、業務改善・自動化、AI・LLM活用をご支援しています。
             <br />
             目的と現場の状況を整理し、必要な技術と使い方を一緒に考えます。
           </p>
@@ -310,8 +328,8 @@ function ServicePage() {
                     </CircleLink>
                   ) : null}
                 </div>
-                <Photo
-                  src={s.image}
+                <TechnologyVisual
+                  kind={s.id}
                   className={`service-detail-photo service-detail-photo--${i}`}
                 />
               </article>
@@ -333,22 +351,18 @@ function ServiceDetailPage() {
     [
       '業務の整理・可視化',
       '日々の作業や情報の流れを整理し、改善すべき課題と優先順位を具体化します。',
-      photos.workshop,
     ],
     [
       'システム連携・自動化',
       'APIや業務ツールを組み合わせ、転記や集計などの繰り返し作業を仕組みに変えます。',
-      photos.development,
     ],
     [
       '業務システムの設計・開発',
       '現場の使い方に合わせて、kintoneやWebアプリケーションなどの業務システムを設計します。',
-      photos.office,
     ],
     [
       '運用と継続的な改善',
       '導入後の運用を確認し、実際の課題や利用者の声に合わせた改善を支援します。',
-      photos.hero,
     ],
   ];
   const flow = [
@@ -362,7 +376,7 @@ function ServiceDetailPage() {
   return (
     <>
       <PageTitle en={s.en} title={s.title} />
-      <RoundedBanner src={photos.workshop} />
+      <RoundedBanner src={photos.development} />
       <section className="section">
         <div className="container detail-lead" data-reveal>
           <div>
@@ -378,21 +392,20 @@ function ServiceDetailPage() {
               ))}
             </ul>
           </div>
-          <Photo src={photos.development} />
+          <TechnologyVisual kind="automation" className="detail-lead__visual" />
         </div>
       </section>
       <section className="section white-corner">
         <div className="container" data-reveal>
           <SectionHeading>SOLUTIONS</SectionHeading>
           <div className="solutions">
-            {solutions.map(([title, body, image], i) => (
+            {solutions.map(([title, body], i) => (
               <article key={title}>
                 <div className="solution-number">0{i + 1}</div>
                 <div>
                   <h3 className="large-copy">{title}</h3>
                   <p>{body}</p>
                 </div>
-                <Photo src={image} />
               </article>
             ))}
           </div>
@@ -499,7 +512,6 @@ function ArticlePage({ kind, id }: { kind: 'case' | 'news'; id: string }) {
           <span className="badge">{category}</span>
         </div>
         <h1>{item.title}</h1>
-        {'image' in item ? <Photo src={item.image} className="article-photo" /> : null}
         <div className="article-body">
           <p>{item.body}</p>
           {isCase ? (
@@ -518,7 +530,6 @@ function ArticlePage({ kind, id }: { kind: 'case' | 'news'; id: string }) {
                 <li>開発・実装・動作確認</li>
                 <li>運用を見据えた改善のご相談</li>
               </ul>
-              <Photo src={photos.workshop} className="article-photo" />
             </>
           ) : (
             <p>詳しいご相談は、お問い合わせページからご連絡ください。</p>
@@ -545,7 +556,7 @@ function ContactPage() {
       <section className="contact-section">
         <div className="contact-intro">
           <p>
-            開発や業務改善、AI活用について、お気軽にご相談ください。
+            葉山・逗子・横須賀をはじめ、湘南のシステム開発・業務改善・AI活用をご相談ください。
             <br />
             下記の内容をご記入のうえ、お問い合わせください。
           </p>

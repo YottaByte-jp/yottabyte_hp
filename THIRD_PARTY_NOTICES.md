@@ -6,6 +6,14 @@ The current corporate pages are independently authored. Studio's public demo was
 
 Noto Sans JP and Lato are distributed under the SIL Open Font License 1.1. Copyright and license notices are included in `public/licenses/NotoSansJP-OFL.txt` and `public/licenses/Lato-OFL.txt`.
 
+## Hayama / Isshiki Beach photograph
+
+`public/images/shonan-hayama.webp` is derived from the Wikimedia Commons thumbnail of “晩秋の夕富士. 葉山一色海岸で撮影 Pcs34560 IMG9972.jpg”, photographed by Pcs34560 and released by the photographer into the public domain (PD-self). It was resized to 2400 pixels wide and encoded as WebP without changing its content. CSS adjusts the visible area. The photographer does not endorse YottaByte.
+
+Source: https://commons.wikimedia.org/wiki/File:晩秋の夕富士._葉山一色海岸で撮影_Pcs34560_IMG9972.jpg
+
+Provenance is also recorded in `public/licenses/Hayama-photo.txt`, and a source credit appears beneath the photograph.
+
 The notice below is retained for the legacy microCMS assets still present in the repository.
 
 ## microCMS Simple Corporate Site Template

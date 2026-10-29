@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { HomePage, RouteContent } from '@/app/_components/CorporatePages';
-import { cases, news, routePaths, services } from '@/app/_data/site';
+import { routePaths } from '@/app/_data/site';
+import { getPageSeo } from '@/app/_lib/seo';
 export const dynamicParams = false;
 export function generateStaticParams() {
   return routePaths.map((path) => ({ slug: path.slice(1).split('/') }));
@@ -13,32 +14,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const path = slug.join('/');
-  const labels: Record<string, string> = {
-    company: '企業情報',
-    service: '事業内容',
-    case: '対応事例',
-    news: 'お知らせ',
-    contact: 'お問い合わせ',
-    'contact-thanks': 'お問い合わせ完了',
-    privacypolicy: '個人情報保護方針',
-    navigation: 'メニュー',
-    '404': 'ページが見つかりません',
-  };
-  const title =
-    path === 'service/automation'
-      ? '業務改善・自動化'
-      : path.startsWith('case/category/')
-        ? services.find((s) => s.id === slug[2])?.title
-        : path.startsWith('case/')
-          ? cases.find((c) => c.id === slug[1])?.title
-          : path.startsWith('news/category/')
-            ? 'お知らせ'
-            : path.startsWith('news/')
-              ? news.find((n) => n.id === slug[1])?.title
-              : labels[path];
+  const { title, description } = getPageSeo(path);
   return {
-    title: title ?? '合同会社YottaByte',
+    title,
+    description,
     alternates: { canonical: `/${path}/` },
+    openGraph: {
+      title: `${title} | 合同会社YottaByte`,
+      description,
+      url: `https://yottabyte.jp/${path}/`,
+      type: 'website',
+      locale: 'ja_JP',
+      siteName: 'YottaByte',
+      images: [{ url: '/yottabyte_logo.png', width: 1254, height: 1254, alt: 'YottaByte' }],
+    },
     ...(['navigation', '404', 'contact-thanks'].includes(path)
       ? { robots: { index: false, follow: false } }
       : {}),

@@ -100,7 +100,7 @@ textarea:focus-visible {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
   width: 250px;
   flex-shrink: 0;
   font-family: var(--font-lato), sans-serif;
@@ -109,12 +109,12 @@ textarea:focus-visible {
   line-height: 1.2;
   letter-spacing: 0.05em;
 }
-.brand-mark {
-  display: inline-block;
-  background: var(--blue);
-  width: 16px;
-  height: 16px;
-  border-radius: 0 50% 50% 0;
+.brand-logo {
+  display: block;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 .desktop-nav {
   display: flex;
@@ -361,6 +361,27 @@ textarea:focus-visible {
   line-height: 1.7;
   letter-spacing: 0.02em;
 }
+.hero-copy > .hero-copy__lead {
+  margin-top: 22px;
+  color: var(--black);
+  font-family: var(--font-noto-sans-jp), sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9;
+}
+.hero-photo-credit {
+  width: 94%;
+  margin-top: 10px;
+  padding-inline: 30px;
+  text-align: right;
+  color: #646464;
+  font-size: 10px;
+  line-height: 1.8;
+}
+.hero-photo-credit a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .hero-photo {
   position: relative;
   width: 94%;
@@ -415,9 +436,67 @@ textarea:focus-visible {
   gap: 30.6px;
   margin-top: 60px;
 }
-.service-card > .photo {
+.service-card > .technology-visual {
   aspect-ratio: 1.8898;
   border-radius: 12px;
+}
+.technology-visual {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #e8efff;
+  color: var(--blue);
+}
+.technology-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+.regional-section {
+  padding: 100px 0;
+  background: white;
+}
+.regional-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+}
+.regional-grid .large-copy {
+  margin-top: 20px;
+}
+.regional-cities {
+  display: flex;
+  list-style: none;
+  padding: 0 0 35px;
+  margin-bottom: 30px;
+  gap: 40px;
+  border-bottom: 1px solid var(--line);
+}
+.regional-cities li {
+  position: relative;
+  font-size: 30px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+.regional-cities span {
+  display: block;
+  color: var(--blue);
+  font:
+    700 11px/1.8 var(--font-lato),
+    sans-serif;
+  letter-spacing: 0.08em;
+}
+.regional-cities small {
+  display: block;
+  font:
+    700 10px/1.8 var(--font-lato),
+    sans-serif;
+  letter-spacing: 0.08em;
+}
+.regional-content > p {
+  font-size: 15px;
+  line-height: 2;
 }
 .service-card .eyebrow {
   margin-top: 20px;
@@ -471,9 +550,31 @@ textarea:focus-visible {
 .case-card:hover {
   opacity: 0.75;
 }
-.case-card > .photo {
-  height: 180px;
-  border-radius: 12px;
+.case-card__visual {
+  min-height: 160px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px;
+  border-radius: 8px;
+  background: #e8efff;
+  color: var(--blue);
+  font-family: var(--font-lato), sans-serif;
+}
+.case-card__number {
+  font-size: 80px;
+  font-weight: 100;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.case-card__visual > span:last-child {
+  max-width: 115px;
+  padding-bottom: 7px;
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: 700;
 }
 .case-card__meta {
   display: flex;
@@ -546,15 +647,8 @@ textarea:focus-visible {
   min-height: 655.86px;
   padding: 150px 0;
   color: white;
+  background: #07172d;
   border-radius: 0 130px 0 0;
-}
-.partner-banner > .photo,
-.partner-banner__shade {
-  position: absolute;
-  inset: 0;
-}
-.partner-banner__shade {
-  background: #0007;
 }
 .partner-banner__copy {
   position: relative;
@@ -641,6 +735,10 @@ textarea:focus-visible {
   line-height: 1.8;
   margin-top: 50px;
 }
+.footer-region {
+  margin-top: 18px;
+  font-size: 12px;
+}
 .footer-top nav {
   display: flex;
   gap: 20px;
@@ -697,9 +795,30 @@ textarea:focus-visible {
   grid-template-columns: minmax(0, 1fr) 388px;
   gap: 80px;
 }
-.message-photo {
-  height: 487.2px;
+.message-principle {
+  padding: 40px 32px;
+  background: var(--blue);
+  color: white;
   border-radius: 24px;
+}
+.message-principle .eyebrow {
+  color: inherit;
+  font-size: 11px;
+}
+.message-principle > p + p {
+  margin-top: 30px;
+}
+.message-principle > p:not(.eyebrow):not(.large-copy) {
+  font-size: 14px;
+  line-height: 2;
+}
+.message-principle > span {
+  display: block;
+  margin-top: 60px;
+  font:
+    700 11px/1.8 var(--font-lato),
+    sans-serif;
+  letter-spacing: 0.08em;
 }
 .representative {
   font-size: 14.4px;
@@ -752,34 +871,6 @@ textarea:focus-visible {
 }
 .company-facts dd {
   overflow-wrap: anywhere;
-}
-.photo-marquee {
-  overflow: hidden;
-  margin-bottom: 130px;
-  height: 400px;
-}
-.photo-marquee__track {
-  display: flex;
-  gap: 57px;
-  width: max-content;
-  animation: marquee 40s linear infinite;
-}
-.photo-marquee .photo {
-  width: 475px;
-  height: 380px;
-  border-radius: 24px;
-  flex-shrink: 0;
-}
-.photo-marquee:hover .photo-marquee__track {
-  animation-play-state: paused;
-}
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-2128px);
-  }
 }
 .business-model .body-copy + .body-copy {
   margin-top: 24px;
@@ -850,13 +941,13 @@ textarea:focus-visible {
   gap: 80px;
   align-items: center;
 }
-.detail-lead > .photo {
+.detail-lead__visual {
   height: 500px;
   border-radius: 24px;
 }
 .solutions > article {
   display: grid;
-  grid-template-columns: 90px minmax(0, 1fr) 327px;
+  grid-template-columns: 90px minmax(0, 1fr);
   gap: 40px;
   padding: 40px 0;
   align-items: center;
@@ -876,10 +967,6 @@ textarea:focus-visible {
 }
 .solutions p {
   margin-top: 20px;
-}
-.solutions .photo {
-  height: 220px;
-  border-radius: 24px;
 }
 .flow-section {
   padding-bottom: 0;
@@ -1298,7 +1385,7 @@ textarea:focus-visible {
     gap: 50px;
   }
   .solutions > article {
-    grid-template-columns: 65px minmax(0, 1fr) 30%;
+    grid-template-columns: 65px minmax(0, 1fr);
     gap: 30px;
   }
   .footer-top nav {
@@ -1331,6 +1418,7 @@ textarea:focus-visible {
     padding-top: 40px;
   }
   .home-company__grid,
+  .regional-grid,
   .home-news__grid,
   .mission-grid,
   .message-grid,
@@ -1339,6 +1427,9 @@ textarea:focus-visible {
   .detail-lead {
     grid-template-columns: minmax(0, 1fr);
     gap: 40px;
+  }
+  .regional-section {
+    padding: 80px 0;
   }
   .home-company__photo {
     height: 320px;
@@ -1349,7 +1440,7 @@ textarea:focus-visible {
   .service-card h3 {
     font-size: 19.2px;
   }
-  .service-card > .photo {
+  .service-card > .technology-visual {
     height: 180px;
     aspect-ratio: auto;
   }
@@ -1365,9 +1456,6 @@ textarea:focus-visible {
   }
   .case-card h3 {
     font-size: 17.6px;
-  }
-  .case-card > .photo {
-    height: 180px;
   }
   .home-news {
     padding-bottom: 100px;
@@ -1421,10 +1509,6 @@ textarea:focus-visible {
   .mission-grid > .section-heading:not(:first-child) {
     margin-top: 40px;
   }
-  .message-photo {
-    width: 100%;
-    height: 400px;
-  }
   .values-grid > .section-heading {
     width: 100%;
   }
@@ -1439,28 +1523,17 @@ textarea:focus-visible {
     grid-template-columns: 130px minmax(0, 1fr);
     gap: 20px;
   }
-  .photo-marquee {
-    height: 300px;
-    margin-bottom: 100px;
-  }
-  .photo-marquee .photo {
-    height: 280px;
-  }
   .service-detail-photo {
     height: 340px;
   }
   .service-detail-row:first-child {
     padding-top: 0;
   }
-  .detail-lead > .photo {
+  .detail-lead__visual {
     height: 360px;
   }
   .solutions > article {
     grid-template-columns: 60px minmax(0, 1fr);
-  }
-  .solutions .photo {
-    grid-column: 2;
-    width: 100%;
   }
   .solutions .large-copy {
     font-size: 25.6px;
@@ -1508,21 +1581,47 @@ textarea:focus-visible {
     font-size: 20px;
     width: auto;
   }
-  .brand-mark {
-    width: 14px;
-    height: 14px;
+  .brand-logo {
+    width: 48px;
+    height: 48px;
   }
   .home-hero {
     padding-top: 20px;
     margin-bottom: 0;
   }
   .hero-copy h1 {
-    font-size: 30px;
+    font-size: clamp(26px, 7.5vw, 30px);
     line-height: 1.4;
   }
   .hero-copy > p {
     font-size: 12px;
     margin-top: 10px;
+  }
+  .hero-copy > .hero-copy__lead {
+    margin-top: 18px;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  .hero-copy__lead br {
+    display: none;
+  }
+  .hero-photo-credit {
+    width: 100%;
+    padding-inline: 20px;
+    text-align: left;
+    font-size: 9px;
+  }
+  .regional-cities {
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+  }
+  .regional-cities li {
+    font-size: 28px;
+  }
+  .regional-content > p {
+    font-size: 14px;
   }
   .hero-photo {
     margin-top: 40px;
@@ -1557,7 +1656,7 @@ textarea:focus-visible {
   .home-services > .container > .body-copy {
     margin-top: 0;
   }
-  .service-card > .photo {
+  .service-card > .technology-visual {
     height: 220px;
   }
   .service-card h3 {
@@ -1639,9 +1738,6 @@ textarea:focus-visible {
   .page-title h1 {
     font-size: 16px;
   }
-  .message-photo {
-    height: 360px;
-  }
   .value-row {
     grid-template-columns: 80px minmax(0, 1fr);
     gap: 20px;
@@ -1678,10 +1774,6 @@ textarea:focus-visible {
   }
   .solutions .large-copy {
     font-size: 22.4px;
-  }
-  .solutions .photo {
-    grid-column: 1/-1;
-    height: 220px;
   }
   .flow-grid {
     grid-template-columns: minmax(0, 1fr);
