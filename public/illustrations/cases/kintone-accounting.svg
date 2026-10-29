@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+    <title>Business application and accounting illustration</title><rect width="1600" height="1000" fill="#f1f4f7"/>
+    <text x="150" y="155" fill="#0553dd" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="3">02</text>
+      <text x="215" y="155" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="2">OPERATIONS / INTEGRATION</text>
+      <path d="M150 190h1300" stroke="#dbe1e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <g transform="translate(-144 -85) scale(1.18)"><rect x="408" y="320" width="180" height="250" rx="14" fill="white" stroke="#18222d" stroke-width="3"/>
+    <rect x="433" y="350" width="42" height="10" rx="3" fill="#a5b0be" stroke="none" stroke-width="3"/>
+    <path d="M433 400h130m-130 26h110m-110 26h130m-130 26h100" stroke="#a5b0be" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M625 444h85m-18-18 18 18-18 18" stroke="#0553dd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <rect x="738" y="345" width="180" height="180" rx="28" fill="#0553dd" stroke="#0553dd" stroke-width="3"/>
+      <circle cx="788" cy="395" r="12" fill="white" stroke="none" stroke-width="3"/><circle cx="868" cy="395" r="12" fill="white" stroke="none" stroke-width="3"/>
+      <circle cx="788" cy="475" r="12" fill="white" stroke="none" stroke-width="3"/><circle cx="868" cy="475" r="12" fill="white" stroke="none" stroke-width="3"/>
+      <path d="M800 395h56m-68 12v56m80-56v56m-68 12h56" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M950 444h85m-18-18 18 18-18 18" stroke="#0553dd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <rect x="1064" y="320" width="180" height="250" rx="14" fill="#e5edfc" stroke="#18222d" stroke-width="3"/>
+    <rect x="1089" y="350" width="42" height="10" rx="3" fill="#0553dd" stroke="none" stroke-width="3"/>
+    <path d="M1089 400h130m-130 26h110m-110 26h130m-130 26h100" stroke="#a5b0be" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M455 630h735" stroke="#a5b0be" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <circle cx="578" cy="630" r="7" fill="white" stroke="#a5b0be" stroke-width="3"/><circle cx="828" cy="630" r="7" fill="#0553dd" stroke="#0553dd" stroke-width="3"/><circle cx="1078" cy="630" r="7" fill="white" stroke="#a5b0be" stroke-width="3"/>
+      <text x="828" y="711" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="21" text-anchor="middle" letter-spacing="2">CONTRACT  /  INVOICE  /  SYNC</text></g>
+      <text x="1450" y="885" fill="#a5b0be" font-family="Arial,Helvetica,sans-serif" font-size="21" text-anchor="end" letter-spacing="2">YottaByte / CASE</text>
+  </svg>

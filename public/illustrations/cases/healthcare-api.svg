@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+    <title>Healthcare API maintenance illustration</title><rect width="1600" height="1000" fill="#f1f4f7"/>
+    <text x="150" y="155" fill="#0553dd" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="3">06</text>
+      <text x="215" y="155" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="2">API / MAINTENANCE</text>
+      <path d="M150 190h1300" stroke="#dbe1e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <g transform="translate(-144 -85) scale(1.18)"><circle cx="826" cy="444" r="153" fill="#e5edfc" stroke="#0553dd" stroke-width="3"/>
+      <path d="M826 335 918 369v86c0 64-92 112-92 112s-92-48-92-112v-86Z" fill="white" stroke="#18222d" stroke-width="3"/>
+      <path d="M763 444h35l18-35 24 70 17-35h33" stroke="#0553dd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M461 444h165m-18-18 18 18-18 18M1024 444h165m-18-18 18 18-18 18" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <circle cx="454" cy="444" r="49" fill="white" stroke="#18222d" stroke-width="3"/><path d="m439 423-20 21 20 21m30-42 20 21-20 21" stroke="#0553dd" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <circle cx="1200" cy="444" r="49" fill="white" stroke="#18222d" stroke-width="3"/><path d="m1178 445 15 15 29-33" stroke="#0553dd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M826 636v56m-39-8 39 8 39-8" stroke="#a5b0be" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <text x="826" y="746" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="21" text-anchor="middle" letter-spacing="2">INVESTIGATE  /  FIX  /  VERIFY</text></g>
+      <text x="1450" y="885" fill="#a5b0be" font-family="Arial,Helvetica,sans-serif" font-size="21" text-anchor="end" letter-spacing="2">YottaByte / CASE</text>
+  </svg>

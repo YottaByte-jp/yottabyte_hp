@@ -1,3 +1,5 @@
+import { caseStudies } from './case-studies';
+
 export const company = {
   name: '合同会社YottaByte',
   representative: '加藤獅',
@@ -83,37 +85,7 @@ export const services = [
   },
 ];
 
-// These are service examples, not fabricated client achievements.
-export const cases = [
-  {
-    id: 'web-development',
-    category: 'development',
-    title: '企画から実装・運用まで、Webアプリケーション開発を支援',
-    image: '/illustrations/case-web-development.svg',
-    body: '新規サービスの企画・要件整理から、画面設計、API実装、保守運用までを支援します。初期開発だけでなく、利用者の声を受けた改善も視野に入れて設計します。',
-  },
-  {
-    id: 'business-automation',
-    category: 'automation',
-    title: '業務の流れを整理し、手作業を減らす仕組みづくりを支援',
-    image: '/illustrations/case-business-automation.svg',
-    body: '繰り返しの入力、集計や転記など、日々の運用で負担になっている作業を整理します。kintoneやAPI連携などを組み合わせ、現場の運用に合った仕組みを作ります。',
-  },
-  {
-    id: 'ai-integration',
-    category: 'ai',
-    title: '既存サービスにAI機能を組み込み、実務での活用を支援',
-    image: '/illustrations/case-ai-integration.svg',
-    body: '問い合わせ対応、文章の作成、情報検索などの課題に合わせて、AI機能の設計と実装を行います。小さく検証し、必要な機能と使い方を具体化していきます。',
-  },
-  {
-    id: 'technical-planning',
-    category: 'development',
-    title: '構想を実装できる単位へ整理し、開発方針の具体化を支援',
-    image: '/illustrations/case-technical-planning.svg',
-    body: '作るべきものと優先順位を整理し、システムの構成や技術の選択を検討します。事業の段階や運用体制に合う開発方針を一緒に考えます。',
-  },
-];
+export const cases = caseStudies;
 
 export const newsCategories = [
   { id: 'company', label: '会社情報' },

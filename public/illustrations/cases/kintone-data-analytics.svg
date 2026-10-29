@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+    <title>Business data synchronization and visualization illustration</title><rect width="1600" height="1000" fill="#f1f4f7"/>
+    <text x="150" y="155" fill="#0553dd" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="3">05</text>
+      <text x="215" y="155" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="2">DATA / VISUALIZATION</text>
+      <path d="M150 190h1300" stroke="#dbe1e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <g transform="translate(-144 -85) scale(1.18)"><rect x="390" y="298" width="155" height="205" rx="14" fill="white" stroke="#18222d" stroke-width="3"/>
+    <rect x="415" y="328" width="42" height="10" rx="3" fill="#a5b0be" stroke="none" stroke-width="3"/>
+    <path d="M415 378h105m-105 26h85m-85 26h105m-105 26h75" stroke="#a5b0be" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" /><rect x="432" y="391" width="155" height="205" rx="14" fill="#e5edfc" stroke="#18222d" stroke-width="3"/>
+    <rect x="457" y="421" width="42" height="10" rx="3" fill="#0553dd" stroke="none" stroke-width="3"/>
+    <path d="M457 471h105m-105 26h85m-85 26h105m-105 26h75" stroke="#a5b0be" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M618 466h93m-18-18 18 18-18 18" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M740 372v180c0 43 184 43 184 0V372" fill="#e5edfc" stroke="#0553dd" stroke-width="3"/>
+    <ellipse cx="832" cy="372" rx="92" ry="30" fill="white" stroke="#0553dd" stroke-width="3"/>
+    <path d="M740 437c0 43 184 43 184 0M740 497c0 43 184 43 184 0" stroke="#0553dd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <circle cx="898" cy="544" r="4" fill="#0553dd" stroke="#0553dd" stroke-width="3"/>
+      <path d="M958 466h87m-18-18 18 18-18 18" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <rect x="1080" y="323" width="190" height="270" rx="14" fill="white" stroke="#18222d" stroke-width="3"/>
+      <path d="M1107 551h136M1107 551V375" stroke="#a5b0be" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <rect x="1131" y="472" width="23" height="79" rx="3" fill="#e5edfc" stroke="none" stroke-width="3"/>
+      <rect x="1169" y="428" width="23" height="123" rx="3" fill="#0553dd" stroke="none" stroke-width="3"/>
+      <rect x="1207" y="391" width="23" height="160" rx="3" fill="#18222d" stroke="none" stroke-width="3"/>
+      <path d="M458 655h744" stroke="#a5b0be" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <text x="830" y="711" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="21" text-anchor="middle" letter-spacing="2">COLLECT  /  SYNC  /  VISUALIZE</text></g>
+      <text x="1450" y="885" fill="#a5b0be" font-family="Arial,Helvetica,sans-serif" font-size="21" text-anchor="end" letter-spacing="2">YottaByte / CASE</text>
+  </svg>

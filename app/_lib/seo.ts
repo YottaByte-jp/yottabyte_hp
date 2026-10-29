@@ -21,9 +21,9 @@ const pages: Record<string, { title: string; description: string }> = {
       '葉山・湘南のYottaByteが、業務改善・自動化を支援。転記・集計・情報の分散を見直し、kintoneやAPI連携、業務システム開発で使い続けられる仕組みをつくります。',
   },
   case: {
-    title: 'システム開発・AI活用の対応例',
+    title: 'システム開発・業務改善・AI活用の対応事例',
     description:
-      'YottaByteにご相談いただける支援内容の例。Webアプリケーション開発、業務自動化、生成AIの組み込み、技術設計など、構想の整理から運用・改善までの対応内容をご紹介します。',
+      'Webサービス、決済、kintone・会計API連携、データ可視化、生成AI、API保守の開発事例。代表の開発経験をもとに、案件ごとの取り組み、担当範囲、使用技術をご紹介します。顧客名・サービス名は非公開としています。',
   },
   news: {
     title: 'お知らせ',
@@ -57,8 +57,8 @@ export function getPageSeo(path: string) {
   if (path.startsWith('case/category/')) {
     const service = services.find((item) => item.id === path.split('/')[2]);
     return {
-      title: `${service?.title ?? 'サービス'}の対応例`,
-      description: `YottaByteによる${service?.title ?? 'サービス'}の支援内容の例。${service?.description ?? ''}`,
+      title: `${service?.title ?? 'サービス'}の対応事例`,
+      description: `${service?.title ?? 'サービス'}の開発・改善事例。代表の開発経験をもとに、取り組みと担当範囲、使用技術をご紹介します。顧客名・サービス名は非公開としています。`,
     };
   }
   if (path.startsWith('news/category/')) {

@@ -83,12 +83,14 @@ export function Photo({
   priority = false,
   alt = '',
   position = 'center',
+  fit = 'cover',
 }: {
   src: string;
   className?: string;
   priority?: boolean;
   alt?: string;
   position?: string;
+  fit?: 'cover' | 'contain';
 }) {
   return (
     <div className={`photo ${className}`}>
@@ -98,7 +100,7 @@ export function Photo({
         fill
         sizes="(max-width: 768px) 100vw, 70vw"
         preload={priority}
-        style={{ objectFit: 'cover', objectPosition: position }}
+        style={{ objectFit: fit, objectPosition: position }}
       />
     </div>
   );
@@ -169,10 +171,10 @@ export function CaseGrid({ category, limit }: { category?: string; limit?: numbe
     <div className="case-grid">
       {filtered.slice(0, limit ?? filtered.length).map((item) => (
         <Link href={`/case/${item.id}/`} className="case-card" key={item.id} data-reveal>
-          <Photo src={item.image} />
+          <Photo src={item.image} alt={item.imageAlt} />
           <div className="case-card__meta">
             <span className="badge">{services.find((s) => s.id === item.category)?.title}</span>
-            <span>対応例</span>
+            <span>開発事例</span>
           </div>
           <h3>{item.title}</h3>
         </Link>

@@ -30,7 +30,7 @@ function CaseSection({ category, compact = false }: { category?: string; compact
       <div className="container">
         <SectionHeading>CASE</SectionHeading>
         {compact ? null : (
-          <p className="section-intro">YottaByteが対応するご相談内容の例をご紹介。</p>
+          <p className="section-intro">代表が携わった開発・改善の取り組みをご紹介します。</p>
         )}
         <CaseGrid category={category} limit={3} />
         <div className="align-right">
@@ -350,7 +350,7 @@ function ServiceDetailPage() {
     [
       '業務の整理・可視化',
       '日々の作業や情報の流れを整理し、改善すべき課題と優先順位を具体化します。',
-      '/illustrations/case-technical-planning.svg',
+      '/illustrations/automation-workflow.svg',
     ],
     [
       'システム連携・自動化',
@@ -365,7 +365,7 @@ function ServiceDetailPage() {
     [
       '運用と継続的な改善',
       '導入後の運用を確認し、実際の課題や利用者の声に合わせた改善を支援します。',
-      '/illustrations/case-web-development.svg',
+      '/illustrations/automation-development.svg',
     ],
   ];
   const flow = [
@@ -446,6 +446,9 @@ function CaseListPage({ category }: { category?: string }) {
       <PageTitle en="CASE" title={label ?? '対応事例'} />
       <section className="listing-section">
         <div className="container">
+          <p className="section-intro">
+            代表の開発経験をもとに、取り組みをご紹介します。顧客名・サービス名は非公開としています。
+          </p>
           <nav className="category-nav" aria-label="対応事例のカテゴリ">
             <Link href="/case/" aria-current={!category ? 'page' : undefined}>
               すべての記事
@@ -503,7 +506,8 @@ function NewsListPage({ category }: { category?: string }) {
 }
 function ArticlePage({ kind, id }: { kind: 'case' | 'news'; id: string }) {
   const isCase = kind === 'case';
-  const item = isCase ? cases.find((c) => c.id === id) : news.find((n) => n.id === id);
+  const caseStudy = isCase ? cases.find((c) => c.id === id) : undefined;
+  const item = caseStudy ?? (!isCase ? news.find((n) => n.id === id) : undefined);
   if (!item) return <NotFoundPage />;
   const category = isCase
     ? services.find((s) => s.id === item.category)?.title
@@ -512,30 +516,37 @@ function ArticlePage({ kind, id }: { kind: 'case' | 'news'; id: string }) {
     <>
       <article className="article-panel">
         <div className="article-meta">
-          <span>{'date' in item ? item.date : '対応例'}</span>
+          <span>{'date' in item ? item.date : '代表の開発経験'}</span>
           <span className="badge">{category}</span>
         </div>
         <h1>{item.title}</h1>
-        {'image' in item ? <Photo src={item.image} className="article-photo" /> : null}
+        {'image' in item ? (
+          <Photo src={item.image} alt={item.imageAlt} className="article-photo" />
+        ) : null}
         <div className="article-body">
           <p>{item.body}</p>
-          {isCase ? (
+          {caseStudy ? (
             <>
-              <h2>ご相談いただける内容</h2>
-              <p>
-                ここでは、YottaByteにご相談いただける支援内容の一例をご紹介しています。ご希望の機能、現在の課題、運用の状況などを伺い、事業に合う進め方を一緒に検討します。
-              </p>
-              <h3>構想の整理から運用・改善まで</h3>
-              <p>
-                実装だけでなく、目的や優先順位を整理するところから対応します。小さく検証し、実際の使い方を確認しながら改善していきます。
-              </p>
+              {caseStudy.sections.map((section, index) => (
+                <div key={section.title}>
+                  {index === 0 ? <h2>{section.title}</h2> : <h3>{section.title}</h3>}
+                  <p>{section.body}</p>
+                </div>
+              ))}
+              <h3>担当範囲</h3>
               <ul>
-                <li>現状と課題のヒアリング</li>
-                <li>要件整理と技術設計</li>
-                <li>開発・実装・動作確認</li>
-                <li>運用を見据えた改善のご相談</li>
+                {caseStudy.scope.map((scope) => (
+                  <li key={scope}>{scope}</li>
+                ))}
               </ul>
-              <Photo src={photos.workshop} className="article-photo" />
+              <h3>使用技術</h3>
+              <p>{caseStudy.technologies.join(' / ')}</p>
+              <Photo
+                src={caseStudy.diagram}
+                alt={caseStudy.diagramAlt}
+                className="article-photo"
+                fit="contain"
+              />
             </>
           ) : (
             <p>詳しいご相談は、お問い合わせページからご連絡ください。</p>

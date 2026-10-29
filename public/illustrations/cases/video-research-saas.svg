@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+    <title>Video research and analytics illustration</title><rect width="1600" height="1000" fill="#f1f4f7"/>
+    <text x="150" y="155" fill="#0553dd" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="3">04</text>
+      <text x="215" y="155" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="2">SAAS / RESEARCH</text>
+      <path d="M150 190h1300" stroke="#dbe1e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <g transform="translate(-144 -85) scale(1.18)"><rect x="407" y="292" width="610" height="358" rx="14" fill="white" stroke="#18222d" stroke-width="3"/>
+      <path d="M407 337h610" stroke="#18222d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <circle cx="432" cy="314" r="4" fill="#a5b0be" stroke="none" stroke-width="3"/><circle cx="450" cy="314" r="4" fill="#a5b0be" stroke="none" stroke-width="3"/><circle cx="468" cy="314" r="4" fill="#a5b0be" stroke="none" stroke-width="3"/>
+      <rect x="445" y="373" width="308" height="222" rx="8" fill="#e5edfc" stroke="none" stroke-width="3"/>
+      <path d="m565 424 88 60-88 60Z" fill="#0553dd"/>
+      <path d="M791 390h180m-180 30h140m-140 30h165" stroke="#a5b0be" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <rect x="831" y="506" width="362" height="202" rx="14" fill="white" stroke="#18222d" stroke-width="3"/>
+      <path d="M867 666h287M867 666V545" stroke="#a5b0be" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="m884 636 60-26 52 12 55-63 49 13 39-31" stroke="#0553dd" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <circle cx="1051" cy="559" r="6" fill="#0553dd" stroke="#0553dd" stroke-width="3"/>
+      <path d="M464 716h262m-262 16h182" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" /></g>
+      <text x="1450" y="885" fill="#a5b0be" font-family="Arial,Helvetica,sans-serif" font-size="21" text-anchor="end" letter-spacing="2">YottaByte / CASE</text>
+  </svg>
