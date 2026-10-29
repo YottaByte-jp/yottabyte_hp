@@ -65,10 +65,10 @@ export function HomePage() {
         </div>
         <div className="hero-photo">
           <Photo
-            src={photos.coast}
+            src={photos.homeHero}
             priority
-            alt="葉山・一色海岸から望む相模湾と富士山"
-            position="center 25%"
+            alt="湘南の海が見えるオフィスでのシステム開発を表現したイメージ"
+            position="center"
           />
           <a className="hero-scroll" href="#company" aria-label="企業情報へスクロール">
             <Icon />

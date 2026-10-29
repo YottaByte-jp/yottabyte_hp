@@ -1,22 +1,35 @@
 {
   "generator": "built-in image_gen",
-  "generated": "2026-10-08",
   "assets": [
     {
       "file": "public/generated/01-office-hero.webp",
-      "prompt": "docs/image-prompts/01-office-hero.txt"
+      "prompt": "docs/image-prompts/01-office-hero.txt",
+      "generated": "2026-10-08"
     },
     {
       "file": "public/generated/02-office-light.webp",
-      "prompt": "docs/image-prompts/02-office-light.txt"
+      "prompt": "docs/image-prompts/02-office-light.txt",
+      "generated": "2026-10-08"
     },
     {
       "file": "public/generated/03-development.webp",
-      "prompt": "docs/image-prompts/03-development.txt"
+      "prompt": "docs/image-prompts/03-development.txt",
+      "generated": "2026-10-08"
     },
     {
       "file": "public/generated/04-workshop.webp",
-      "prompt": "docs/image-prompts/04-workshop.txt"
+      "prompt": "docs/image-prompts/04-workshop.txt",
+      "generated": "2026-10-08"
+    },
+    {
+      "file": "public/generated/05-shonan-development-hero.webp",
+      "prompt": "docs/image-prompts/05-shonan-development-hero.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "concept_image": true
     }
   ]
 }

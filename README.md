@@ -25,9 +25,9 @@ npm run build
 
 ## 画像と書体
 
-写真4点は組み込みのimage_genで新規生成し、WebPに最適化しています。生成プロンプトは`docs/image-prompts/`、記録は`docs/image-generation.json`、Web用画像は`public/generated/`に保存しています。写真は事業イメージであり、実際の事務所や社員を撮影した写真ではありません。
+事業イメージ5点は組み込みのimage_genで新規生成し、WebPに最適化しています。生成プロンプトは`docs/image-prompts/`、記録は`docs/image-generation.json`、Web用画像は`public/generated/`に保存しています。生成した画像は事業イメージであり、実際の事務所や社員を撮影した写真ではありません。
 
-トップの海岸写真は、Pcs34560撮影の葉山・一色海岸の実写写真です。撮影者がパブリックドメインとして公開したWikimedia Commonsの写真を使用しています。出典は`THIRD_PARTY_NOTICES.md`、`public/licenses/Hayama-photo.txt`に記録しています。代表メッセージ欄は既存の`public/DSC_2003.jpg`をWebPに最適化した画像を使用しています。
+トップのメイン画像は、湘南の海が見えるオフィスでシステム開発をしている風景を表現した生成画像です。`public/generated/05-shonan-development-hero.webp`を使用し、画像枠と配置は維持しています。元のPNGと使用したプロンプトはダウンロード内の`YottaByte_HP画像_20261030`にも保存しています。以前トップに使用したPcs34560撮影の葉山・一色海岸の実写写真は素材として保持し、出典を`THIRD_PARTY_NOTICES.md`、`public/licenses/Hayama-photo.txt`に記録しています。代表メッセージ欄は既存の`public/DSC_2003.jpg`をWebPに最適化した画像を使用しています。
 
 元のセクション順・写真枠・画像枚数・スライドを維持し、各箇所の画像と文言を差し替えています。サービスと対応例の画像には`public/illustrations/`の独自SVGを使用し、同じ写真の使い回しを減らしています。会社ページのスライドは従来どおり4種類の画像を2組並べる無限スクロールです。追加セクションや説明文の枠は設けていません。
 

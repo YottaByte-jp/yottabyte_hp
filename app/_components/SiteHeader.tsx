@@ -52,7 +52,7 @@ export function SiteHeader() {
     <>
       <header className="site-header">
         <div className="header-inner">
-          <Link className="brand" href="/" aria-label="YottaByte ホーム" onClick={close}>
+          <Link className="brand" href="/" aria-label="YottaByte LLC ホーム" onClick={close}>
             <Image
               className="brand-logo"
               src="/yottabyte_logo-removebg-preview.png"
@@ -60,7 +60,7 @@ export function SiteHeader() {
               width={56}
               height={56}
             />
-            <span>YOTTABYTE</span>
+            <span>YottaByte LLC</span>
           </Link>
           <nav className="desktop-nav" aria-label="メインナビゲーション">
             {navigation.map((item) => (
