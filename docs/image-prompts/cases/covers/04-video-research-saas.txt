@@ -1,0 +1,22 @@
+Use case: productivity-visual.
+Asset type: ONE polished Japanese presentation title slide, used as an informative case-study thumbnail on a technology company's website. A complete designed cover with real Japanese typography, not a text-free decorative image. Landscape 16:10, highest native resolution.
+
+Design: premium Japanese corporate editorial design. Very large, beautifully typeset bold Japanese sans-serif headline (Noto Sans JP / Hiragino Kaku Gothic style), strong left alignment and clear typographic hierarchy. Quiet off-white/light-gray background, near-black text, cobalt blue #0553dd accents. Use a coherent asymmetric cover composition: typography on the left roughly 60%, tactile conceptual sculpture on the right roughly 35%. Recompose the referenced objects at an appropriate scale for this layout; do not simply place lettering on top of the busy source photograph. Keep the left text area calm, bright and unobstructed. Preserve the paper/porcelain/glass/satin-aluminum material quality and soft directional daylight of the reference. This is an abstract conceptual visual, not an actual customer product or screenshot.
+
+Typography: the two-line Japanese headline is the dominant visual element and must be immediately readable when the whole cover is reduced to a 320-pixel-wide website card. Use genuinely large heavy type with clean, accurate glyphs, intentional line breaks and comfortable spacing. The first headline line is near-black; the second line is cobalt blue. Set the supporting Japanese line beneath in smaller medium-weight dark gray, still easy to read. Place the small category/number label above the headline, aligned on the same grid. Place the modest company name below the supporting line. Flat precise graphic typography, not text printed on the objects, no perspective distortion or embossed letters.
+
+Framing: keep all text comfortably inside the canvas, with at least 10% safe margins at left/right and 15% at top/bottom. Keep the headline near the vertical middle. Avoid edge-hugging footers or oversize objects spilling into the words. The website will show the complete cover using contain, so do not crop any words. The visual must support the subject and make space for the headline.
+
+Constraints: render only the exact text specified below, verbatim, with the exact Japanese spelling and English capitalization. No extra words, dates, claims, fake customer names, diagrams, dashboard UI, buttons, logos, stock-photo watermarks, neon gradients, outlines around text, or decorative AI sparkles. No real people or hands. Do not add labels to the sculpture. Do not merge letters into the objects. Produce one final cover, not multiple alternatives or a collage.
+
+Input image 1 is the COVER STYLE REFERENCE: match its typography hierarchy, grid, background, blue accent, lighting and spacing, but replace all title text with the exact text below. Input image 2 is this case's SUBJECT AND MATERIAL REFERENCE: use its sculpture on the right. Do not copy the payment-card subject or title from image 1.
+
+Text to render (verbatim, and no other text):
+Small category label: CASE 04 / SYSTEM DEVELOPMENT
+Headline, line 1: 「動画リサーチ」
+Headline, line 2: 「分析SaaS」
+Supporting line: 「企画から開発・運用まで」
+Company name: YottaByte LLC
+The Japanese corner brackets above indicate text boundaries; do NOT draw the brackets. Retain spaces, the multiplication sign × where specified, and exact English capitalization.
+
+Subject: Use the source's frosted-glass frame, cobalt-blue triangular play symbol and ivory analysis risers as the right-side supporting visual. Keep the play symbol clear and unbranded. No fake video thumbnails or customer screenshots.

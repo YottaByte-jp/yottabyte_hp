@@ -171,7 +171,7 @@ export function CaseGrid({ category, limit }: { category?: string; limit?: numbe
     <div className="case-grid">
       {filtered.slice(0, limit ?? filtered.length).map((item) => (
         <Link href={`/case/${item.id}/`} className="case-card" key={item.id} data-reveal>
-          <Photo src={item.image} alt={item.imageAlt} />
+          <Photo src={item.image} alt={item.imageAlt} fit="contain" />
           <div className="case-card__meta">
             <span className="badge">{services.find((s) => s.id === item.category)?.title}</span>
             <span>開発事例</span>

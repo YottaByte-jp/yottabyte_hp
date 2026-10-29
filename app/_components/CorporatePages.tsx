@@ -521,7 +521,7 @@ function ArticlePage({ kind, id }: { kind: 'case' | 'news'; id: string }) {
         </div>
         <h1>{item.title}</h1>
         {'image' in item ? (
-          <Photo src={item.image} alt={item.imageAlt} className="article-photo" />
+          <Photo src={item.image} alt={item.imageAlt} className="article-photo" fit="contain" />
         ) : null}
         <div className="article-body">
           <p>{item.body}</p>

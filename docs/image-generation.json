@@ -77,7 +77,7 @@
         "height": 992
       },
       "concept_image": true,
-      "usage": "case-study thumbnail and article lead image"
+      "usage": "unused text-free concept; source reference for titled cover"
     },
     {
       "file": "public/generated/cases/02-kintone-accounting.webp",
@@ -88,7 +88,7 @@
         "height": 992
       },
       "concept_image": true,
-      "usage": "case-study thumbnail and article lead image",
+      "usage": "unused text-free concept; source reference for titled cover",
       "style_reference": "public/generated/cases/01-subscription-platform.webp"
     },
     {
@@ -100,7 +100,7 @@
         "height": 992
       },
       "concept_image": true,
-      "usage": "case-study thumbnail and article lead image",
+      "usage": "unused text-free concept; source reference for titled cover",
       "style_reference": "public/generated/cases/01-subscription-platform.webp"
     },
     {
@@ -112,7 +112,7 @@
         "height": 992
       },
       "concept_image": true,
-      "usage": "case-study thumbnail and article lead image",
+      "usage": "unused text-free concept; source reference for titled cover",
       "style_reference": "public/generated/cases/01-subscription-platform.webp"
     },
     {
@@ -124,7 +124,7 @@
         "height": 992
       },
       "concept_image": true,
-      "usage": "case-study thumbnail and article lead image",
+      "usage": "unused text-free concept; source reference for titled cover",
       "style_reference": "public/generated/cases/01-subscription-platform.webp"
     },
     {
@@ -136,8 +136,121 @@
         "height": 992
       },
       "concept_image": true,
-      "usage": "case-study thumbnail and article lead image",
+      "usage": "unused text-free concept; source reference for titled cover",
       "style_reference": "public/generated/cases/01-subscription-platform.webp"
+    },
+    {
+      "file": "public/generated/cases/covers/01-subscription-platform.webp",
+      "prompt": "docs/image-prompts/cases/covers/01-subscription-platform.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1586,
+        "height": 992
+      },
+      "source_image": "public/generated/cases/01-subscription-platform.webp",
+      "concept_image": true,
+      "usage": "titled case-study cover for thumbnail and article lead",
+      "text_content": {
+        "category": "CASE 01 / SYSTEM DEVELOPMENT",
+        "headline": ["サブスク決済", "と品質改善"],
+        "subtitle": "学習支援プラットフォーム",
+        "brand": "YottaByte LLC"
+      }
+    },
+    {
+      "file": "public/generated/cases/covers/02-kintone-accounting.webp",
+      "prompt": "docs/image-prompts/cases/covers/02-kintone-accounting.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1586,
+        "height": 992
+      },
+      "source_image": "public/generated/cases/02-kintone-accounting.webp",
+      "style_reference": "public/generated/cases/covers/01-subscription-platform.webp",
+      "concept_image": true,
+      "usage": "titled case-study cover for thumbnail and article lead",
+      "text_content": {
+        "category": "CASE 02 / BUSINESS AUTOMATION",
+        "headline": ["kintoneと", "会計API連携"],
+        "subtitle": "契約・請求業務をつなぐ",
+        "brand": "YottaByte LLC"
+      }
+    },
+    {
+      "file": "public/generated/cases/covers/03-llm-customization.webp",
+      "prompt": "docs/image-prompts/cases/covers/03-llm-customization.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1585,
+        "height": 992
+      },
+      "source_image": "public/generated/cases/03-llm-customization.webp",
+      "style_reference": "public/generated/cases/covers/01-subscription-platform.webp",
+      "concept_image": true,
+      "usage": "titled case-study cover for thumbnail and article lead",
+      "text_content": {
+        "category": "CASE 03 / AI & LLM",
+        "headline": ["業務向けLLM", "ツール開発"],
+        "subtitle": "生成AIを使える仕組みへ",
+        "brand": "YottaByte LLC"
+      }
+    },
+    {
+      "file": "public/generated/cases/covers/04-video-research-saas.webp",
+      "prompt": "docs/image-prompts/cases/covers/04-video-research-saas.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1586,
+        "height": 992
+      },
+      "source_image": "public/generated/cases/04-video-research-saas.webp",
+      "style_reference": "public/generated/cases/covers/01-subscription-platform.webp",
+      "concept_image": true,
+      "usage": "titled case-study cover for thumbnail and article lead",
+      "text_content": {
+        "category": "CASE 04 / SYSTEM DEVELOPMENT",
+        "headline": ["動画リサーチ", "分析SaaS"],
+        "subtitle": "企画から開発・運用まで",
+        "brand": "YottaByte LLC"
+      }
+    },
+    {
+      "file": "public/generated/cases/covers/05-kintone-data-analytics.webp",
+      "prompt": "docs/image-prompts/cases/covers/05-kintone-data-analytics.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1586,
+        "height": 992
+      },
+      "source_image": "public/generated/cases/05-kintone-data-analytics.webp",
+      "style_reference": "public/generated/cases/covers/01-subscription-platform.webp",
+      "concept_image": true,
+      "usage": "titled case-study cover for thumbnail and article lead",
+      "text_content": {
+        "category": "CASE 05 / BUSINESS AUTOMATION",
+        "headline": ["業務データ", "連携と可視化"],
+        "subtitle": "kintone × BigQuery",
+        "brand": "YottaByte LLC"
+      }
+    },
+    {
+      "file": "public/generated/cases/covers/06-healthcare-api.webp",
+      "prompt": "docs/image-prompts/cases/covers/06-healthcare-api.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1586,
+        "height": 992
+      },
+      "source_image": "public/generated/cases/06-healthcare-api.webp",
+      "style_reference": "public/generated/cases/covers/01-subscription-platform.webp",
+      "concept_image": true,
+      "usage": "titled case-study cover for thumbnail and article lead",
+      "text_content": {
+        "category": "CASE 06 / API MAINTENANCE",
+        "headline": ["ヘルスケアAPI", "保守・機能改善"],
+        "subtitle": "調査から修正・検証まで",
+        "brand": "YottaByte LLC"
+      }
     }
   ]
 }
