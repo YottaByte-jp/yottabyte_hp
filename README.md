@@ -25,11 +25,11 @@ npm run build
 
 ## 画像と書体
 
-候補を含む事業イメージ7点は組み込みのimage_genで生成・編集し、WebPに最適化しています。生成プロンプトは`docs/image-prompts/`、記録は`docs/image-generation.json`、Web用画像は`public/generated/`に保存しています。生成した画像は事業イメージであり、実際の事務所や社員を撮影した写真ではありません。
+候補を含む事業イメージ8点は組み込みのimage_genで生成・編集し、WebPに最適化しています。生成プロンプトは`docs/image-prompts/`、記録は`docs/image-generation.json`、Web用画像は`public/generated/`に保存しています。生成した画像は事業イメージであり、実際の事務所や社員を撮影した写真ではありません。
 
 トップのメイン画像は、Pcs34560撮影の葉山・一色海岸の実写写真です。出典は`THIRD_PARTY_NOTICES.md`、`public/licenses/Hayama-photo.txt`に記録しています。人物入りの開発オフィスの生成画像`public/generated/05-shonan-development-hero.webp`は候補素材として保持し、現在のページには表示していません。生成画像の元PNGと使用したプロンプトはダウンロード内の`YottaByte_HP画像_20261030`にも保存しています。代表メッセージ欄は既存の`public/DSC_2003.jpg`をWebPに最適化した画像を使用しています。
 
-企業情報ページの先頭には、湘南の海が見える、人やコーディング場面のない明るいオフィスを表現した`public/generated/06-shonan-seaview-office.webp`を使用しています。既存の先頭画像枠だけを差し替え、構造・サイズ・余白は維持しています。
+企業情報ページの先頭には、トップのCOMPANY紹介画像と同じグレーのソファ・淡い木・ガラス張りの会議室の雰囲気に揃え、海を広く見せた`public/generated/08-shonan-company-office.webp`を使用しています。人やコーディング場面は含めていません。生成元は2017×780ピクセルで、拡大処理をせずWebPに変換しています。既存の先頭画像枠だけを差し替え、構造・サイズ・余白は維持しています。以前の`public/generated/06-shonan-seaview-office.webp`は候補素材として保管しています。
 
 トップページのCOMPANY紹介枠には`public/generated/07-shonan-office-lounge.webp`を使用しています。元のソファとガラス張りの会議室のある室内を活かし、窓の外を湘南の海に変更したイメージです。画像枠のサイズ・配置は変更していません。
 

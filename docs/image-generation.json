@@ -42,7 +42,7 @@
         "height": 1024
       },
       "concept_image": true,
-      "usage": "company page first image"
+      "usage": "unused concept (replaced by 08)"
     },
     {
       "file": "public/generated/07-shonan-office-lounge.webp",
@@ -55,6 +55,18 @@
       "source_image": "public/generated/02-office-light.webp",
       "concept_image": true,
       "usage": "homepage company section"
+    },
+    {
+      "file": "public/generated/08-shonan-company-office.webp",
+      "prompt": "docs/image-prompts/08-shonan-company-office.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 2017,
+        "height": 780
+      },
+      "source_image": "public/generated/07-shonan-office-lounge.webp",
+      "concept_image": true,
+      "usage": "company page first image, matching the homepage lounge with panoramic sea view"
     }
   ]
 }
