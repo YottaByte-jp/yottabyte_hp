@@ -1,0 +1,72 @@
+[
+  {
+    "file": "/images/shonan-morito.webp",
+    "title": "Morito Beach - Hayama.jpg",
+    "author": "Quercus acuta",
+    "source": "https://commons.wikimedia.org/wiki/File:Morito_Beach_-_Hayama.jpg",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "description": "森戸海岸(神奈川県葉山町)",
+    "changes": "Resized and encoded as WebP; visible area adjusted with CSS."
+  },
+  {
+    "file": "/images/shonan-tateishi.webp",
+    "title": "Tateishi park (Yokosuka) - 02.jpg",
+    "author": "Quercus acuta",
+    "source": "https://commons.wikimedia.org/wiki/File:Tateishi_park_(Yokosuka)_-_02.jpg",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "description": "立石公園の梵天の鼻（神奈川県横須賀市）",
+    "changes": "Resized and encoded as WebP; visible area adjusted with CSS."
+  },
+  {
+    "file": "/images/shonan-zushi-fuji.webp",
+    "title": "View of Mount Fuji from Zushi Marina.jpg",
+    "author": "Quercus acuta",
+    "source": "https://commons.wikimedia.org/wiki/File:View_of_Mount_Fuji_from_Zushi_Marina.jpg",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "description": "逗子マリーナより望む江の島と富士山（神奈川県逗子市）",
+    "changes": "Resized and encoded as WebP; visible area adjusted with CSS."
+  },
+  {
+    "file": "/images/shonan-zushi-marina.webp",
+    "title": "Zushi Marina.jpg",
+    "author": "Quercus acuta",
+    "source": "https://commons.wikimedia.org/wiki/File:Zushi_Marina.jpg",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "description": "逗子マリーナのヤシが植栽された並木道。ワシントニアが目立つ。",
+    "changes": "Resized and encoded as WebP; visible area adjusted with CSS."
+  },
+  {
+    "file": "/images/shonan-zushi-sailing.webp",
+    "title": "Zushi Beach - 01.jpg",
+    "author": "Quercus acuta",
+    "source": "https://commons.wikimedia.org/wiki/File:Zushi_Beach_-_01.jpg",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "description": "逗子海岸（神奈川県逗子市）",
+    "changes": "Resized and encoded as WebP; visible area adjusted with CSS."
+  },
+  {
+    "file": "/images/shonan-tateishi-coast.webp",
+    "title": "Tateishi park (Yokosuka) - 03.jpg",
+    "author": "Quercus acuta",
+    "source": "https://commons.wikimedia.org/wiki/File:Tateishi_park_(Yokosuka)_-_03.jpg",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "description": "立石公園の「梵天の鼻」から北側の海岸線を望む（神奈川県横須賀市）",
+    "changes": "Resized and encoded as WebP; visible area adjusted with CSS."
+  },
+  {
+    "file": "/images/shonan-tateishi-sunset.webp",
+    "title": "葉山・立石公園から見た夕日 Pcs34560 IMG 2223.jpg",
+    "author": "pcs34560",
+    "source": "https://commons.wikimedia.org/wiki/File:%E8%91%89%E5%B1%B1%E3%83%BB%E7%AB%8B%E7%9F%B3%E5%85%AC%E5%9C%92%E3%81%8B%E3%82%89%E8%A6%8B%E3%81%9F%E5%A4%95%E6%97%A5_Pcs34560_IMG_2223.jpg",
+    "license": "Public domain",
+    "license_url": "",
+    "description": "葉山・立石公園から見た夕日",
+    "changes": "Resized and encoded as WebP; visible area adjusted with CSS."
+  }
+]

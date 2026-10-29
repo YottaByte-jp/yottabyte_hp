@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { cases, company, news, newsCategories, photos, services } from '@/app/_data/site';
+import {
+  cases,
+  company,
+  companyGallery,
+  news,
+  newsCategories,
+  photos,
+  services,
+} from '@/app/_data/site';
 import { FAQ, ContactForm } from './Interactions';
 import {
   Breadcrumb,
@@ -166,7 +174,7 @@ function CompanyPage() {
   return (
     <>
       <PageTitle en="COMPANY" title="企業情報" />
-      <RoundedBanner src={photos.office} />
+      <RoundedBanner src={photos.companyCoast} alt="葉山・森戸海岸の海辺" position="center 35%" />
       <section className="section mission-section">
         <div className="container mission-grid" data-reveal>
           <SectionHeading>MISSION</SectionHeading>
@@ -239,26 +247,22 @@ function CompanyPage() {
           </div>
         </div>
       </section>
-      <RoundedBanner src={photos.hero} reverse />
+      <RoundedBanner
+        src={photos.companyLandscape}
+        reverse
+        alt="横須賀・立石公園の海と松"
+        position="center 35%"
+      />
       <section className="section company-profile">
         <div className="container" data-reveal>
           <SectionHeading>COMPANY PROFILE</SectionHeading>
           <CompanyFacts />
         </div>
       </section>
-      <div className="photo-marquee" aria-label="事業イメージ">
+      <div className="photo-marquee" aria-label="湘南の風景">
         <div className="photo-marquee__track">
-          {[
-            cases[0].image,
-            cases[1].image,
-            cases[2].image,
-            cases[3].image,
-            cases[0].image,
-            cases[1].image,
-            cases[2].image,
-            cases[3].image,
-          ].map((src, i) => (
-            <Photo src={src} key={`${src}-${i}`} />
+          {[...companyGallery, ...companyGallery].map((image, i) => (
+            <Photo src={image.src} alt={image.alt} key={`${image.src}-${i}`} />
           ))}
         </div>
       </div>
@@ -272,7 +276,11 @@ function ServicePage() {
   return (
     <>
       <PageTitle en="SERVICE" title="事業内容" />
-      <RoundedBanner src={photos.workshop} />
+      <RoundedBanner
+        src={photos.serviceCoast}
+        alt="逗子マリーナから望む江の島と富士山"
+        position="center 25%"
+      />
       <section className="section business-model">
         <div className="container" data-reveal>
           <SectionHeading>BUSINESS MODEL</SectionHeading>

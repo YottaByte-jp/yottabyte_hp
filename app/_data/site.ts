@@ -8,11 +8,21 @@ export const company = {
 export const photos = {
   coast: '/images/shonan-hayama.webp',
   portrait: '/images/company-message.webp',
+  companyCoast: '/images/shonan-morito.webp',
+  companyLandscape: '/images/shonan-tateishi.webp',
+  serviceCoast: '/images/shonan-zushi-fuji.webp',
   hero: '/generated/01-office-hero.webp',
   office: '/generated/02-office-light.webp',
   development: '/generated/03-development.webp',
   workshop: '/generated/04-workshop.webp',
 };
+
+export const companyGallery = [
+  { src: '/images/shonan-zushi-marina.webp', alt: '逗子マリーナのヤシ並木' },
+  { src: '/images/shonan-zushi-sailing.webp', alt: '逗子海岸の海辺とヨット' },
+  { src: '/images/shonan-tateishi-coast.webp', alt: '横須賀・立石公園から望む海岸線' },
+  { src: '/images/shonan-tateishi-sunset.webp', alt: '横須賀・立石海岸の夕日' },
+];
 
 export const navigation = [
   { href: '/company/', label: '企業情報' },

@@ -18,6 +18,10 @@ Provenance is also recorded in `public/licenses/Hayama-photo.txt`.
 
 The service and case diagrams in `public/illustrations/` are independently authored SVG artwork. They illustrate service concepts and are not customer screenshots or delivery records. `public/images/company-message.webp` is a resized WebP copy of the existing corporate portrait, `public/DSC_2003.jpg`.
 
+## Shonan regional photographs
+
+The additional regional photographs used on the company and service pages depict actual scenery in Hayama, Zushi, and Yokosuka. They are photographs by Quercus acuta (CC0) and pcs34560 (public domain / PD-self), obtained from Wikimedia Commons. Each work's original title, photographer, source page, license, and resizing/WebP conversion are recorded in `public/licenses/Shonan-photos.json`. The photographs show local scenery, not YottaByte offices or customer premises; the photographers do not endorse YottaByte.
+
 The notice below is retained for the legacy microCMS assets still present in the repository.
 
 ## microCMS Simple Corporate Site Template

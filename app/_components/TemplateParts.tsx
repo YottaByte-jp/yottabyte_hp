@@ -103,10 +103,20 @@ export function Photo({
     </div>
   );
 }
-export function RoundedBanner({ src, reverse = false }: { src: string; reverse?: boolean }) {
+export function RoundedBanner({
+  src,
+  reverse = false,
+  alt = '',
+  position = 'center',
+}: {
+  src: string;
+  reverse?: boolean;
+  alt?: string;
+  position?: string;
+}) {
   return (
     <div className={`rounded-banner${reverse ? ' rounded-banner--reverse' : ''}`}>
-      <Photo src={src} />
+      <Photo src={src} alt={alt} position={position} />
     </div>
   );
 }
