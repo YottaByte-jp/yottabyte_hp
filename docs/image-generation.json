@@ -67,6 +67,77 @@
       "source_image": "public/generated/07-shonan-office-lounge.webp",
       "concept_image": true,
       "usage": "company page first image, matching the homepage lounge with panoramic sea view"
+    },
+    {
+      "file": "public/generated/cases/01-subscription-platform.webp",
+      "prompt": "docs/image-prompts/cases/01-subscription-platform.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1586,
+        "height": 992
+      },
+      "concept_image": true,
+      "usage": "case-study thumbnail and article lead image"
+    },
+    {
+      "file": "public/generated/cases/02-kintone-accounting.webp",
+      "prompt": "docs/image-prompts/cases/02-kintone-accounting.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1586,
+        "height": 992
+      },
+      "concept_image": true,
+      "usage": "case-study thumbnail and article lead image",
+      "style_reference": "public/generated/cases/01-subscription-platform.webp"
+    },
+    {
+      "file": "public/generated/cases/03-llm-customization.webp",
+      "prompt": "docs/image-prompts/cases/03-llm-customization.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1586,
+        "height": 992
+      },
+      "concept_image": true,
+      "usage": "case-study thumbnail and article lead image",
+      "style_reference": "public/generated/cases/01-subscription-platform.webp"
+    },
+    {
+      "file": "public/generated/cases/04-video-research-saas.webp",
+      "prompt": "docs/image-prompts/cases/04-video-research-saas.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1585,
+        "height": 992
+      },
+      "concept_image": true,
+      "usage": "case-study thumbnail and article lead image",
+      "style_reference": "public/generated/cases/01-subscription-platform.webp"
+    },
+    {
+      "file": "public/generated/cases/05-kintone-data-analytics.webp",
+      "prompt": "docs/image-prompts/cases/05-kintone-data-analytics.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1586,
+        "height": 992
+      },
+      "concept_image": true,
+      "usage": "case-study thumbnail and article lead image",
+      "style_reference": "public/generated/cases/01-subscription-platform.webp"
+    },
+    {
+      "file": "public/generated/cases/06-healthcare-api.webp",
+      "prompt": "docs/image-prompts/cases/06-healthcare-api.txt",
+      "generated": "2026-10-30",
+      "original_dimensions": {
+        "width": 1586,
+        "height": 992
+      },
+      "concept_image": true,
+      "usage": "case-study thumbnail and article lead image",
+      "style_reference": "public/generated/cases/01-subscription-platform.webp"
     }
   ]
 }

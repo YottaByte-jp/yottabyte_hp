@@ -19,8 +19,8 @@ export const caseStudies: CaseStudy[] = [
     id: 'subscription-platform',
     category: 'development',
     title: '学習支援プラットフォームの決済機能開発・品質改善',
-    image: '/illustrations/cases/subscription-platform.svg',
-    imageAlt: '契約情報と利用者をつなぐサブスクリプション決済のイラスト',
+    image: '/generated/cases/01-subscription-platform.webp',
+    imageAlt: '青いカードと陶器の輪で継続課金と利用者のつながりを表したイメージ',
     body: '既存の学習支援プラットフォームで、フロントエンド・バックエンドの不具合調査と機能改善、サブスクリプション決済機能の開発を担当しました。コードの読解から原因調査、修正、テストまで、画面とAPIを横断して取り組んだ事例です。',
     sections: [
       {
@@ -56,8 +56,8 @@ export const caseStudies: CaseStudy[] = [
     id: 'kintone-accounting',
     category: 'automation',
     title: '契約・請求業務をつなぐkintone・会計API連携',
-    image: '/illustrations/cases/kintone-accounting.svg',
-    imageAlt: '業務アプリと会計データの連携を表すイラスト',
+    image: '/generated/cases/02-kintone-accounting.webp',
+    imageAlt: '紙の束を青い帯でつなぎ、業務データの連携を表したイメージ',
     body: '人材サービス業の業務管理システムで、kintoneアプリの開発・改善と会計サービスとのAPI連携を担当しました。契約、請求、工数、勤怠など、複数のアプリをまたぐ業務フローを確認しながら、実装と検証を進めた事例です。',
     sections: [
       {
@@ -90,8 +90,8 @@ export const caseStudies: CaseStudy[] = [
     id: 'llm-customization',
     category: 'ai',
     title: '業務向けLLMカスタマイズツールの機能開発',
-    image: '/illustrations/cases/llm-customization.svg',
-    imageAlt: '外部データとLLMの応答をつなぐイラスト',
+    image: '/generated/cases/03-llm-customization.webp',
+    imageAlt: '紙とガラスを通る青い帯で、情報を整理するAIを表したイメージ',
     body: '生成AIを業務用途に合わせて活用するWebツールで、LLM関連機能を中心にフロントエンド・バックエンドの開発を担当しました。プロンプトや外部データの活用、応答生成処理、アプリケーションとの連携に取り組んだ事例です。',
     sections: [
       {
@@ -117,8 +117,8 @@ export const caseStudies: CaseStudy[] = [
     id: 'video-research-saas',
     category: 'development',
     title: '動画リサーチ・分析SaaSの企画から開発・運用まで',
-    image: '/illustrations/cases/video-research-saas.svg',
-    imageAlt: '動画のリサーチと分析を表すイラスト',
+    image: '/generated/cases/04-video-research-saas.webp',
+    imageAlt: 'ガラスのフレームと青い再生マークで動画分析を表したイメージ',
     body: '動画のリサーチ・分析を効率化するSaaSで、企画立案から要件定義、UI・UX設計、実装、デプロイ、保守運用までを一貫して担当しました。外部API、AI分析、サブスクリプション決済、管理画面を組み合わせたWebサービスの開発事例です。',
     sections: [
       {
@@ -153,8 +153,8 @@ export const caseStudies: CaseStudy[] = [
     id: 'kintone-data-analytics',
     category: 'automation',
     title: 'kintone業務データの連携・可視化と運用改善',
-    image: '/illustrations/cases/kintone-data-analytics.svg',
-    imageAlt: '業務データの集約と可視化を表すイラスト',
+    image: '/generated/cases/05-kintone-data-analytics.webp',
+    imageAlt: 'ガラスの層と段差のある柱でデータの集約・可視化を表したイメージ',
     body: 'kintoneを中心とした業務管理システムで、アプリの開発・修正とBigQueryへのデータ連携、Looker Studioでの可視化に必要な同期処理を担当しました。請求・支払・稼働管理などの業務フローを確認し、実装から運用検証まで携わった事例です。',
     sections: [
       {
@@ -188,8 +188,8 @@ export const caseStudies: CaseStudy[] = [
     id: 'healthcare-api',
     category: 'development',
     title: 'ヘルスケアAPIサービスの保守開発・機能改善',
-    image: '/illustrations/cases/healthcare-api.svg',
-    imageAlt: 'APIの接続と安定した運用を表すイラスト',
+    image: '/generated/cases/06-healthcare-api.webp',
+    imageAlt: 'ガラスのアーチと青い波形でAPIの安定運用を表したイメージ',
     body: 'ヘルスケア領域のAPIサービスで、保守、追加機能開発、不具合修正、問い合わせ対応を担当しました。既存の仕様とデータ構造を確認し、顧客からの報告をもとに原因調査から実装・検証・報告まで対応した事例です。',
     sections: [
       {
