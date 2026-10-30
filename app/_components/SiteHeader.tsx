@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { navigation } from '@/app/_data/site';
@@ -51,9 +52,15 @@ export function SiteHeader() {
     <>
       <header className="site-header">
         <div className="header-inner">
-          <Link className="brand" href="/" aria-label="YottaByte ホーム" onClick={close}>
-            <span className="brand-mark" aria-hidden="true" />
-            YOTTABYTE
+          <Link className="brand" href="/" aria-label="YottaByte LLC ホーム" onClick={close}>
+            <Image
+              className="brand-logo"
+              src="/yottabyte_logo-removebg-preview.png"
+              alt=""
+              width={56}
+              height={56}
+            />
+            <span>YottaByte LLC</span>
           </Link>
           <nav className="desktop-nav" aria-label="メインナビゲーション">
             {navigation.map((item) => (

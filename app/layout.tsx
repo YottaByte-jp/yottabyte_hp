@@ -5,6 +5,7 @@ import { SiteFooter } from '@/app/_components/SiteFooter';
 import { SiteHeader } from '@/app/_components/SiteHeader';
 import { RevealController } from '@/app/_components/Interactions';
 import { GoogleAnalytics } from '@/app/_components/GoogleAnalytics';
+import { siteDescription, siteTitle } from '@/app/_lib/seo';
 import './globals.css';
 
 const notoSansJp = Noto_Sans_JP({
@@ -23,11 +24,10 @@ const lato = Lato({
 export const metadata: Metadata = {
   metadataBase: new URL('https://yottabyte.jp'),
   title: {
-    default: '合同会社YottaByte | システム開発・業務改善・AI活用',
+    default: siteTitle,
     template: '%s | 合同会社YottaByte',
   },
-  description:
-    '合同会社YottaByteは、システム開発、業務改善・自動化、AI・LLM活用、技術設計を通じて事業の課題解決を支援します。',
+  description: siteDescription,
   alternates: {
     canonical: '/',
   },
@@ -40,9 +40,8 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     url: 'https://yottabyte.jp',
     siteName: 'YottaByte',
-    title: '合同会社YottaByte | システム開発・業務改善・AI活用',
-    description:
-      '合同会社YottaByteは、システム開発、業務改善・自動化、AI・LLM活用、技術設計を通じて事業の課題解決を支援します。',
+    title: siteTitle,
+    description: siteDescription,
     images: [
       {
         url: '/yottabyte_logo.png',

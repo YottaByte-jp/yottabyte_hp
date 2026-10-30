@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { cases, company, news, newsCategories, photos, services } from '@/app/_data/site';
+import {
+  cases,
+  company,
+  companyGallery,
+  news,
+  newsCategories,
+  photos,
+  services,
+} from '@/app/_data/site';
 import { FAQ, ContactForm } from './Interactions';
 import {
   Breadcrumb,
@@ -21,9 +29,6 @@ function CaseSection({ category, compact = false }: { category?: string; compact
     <section className={`section case-section${compact ? ' case-section--compact' : ''}`}>
       <div className="container">
         <SectionHeading>CASE</SectionHeading>
-        {compact ? null : (
-          <p className="section-intro">YottaByteが対応するご相談内容の例をご紹介。</p>
-        )}
         <CaseGrid category={category} limit={3} />
         <div className="align-right">
           <CircleLink href="/case/">対応事例をみる</CircleLink>
@@ -49,14 +54,19 @@ export function HomePage() {
       <section className="home-hero">
         <div className="container hero-copy">
           <h1>
-            事業の課題を、
+            湘南の企業に、
             <br />
-            技術の力で解決へ
+            最先端の技術を
           </h1>
-          <p>TECHNOLOGY FOR YOUR NEXT STEP.</p>
+          <p>LOCAL ROOTS. FORWARD THINKING.</p>
         </div>
         <div className="hero-photo">
-          <Photo src={photos.hero} priority />
+          <Photo
+            src={photos.coast}
+            priority
+            alt="葉山・一色海岸から望む相模湾と富士山"
+            position="center 25%"
+          />
           <a className="hero-scroll" href="#company" aria-label="企業情報へスクロール">
             <Icon />
           </a>
@@ -67,26 +77,30 @@ export function HomePage() {
           <div>
             <SectionHeading>COMPANY</SectionHeading>
             <p className="large-copy">
-              すべてのクライアントに
+              葉山・湘南から、
               <br />
-              使い続けられる仕組みを
+              技術で事業を前へ。
             </p>
             <p className="body-copy">
-              私たちは、システム開発を通じて事業の課題解決を支援する会社です。構想の整理から設計、実装、運用・改善まで、一つひとつの課題に向き合います。Web開発／業務改善・自動化／AI活用／技術設計などをご支援しています。
+              YottaByteは、神奈川県葉山町を拠点とするIT企業です。Webシステム開発、業務改善・自動化、生成AIの活用を通じて、事業の課題に向き合います。構想の整理から設計、実装、運用・改善まで、技術を使える仕組みへとつなぎます。
             </p>
             <CircleLink href="/company/">企業情報をみる</CircleLink>
           </div>
-          <Photo src={photos.office} className="home-company__photo" />
+          <Photo
+            src={photos.office}
+            className="home-company__photo"
+            alt="湘南の海を望むオフィスラウンジのイメージ"
+          />
         </div>
       </section>
       <section className="section home-services white-corner">
         <div className="container" data-reveal>
           <SectionHeading>SERVICE</SectionHeading>
-          <h2 className="large-copy home-services__tagline">あらゆる課題を、技術で前へ。</h2>
+          <h2 className="large-copy home-services__tagline">身近な課題に、次の技術を。</h2>
           <p className="body-copy">
-            YottaByteが提供しているサービスはこちらからご覧ください。
+            社内の手作業から、新しいサービスの立ち上げまで。
             <br />
-            事業と運用に合う形でご支援します。
+            開発・自動化・AIを組み合わせ、事業に合う形でご支援します。
           </p>
           <div className="service-grid">
             {services.map((s) => (
@@ -161,7 +175,7 @@ function CompanyPage() {
   return (
     <>
       <PageTitle en="COMPANY" title="企業情報" />
-      <RoundedBanner src={photos.office} />
+      <RoundedBanner src={photos.companyOffice} alt="湘南の海を望む明るいオフィスのイメージ" />
       <section className="section mission-section">
         <div className="container mission-grid" data-reveal>
           <SectionHeading>MISSION</SectionHeading>
@@ -194,7 +208,7 @@ function CompanyPage() {
               </h2>
               <div className="body-copy">
                 <p>
-                  合同会社YottaByteは、システム開発を中心に、業務改善・自動化、AI・LLM活用をご支援しています。
+                  合同会社YottaByteは、神奈川県葉山町を拠点とするIT企業です。システム開発を中心に、業務改善・自動化、AI・LLM活用をご支援しています。
                 </p>
                 <p>
                   構想の段階から、要件の整理、設計、実装、保守運用まで。一つひとつの事業や現場の状況を理解し、必要な機能と進め方を一緒に考えます。
@@ -203,7 +217,7 @@ function CompanyPage() {
                   開発だけで終わらせず、使い続けられる仕組みとして届けること。そのために、運用のしやすさや改善の積み重ねを大切にしています。
                 </p>
                 <p>
-                  技術と事業をつなぐパートナーとして、目の前の課題に丁寧に向き合ってまいります。
+                  葉山・湘南に根ざし、技術のことを身近に相談できる存在へ。地域の事業と新しい技術をつなぎ、目の前の課題に丁寧に向き合ってまいります。
                 </p>
               </div>
               <p className="representative">
@@ -212,7 +226,7 @@ function CompanyPage() {
                 代表　{company.representative}
               </p>
             </div>
-            <Photo src={photos.office} className="message-photo" position="60% center" />
+            <Photo src={photos.portrait} className="message-photo" position="60% center" />
           </div>
         </div>
       </section>
@@ -234,26 +248,22 @@ function CompanyPage() {
           </div>
         </div>
       </section>
-      <RoundedBanner src={photos.hero} reverse />
+      <RoundedBanner
+        src={photos.companyLandscape}
+        reverse
+        alt="横須賀・立石公園の海と松"
+        position="center 35%"
+      />
       <section className="section company-profile">
         <div className="container" data-reveal>
           <SectionHeading>COMPANY PROFILE</SectionHeading>
           <CompanyFacts />
         </div>
       </section>
-      <div className="photo-marquee" aria-label="事業イメージ">
+      <div className="photo-marquee" aria-label="湘南と横須賀の海辺の風景">
         <div className="photo-marquee__track">
-          {[
-            photos.development,
-            photos.office,
-            photos.workshop,
-            photos.hero,
-            photos.development,
-            photos.office,
-            photos.workshop,
-            photos.hero,
-          ].map((src, i) => (
-            <Photo src={src} key={`${src}-${i}`} />
+          {[...companyGallery, ...companyGallery].map((image, i) => (
+            <Photo src={image.src} alt={image.alt} key={`${image.src}-${i}`} />
           ))}
         </div>
       </div>
@@ -267,7 +277,11 @@ function ServicePage() {
   return (
     <>
       <PageTitle en="SERVICE" title="事業内容" />
-      <RoundedBanner src={photos.workshop} />
+      <RoundedBanner
+        src={photos.serviceCoast}
+        alt="逗子マリーナから望む江の島と富士山"
+        position="center 25%"
+      />
       <section className="section business-model">
         <div className="container" data-reveal>
           <SectionHeading>BUSINESS MODEL</SectionHeading>
@@ -277,7 +291,7 @@ function ServicePage() {
             課題解決と成長を
           </h2>
           <p className="body-copy">
-            システム開発、業務改善・自動化、AI・LLM活用の事業を軸に、事業の課題解決をご支援しています。
+            システム開発、業務改善・自動化、AI・LLM活用を通じて、事業の課題解決をご支援しています。
             <br />
             目的と現場の状況を整理し、必要な技術と使い方を一緒に考えます。
           </p>
@@ -333,22 +347,22 @@ function ServiceDetailPage() {
     [
       '業務の整理・可視化',
       '日々の作業や情報の流れを整理し、改善すべき課題と優先順位を具体化します。',
-      photos.workshop,
+      '/illustrations/automation-workflow.svg',
     ],
     [
       'システム連携・自動化',
       'APIや業務ツールを組み合わせ、転記や集計などの繰り返し作業を仕組みに変えます。',
-      photos.development,
+      '/illustrations/service-automation.svg',
     ],
     [
       '業務システムの設計・開発',
       '現場の使い方に合わせて、kintoneやWebアプリケーションなどの業務システムを設計します。',
-      photos.office,
+      '/illustrations/service-development.svg',
     ],
     [
       '運用と継続的な改善',
       '導入後の運用を確認し、実際の課題や利用者の声に合わせた改善を支援します。',
-      photos.hero,
+      '/illustrations/automation-development.svg',
     ],
   ];
   const flow = [
@@ -426,8 +440,8 @@ function CaseListPage({ category }: { category?: string }) {
   const label = services.find((s) => s.id === category)?.title;
   return (
     <>
-      <PageTitle en="CASE" title={label ?? '対応事例'} />
-      <section className="listing-section">
+      <PageTitle en="CASE" title={label ?? '対応事例'} compact />
+      <section className="listing-section listing-section--compact">
         <div className="container">
           <nav className="category-nav" aria-label="対応事例のカテゴリ">
             <Link href="/case/" aria-current={!category ? 'page' : undefined}>
@@ -457,23 +471,25 @@ function NewsListPage({ category }: { category?: string }) {
   const label = newsCategories.find((c) => c.id === category)?.label;
   return (
     <>
-      <PageTitle en="NEWS" title={label ?? 'お知らせ'} />
-      <section className="listing-section">
+      <PageTitle en="NEWS" title={label ?? 'お知らせ'} compact />
+      <section className="listing-section listing-section--compact">
         <div className="container">
-          <nav className="category-nav" aria-label="お知らせのカテゴリ">
-            <Link href="/news/" aria-current={!category ? 'page' : undefined}>
-              すべての記事
-            </Link>
-            {newsCategories.map((c) => (
-              <Link
-                key={c.id}
-                href={`/news/category/${c.id}/`}
-                aria-current={c.id === category ? 'page' : undefined}
-              >
-                {c.label}
+          {newsCategories.length > 1 ? (
+            <nav className="category-nav" aria-label="お知らせのカテゴリ">
+              <Link href="/news/" aria-current={!category ? 'page' : undefined}>
+                すべての記事
               </Link>
-            ))}
-          </nav>
+              {newsCategories.map((c) => (
+                <Link
+                  key={c.id}
+                  href={`/news/category/${c.id}/`}
+                  aria-current={c.id === category ? 'page' : undefined}
+                >
+                  {c.label}
+                </Link>
+              ))}
+            </nav>
+          ) : null}
           <NewsList category={category} />
         </div>
       </section>
@@ -486,7 +502,8 @@ function NewsListPage({ category }: { category?: string }) {
 }
 function ArticlePage({ kind, id }: { kind: 'case' | 'news'; id: string }) {
   const isCase = kind === 'case';
-  const item = isCase ? cases.find((c) => c.id === id) : news.find((n) => n.id === id);
+  const caseStudy = isCase ? cases.find((c) => c.id === id) : undefined;
+  const item = caseStudy ?? (!isCase ? news.find((n) => n.id === id) : undefined);
   if (!item) return <NotFoundPage />;
   const category = isCase
     ? services.find((s) => s.id === item.category)?.title
@@ -495,30 +512,37 @@ function ArticlePage({ kind, id }: { kind: 'case' | 'news'; id: string }) {
     <>
       <article className="article-panel">
         <div className="article-meta">
-          <span>{'date' in item ? item.date : '対応例'}</span>
+          <span>{'date' in item ? item.date : '開発事例'}</span>
           <span className="badge">{category}</span>
         </div>
         <h1>{item.title}</h1>
-        {'image' in item ? <Photo src={item.image} className="article-photo" /> : null}
+        {'image' in item ? (
+          <Photo src={item.image} alt={item.imageAlt} className="article-photo" fit="contain" />
+        ) : null}
         <div className="article-body">
           <p>{item.body}</p>
-          {isCase ? (
+          {caseStudy ? (
             <>
-              <h2>ご相談いただける内容</h2>
-              <p>
-                ここでは、YottaByteにご相談いただける支援内容の一例をご紹介しています。ご希望の機能、現在の課題、運用の状況などを伺い、事業に合う進め方を一緒に検討します。
-              </p>
-              <h3>構想の整理から運用・改善まで</h3>
-              <p>
-                実装だけでなく、目的や優先順位を整理するところから対応します。小さく検証し、実際の使い方を確認しながら改善していきます。
-              </p>
+              {caseStudy.sections.map((section, index) => (
+                <div key={section.title}>
+                  {index === 0 ? <h2>{section.title}</h2> : <h3>{section.title}</h3>}
+                  <p>{section.body}</p>
+                </div>
+              ))}
+              <h3>担当範囲</h3>
               <ul>
-                <li>現状と課題のヒアリング</li>
-                <li>要件整理と技術設計</li>
-                <li>開発・実装・動作確認</li>
-                <li>運用を見据えた改善のご相談</li>
+                {caseStudy.scope.map((scope) => (
+                  <li key={scope}>{scope}</li>
+                ))}
               </ul>
-              <Photo src={photos.workshop} className="article-photo" />
+              <h3>使用技術</h3>
+              <p>{caseStudy.technologies.join(' / ')}</p>
+              <Photo
+                src={caseStudy.diagram}
+                alt={caseStudy.diagramAlt}
+                className="article-photo"
+                fit="contain"
+              />
             </>
           ) : (
             <p>詳しいご相談は、お問い合わせページからご連絡ください。</p>
@@ -545,9 +569,9 @@ function ContactPage() {
       <section className="contact-section">
         <div className="contact-intro">
           <p>
-            開発や業務改善、AI活用について、お気軽にご相談ください。
+            システム開発・業務改善・AI活用のご相談を承ります。
             <br />
-            下記の内容をご記入のうえ、お問い合わせください。
+            葉山・湘南、横須賀・三浦半島から全国まで、お気軽にお問い合わせください。
           </p>
         </div>
         <ContactForm />

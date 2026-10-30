@@ -67,9 +67,17 @@ export function SectionHeading({
 }) {
   return <h2 className={`section-heading ${className}`}>{children}</h2>;
 }
-export function PageTitle({ en, title }: { en: string; title: string }) {
+export function PageTitle({
+  en,
+  title,
+  compact = false,
+}: {
+  en: string;
+  title: string;
+  compact?: boolean;
+}) {
   return (
-    <div className="page-title">
+    <div className={`page-title${compact ? ' page-title--compact' : ''}`}>
       <div className="container">
         <p className="page-title__en">{en}</p>
         <h1>{title}</h1>
@@ -83,12 +91,14 @@ export function Photo({
   priority = false,
   alt = '',
   position = 'center',
+  fit = 'cover',
 }: {
   src: string;
   className?: string;
   priority?: boolean;
   alt?: string;
   position?: string;
+  fit?: 'cover' | 'contain';
 }) {
   return (
     <div className={`photo ${className}`}>
@@ -98,15 +108,25 @@ export function Photo({
         fill
         sizes="(max-width: 768px) 100vw, 70vw"
         preload={priority}
-        style={{ objectFit: 'cover', objectPosition: position }}
+        style={{ objectFit: fit, objectPosition: position }}
       />
     </div>
   );
 }
-export function RoundedBanner({ src, reverse = false }: { src: string; reverse?: boolean }) {
+export function RoundedBanner({
+  src,
+  reverse = false,
+  alt = '',
+  position = 'center',
+}: {
+  src: string;
+  reverse?: boolean;
+  alt?: string;
+  position?: string;
+}) {
   return (
     <div className={`rounded-banner${reverse ? ' rounded-banner--reverse' : ''}`}>
-      <Photo src={src} />
+      <Photo src={src} alt={alt} position={position} />
     </div>
   );
 }
@@ -134,7 +154,7 @@ export function ContactBand() {
         <div>
           <h2>お問い合わせ</h2>
           <p>
-            新規開発、業務改善、AI活用や技術設計のご相談はこちらから。構想の段階でもお気軽にご連絡ください。
+            システム開発・AI活用のご相談を全国から承ります。構想の段階でも、お気軽にご連絡ください。
           </p>
           <CircleLink href="/contact/" light>
             お問い合わせはこちら
@@ -159,10 +179,10 @@ export function CaseGrid({ category, limit }: { category?: string; limit?: numbe
     <div className="case-grid">
       {filtered.slice(0, limit ?? filtered.length).map((item) => (
         <Link href={`/case/${item.id}/`} className="case-card" key={item.id} data-reveal>
-          <Photo src={item.image} />
+          <Photo src={item.image} alt={item.imageAlt} fit="contain" />
           <div className="case-card__meta">
             <span className="badge">{services.find((s) => s.id === item.category)?.title}</span>
-            <span>対応例</span>
+            <span>開発事例</span>
           </div>
           <h3>{item.title}</h3>
         </Link>

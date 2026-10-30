@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+    <title>LLM customization illustration</title><rect width="1600" height="1000" fill="#f1f4f7"/>
+    <text x="150" y="155" fill="#0553dd" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="3">03</text>
+      <text x="215" y="155" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="2">AI / APPLICATION</text>
+      <path d="M150 190h1300" stroke="#dbe1e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <g transform="translate(-144 -85) scale(1.18)"><rect x="390" y="325" width="155" height="210" rx="14" fill="white" stroke="#18222d" stroke-width="3"/>
+    <rect x="415" y="355" width="42" height="10" rx="3" fill="#a5b0be" stroke="none" stroke-width="3"/>
+    <path d="M415 405h105m-105 26h85m-85 26h105m-105 26h75" stroke="#a5b0be" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" /><rect x="426" y="369" width="155" height="210" rx="14" fill="#e5edfc" stroke="#18222d" stroke-width="3"/>
+    <rect x="451" y="399" width="42" height="10" rx="3" fill="#0553dd" stroke="none" stroke-width="3"/>
+    <path d="M451 449h105m-105 26h85m-85 26h105m-105 26h75" stroke="#a5b0be" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M615 461h96m-18-18 18 18-18 18" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="m820 306 122 71v142l-122 71-122-71V377Z" fill="#0553dd"/>
+      <path d="M765 413h110m-110 38h110m-110 38h110M782 395v114m38-114v114m38-114v114" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <circle cx="782" cy="413" r="9" fill="#0553dd" stroke="white" stroke-width="3"/><circle cx="820" cy="451" r="9" fill="#0553dd" stroke="white" stroke-width="3"/><circle cx="858" cy="489" r="9" fill="#0553dd" stroke="white" stroke-width="3"/>
+      <path d="M977 461h92m-18-18 18 18-18 18" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M1112 364h146a18 18 0 0 1 18 18v150a18 18 0 0 1-18 18h-100l-46 39v-39a18 18 0 0 1-18-18V382a18 18 0 0 1 18-18Z" fill="white" stroke="#18222d" stroke-width="3"/>
+      <path d="M1122 410h121m-121 31h98m-98 31h111m-111 31h78" stroke="#a5b0be" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M500 650h660" stroke="#a5b0be" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <text x="820" y="711" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="21" text-anchor="middle" letter-spacing="2">DATA  /  PROMPT  /  RESPONSE</text></g>
+      <text x="1450" y="885" fill="#a5b0be" font-family="Arial,Helvetica,sans-serif" font-size="21" text-anchor="end" letter-spacing="2">YottaByte / CASE</text>
+  </svg>

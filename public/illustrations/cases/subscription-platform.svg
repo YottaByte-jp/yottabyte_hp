@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none">
+    <title>Subscription platform illustration</title><rect width="1600" height="1000" fill="#f1f4f7"/>
+    <text x="150" y="155" fill="#0553dd" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="3">01</text>
+      <text x="215" y="155" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="2">PLATFORM / BILLING</text>
+      <path d="M150 190h1300" stroke="#dbe1e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <g transform="translate(-144 -85) scale(1.18)"><path d="M460 305C550 190 1010 185 1120 345" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="m1100 327 22 21 5-30" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <rect x="430" y="325" width="430" height="285" rx="14" fill="white" stroke="#18222d" stroke-width="3"/>
+      <path d="M430 375h430" stroke="#18222d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <circle cx="454" cy="350" r="4" fill="#a5b0be" stroke="none" stroke-width="3"/><circle cx="472" cy="350" r="4" fill="#a5b0be" stroke="none" stroke-width="3"/><circle cx="490" cy="350" r="4" fill="#a5b0be" stroke="none" stroke-width="3"/>
+      <rect x="462" y="408" width="104" height="168" rx="6" fill="#f1f4f7" stroke="none" stroke-width="3"/>
+      <path d="M602 435h180m-180 30h138m-138 30h164" stroke="#a5b0be" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <rect x="603" y="529" width="130" height="32" rx="6" fill="#0553dd" stroke="none" stroke-width="3"/>
+      <rect x="822" y="426" width="320" height="205" rx="18" fill="#0553dd" stroke="#0553dd" stroke-width="3"/>
+      <rect x="850" y="466" width="54" height="42" rx="7" fill="white" stroke="none" stroke-width="3"/>
+      <path d="M851 554h80m28 0h43m26 0h57" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M1088 665C965 782 593 771 480 645" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="m481 672-4-30 30 2" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <circle cx="699" cy="725" r="16" fill="white" stroke="#a5b0be" stroke-width="3"/><path d="M672 777v-8c0-27 54-27 54 0v8" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" /><circle cx="800" cy="725" r="16" fill="white" stroke="#a5b0be" stroke-width="3"/><path d="M773 777v-8c0-27 54-27 54 0v8" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" /><circle cx="901" cy="725" r="16" fill="white" stroke="#a5b0be" stroke-width="3"/><path d="M874 777v-8c0-27 54-27 54 0v8" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" /></g>
+      <text x="1450" y="885" fill="#a5b0be" font-family="Arial,Helvetica,sans-serif" font-size="21" text-anchor="end" letter-spacing="2">YottaByte / CASE</text>
+  </svg>

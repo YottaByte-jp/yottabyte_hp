@@ -1,0 +1,10 @@
+Use case: precise-object-edit.
+Asset type: photographic image in the existing COMPANY introduction section on the homepage of a Japanese IT company. It is a conceptual office image, not a documentary photograph of the company's actual premises.
+
+Input image 1 is the edit target. Preserve its viewpoint, furniture, room geometry, gray sofa, pale wood coffee table, rug, plants, ceiling, lighting fixtures and glass-partitioned meeting room. Keep the same photographic style, landscape aspect ratio, natural material detail and calm, clean office atmosphere.
+
+Primary change: replace the cityscape visible through every exterior window with a believable beautiful Shonan / Hayama / Zushi coastal view. Show clear blue Sagami Bay, a visible coastline, low green coastal hills and soft blue sky. Remove the high-rise buildings. Make the sea clearly visible in the window behind the glass meeting room as well as the side windows. Keep the interior glass partitions and their structural frames in place; do not confuse them with exterior walls. The seaside setting must be readable even when the image is cropped to the central portion.
+
+Lighting: bright, soft natural coastal daylight, realistic exposure inside and outside, restrained natural colors. The ocean is visible rather than overexposed. Subtle physically plausible reflections are welcome.
+
+Constraints: no people, human reflections or silhouettes; no coding scene or code screens; no logos, added text, captions or watermarks; no new furniture, no redesign of the room, no tropical resort, no luxury hotel atmosphere, no sci-fi elements. Only change the outdoor environment and the small lighting/reflection adjustments needed for realism. Output the edited photograph at the highest available native resolution, without a webpage frame or UI.

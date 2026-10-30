@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" fill="none">
+    <title>Business data synchronization and visualization illustration: conceptual technology connections</title><rect width="1600" height="760" fill="#f1f4f7"/>
+    <text x="130" y="157" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="26" letter-spacing="2">DATA / VISUALIZATION</text>
+      <path d="M130 195h1340" stroke="#dbe1e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" /><rect x="130" y="280" width="275" height="205" rx="16" fill="white" stroke="#18222d" stroke-width="3"/>
+        <text x="155" y="322" fill="#a5b0be" font-family="Arial,Helvetica,sans-serif" font-size="20" letter-spacing="2">01</text>
+        <text x="267.5" y="385" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="28" text-anchor="middle" font-weight="700">kintone</text>
+        <text x="267.5" y="430" fill="#586574" font-family="Arial,Helvetica,sans-serif" font-size="19" text-anchor="middle">Operational data</text>
+        <path d="M423 382h43m-13-12 13 12-13 12" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" /><rect x="485" y="280" width="275" height="205" rx="16" fill="#0553dd" stroke="#0553dd" stroke-width="3"/>
+        <text x="510" y="322" fill="#c8d9ff" font-family="Arial,Helvetica,sans-serif" font-size="20" letter-spacing="2">02</text>
+        <text x="622.5" y="385" fill="white" font-family="Arial,Helvetica,sans-serif" font-size="28" text-anchor="middle" font-weight="700">DATA SYNC</text>
+        <text x="622.5" y="430" fill="#dce7ff" font-family="Arial,Helvetica,sans-serif" font-size="19" text-anchor="middle">Extract / Transform</text>
+        <path d="M778 382h43m-13-12 13 12-13 12" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" /><rect x="840" y="280" width="275" height="205" rx="16" fill="white" stroke="#18222d" stroke-width="3"/>
+        <text x="865" y="322" fill="#a5b0be" font-family="Arial,Helvetica,sans-serif" font-size="20" letter-spacing="2">03</text>
+        <text x="977.5" y="385" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="28" text-anchor="middle" font-weight="700">BIGQUERY</text>
+        <text x="977.5" y="430" fill="#586574" font-family="Arial,Helvetica,sans-serif" font-size="19" text-anchor="middle">Analytical data</text>
+        <path d="M1133 382h43m-13-12 13 12-13 12" stroke="#a5b0be" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" /><rect x="1195" y="280" width="275" height="205" rx="16" fill="white" stroke="#18222d" stroke-width="3"/>
+        <text x="1220" y="322" fill="#a5b0be" font-family="Arial,Helvetica,sans-serif" font-size="20" letter-spacing="2">04</text>
+        <text x="1332.5" y="385" fill="#18222d" font-family="Arial,Helvetica,sans-serif" font-size="28" text-anchor="middle" font-weight="700">LOOKER STUDIO</text>
+        <text x="1332.5" y="430" fill="#586574" font-family="Arial,Helvetica,sans-serif" font-size="19" text-anchor="middle">Reporting</text>
+
+      <text x="130" y="608" fill="#657383" font-family="Arial,Helvetica,sans-serif" font-size="21" letter-spacing="2">CONCEPTUAL CONNECTIONS / TECHNOLOGY &amp; SCOPE</text>
+  </svg>
