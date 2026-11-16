@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { HomePage, RouteContent } from '@/app/_components/CorporatePages';
 import { routePaths } from '@/app/_data/site';
-import { getPageSeo } from '@/app/_lib/seo';
+import { getPageSeo, siteName } from '@/app/_lib/seo';
 export const dynamicParams = false;
 export function generateStaticParams() {
   return routePaths.map((path) => ({ slug: path.slice(1).split('/') }));
@@ -25,7 +25,7 @@ export async function generateMetadata({
       url: `https://yottabyte.jp/${path}/`,
       type: 'website',
       locale: 'ja_JP',
-      siteName: 'YottaByte',
+      siteName,
       images: [{ url: '/yottabyte_logo.png', width: 1254, height: 1254, alt: 'YottaByte' }],
     },
     ...(['navigation', '404', 'contact-thanks'].includes(path)

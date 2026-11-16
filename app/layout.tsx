@@ -5,7 +5,7 @@ import { SiteFooter } from '@/app/_components/SiteFooter';
 import { SiteHeader } from '@/app/_components/SiteHeader';
 import { RevealController } from '@/app/_components/Interactions';
 import { GoogleAnalytics } from '@/app/_components/GoogleAnalytics';
-import { siteDescription, siteTitle } from '@/app/_lib/seo';
+import { siteDescription, siteName, siteTitle } from '@/app/_lib/seo';
 import './globals.css';
 
 const notoSansJp = Noto_Sans_JP({
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ja_JP',
     url: 'https://yottabyte.jp',
-    siteName: 'YottaByte',
+    siteName,
     title: siteTitle,
     description: siteDescription,
     images: [
