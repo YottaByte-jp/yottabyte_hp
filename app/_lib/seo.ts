@@ -1,5 +1,6 @@
 import { cases, company, news, newsCategories, services } from '@/app/_data/site';
 
+export const siteName = company.name;
 export const siteTitle = '葉山・湘南のシステム開発・AI活用 | 合同会社YottaByte';
 export const siteDescription =
   '葉山・湘南を拠点とするIT企業、合同会社YottaByte。Webシステム開発、kintone・APIによる業務改善・自動化、生成AI・LLM活用を、構想の整理から設計・実装・運用まで支援します。全国からご相談・ご依頼を承ります。';
@@ -100,4 +101,15 @@ export const organizationData = {
     'kintone',
     'API連携',
   ],
+};
+
+export const websiteData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://yottabyte.jp/#website',
+  name: siteName,
+  alternateName: ['YottaByte', 'YottaByte LLC'],
+  url: 'https://yottabyte.jp/',
+  publisher: { '@id': organizationData['@id'] },
+  inLanguage: 'ja',
 };
