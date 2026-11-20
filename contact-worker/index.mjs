@@ -1,9 +1,7 @@
-const topics = new Set([
-  'システム開発・業務改善について',
-  'AI・技術設計について',
-  '協業について',
-  'その他',
-]);
+import contactTopics from '../shared/contact-topics.json' with { type: 'json' };
+
+// Keep accepting cached pages while the worker and static site roll out separately.
+const topics = new Set([...contactTopics.current, ...contactTopics.legacy]);
 const recipient = 'contact@yottabyte.jp';
 const maxBytes = 20000;
 

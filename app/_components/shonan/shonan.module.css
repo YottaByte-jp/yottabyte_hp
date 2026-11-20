@@ -1,3 +1,5 @@
+@import './fontFallback.css';
+
 .page {
   --ink: #1a1a1a;
   --sky: #eefbff;
@@ -23,7 +25,7 @@
   background: white;
 }
 :global(html):has(.page) {
-  scroll-padding-top: 100px;
+  scroll-padding-top: calc(max(68px, 6.475vw) + 20px);
 }
 :global(html):has(.page[data-business-motion='waiting']) {
   scroll-behavior: auto;
@@ -44,8 +46,8 @@
   outline: 3px solid #155996;
   outline-offset: 5px;
 }
-.page :is(section[id]) {
-  scroll-margin-top: 100px;
+.page :is(section[id], form[id]) {
+  scroll-margin-top: 0;
 }
 .page button {
   color: inherit;
@@ -822,7 +824,6 @@ a:is(:hover, :focus-visible) .menuCardPerson > svg:last-child {
 }
 .boards {
   display: grid;
-  scroll-margin-top: 100px;
   grid-template-columns: 1fr 1fr;
   margin-top: 6.5vw;
   perspective: 1800px;
@@ -1367,7 +1368,7 @@ a:is(:hover, :focus-visible) .menuCardPerson > svg:last-child {
   isolation: isolate;
   z-index: 0;
   margin-top: -14vw;
-  padding-top: 24vw;
+  padding-top: 23vw;
   background: var(--sky);
   min-height: 75vw;
   padding-bottom: 2vw;
@@ -1416,16 +1417,28 @@ a:is(:hover, :focus-visible) .menuCardPerson > svg:last-child {
 }
 .footerBrand {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5vw;
-  font-size: 1.65vw;
+  gap: 0.8vw;
+  font-size: 1.4vw;
   font-weight: 900;
   line-height: 1.4;
 }
-.footerBrand img {
-  width: 3vw;
-  height: 3vw;
-  object-fit: contain;
+.footerMark {
+  position: relative;
+  display: block;
+  width: 5vw;
+  aspect-ratio: 283 / 244;
+  overflow: hidden;
+}
+.footerMark img {
+  /* Remove the existing logo's transparent canvas padding without changing the artwork. */
+  position: absolute;
+  width: 176.68%;
+  max-width: none;
+  height: auto;
+  left: -43.11%;
+  top: -49.18%;
 }
 .footerDetails {
   display: grid;
@@ -1433,6 +1446,7 @@ a:is(:hover, :focus-visible) .menuCardPerson > svg:last-child {
   align-items: start;
   gap: 0;
   margin-top: 3vw;
+  min-height: 8.5vw;
 }
 .footerDetails address {
   padding-right: 1vw;
@@ -1522,7 +1536,7 @@ a:is(:hover, :focus-visible) .menuCardPerson > svg:last-child {
   line-height: 0.85;
   letter-spacing: -0.02em;
   text-align: left;
-  margin: 5.5vw 1.85vw 0;
+  margin: 7vw 1.85vw 0;
   pointer-events: none;
 }
 .footerStatement > span {
@@ -1784,10 +1798,7 @@ a:is(:hover, :focus-visible) .menuCardPerson > svg:last-child {
     font-size: 3.5vw;
   }
   :global(html):has(.page) {
-    scroll-padding-top: 75px;
-  }
-  .page :is(section[id]) {
-    scroll-margin-top: 75px;
+    scroll-padding-top: 70px;
   }
   .header {
     height: 60px;
@@ -1796,6 +1807,14 @@ a:is(:hover, :focus-visible) .menuCardPerson > svg:last-child {
   }
   .brand {
     gap: 1vw;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+  }
+  .page[data-scrolled='true'] .header > .brand {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
   .brand img {
     width: 34px;
@@ -2323,7 +2342,7 @@ a:is(:hover, :focus-visible) .menuCardPerson > svg:last-child {
     margin-top: -20vw;
     padding-top: 48vw;
     min-height: 190vw;
-    padding-bottom: 18vw;
+    padding-bottom: 6.5vw;
   }
   .footerTownRight {
     width: 55vw;
@@ -2354,19 +2373,19 @@ a:is(:hover, :focus-visible) .menuCardPerson > svg:last-child {
     margin-left: 6vw;
   }
   .footerBrand {
-    font-size: 4.4vw;
-    gap: 1vw;
+    font-size: 3.8vw;
+    gap: 3vw;
   }
-  .footerBrand img {
-    width: 7vw;
-    height: 7vw;
+  .footerMark {
+    width: 15vw;
   }
   .footerDetails {
     display: block;
     margin-top: 7vw;
+    min-height: 0;
   }
   .footerDetails address {
-    width: 42vw;
+    width: 52vw;
     padding: 0;
     font-size: 3.1vw;
     line-height: 1.9;
@@ -2409,7 +2428,7 @@ a:is(:hover, :focus-visible) .menuCardPerson > svg:last-child {
   }
   .footerStatement {
     font-size: 9.7vw;
-    margin: 14vw 1.85vw 0;
+    margin: 20vw 1.85vw 0;
   }
   .footerBottom {
     font-size: 2.5vw;

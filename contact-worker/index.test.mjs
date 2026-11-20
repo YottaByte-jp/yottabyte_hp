@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { handleRequest } from './index.mjs';
+import contactTopics from '../shared/contact-topics.json' with { type: 'json' };
 
 const valid = {
   topic: 'その他',
@@ -31,6 +32,30 @@ function request(body = valid, origin = 'https://yottabyte.jp', method = 'POST')
 const neverSend = async () => {
   throw new Error('Must not call Resend');
 };
+test('all displayed service topics reach the notification with their selected name', async () => {
+  for (const topic of contactTopics.current) {
+    let notification;
+    const response = await handleRequest(
+      request({ ...valid, topic }),
+      env,
+      async (_url, options) => {
+        notification = JSON.parse(options.body);
+        return Response.json({ id: 'mock-service-topic-id' });
+      },
+    );
+    assert.equal(response.status, 200, topic);
+    assert.equal(notification.subject, `【YottaByte】${topic}`);
+    assert.ok(notification.text.includes(`ご相談内容：${topic}`));
+  }
+});
+test('cached forms with the previous topics remain accepted', async () => {
+  for (const topic of contactTopics.legacy) {
+    const response = await handleRequest(request({ ...valid, topic }), env, async () =>
+      Response.json({ id: 'mock-legacy-topic-id' }),
+    );
+    assert.equal(response.status, 200, topic);
+  }
+});
 test('only the corporate or explicitly configured Resend test sender is allowed', async () => {
   const denied = await handleRequest(
     request(),

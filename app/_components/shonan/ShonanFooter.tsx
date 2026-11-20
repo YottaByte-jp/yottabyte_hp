@@ -18,8 +18,10 @@ export function ShonanFooter() {
       </div>
       <div className={styles.footerContent} data-footer-content>
         <Link href="/" className={styles.footerBrand}>
-          <Image src="/yottabyte_logo-removebg-preview.png" alt="" width={34} height={34} />
-          {company.name}
+          <span className={styles.footerMark} aria-hidden="true">
+            <Image src="/yottabyte_logo-removebg-preview.png" alt="" width={500} height={500} />
+          </span>
+          <span>{company.name}</span>
         </Link>
         <div className={styles.footerDetails}>
           <address>

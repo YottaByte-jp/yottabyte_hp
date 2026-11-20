@@ -164,13 +164,15 @@ export function Lead({
   title,
   children,
   picture = 'development',
+  className = '',
 }: {
   title: string;
   children: ReactNode;
   picture?: 'development' | 'website' | 'coast' | 'mobile';
+  className?: string;
 }) {
   return (
-    <section className={styles.lead} data-inner-section>
+    <section className={`${styles.lead} ${className}`} data-inner-section>
       <div className={styles.leadCopy}>
         <h2 data-inner-frame>
           {title.split('\n').map((line, i) => (

@@ -18,7 +18,7 @@ const jp = localFont({
   ],
   display: 'swap',
   variable: '--font-zen',
-  fallback: ['Noto Sans JP', 'sans-serif'],
+  fallback: ['YottaByte Zen Full', 'Noto Sans JP', 'sans-serif'],
 });
 const english = localFont({
   src: '../../../public/fonts/shonan-reference/InstrumentSans-Variable.woff2',
