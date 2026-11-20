@@ -1,4 +1,5 @@
 import { cases, company, news, newsCategories, services } from '@/app/_data/site';
+import { innerPageInfo, innerServices } from '@/app/_components/shonan/innerContent';
 
 export const siteName = company.name;
 export const siteTitle = '葉山・湘南のシステム開発・AI活用 | 合同会社YottaByte';
@@ -55,6 +56,15 @@ const pages: Record<string, { title: string; description: string }> = {
 
 export function getPageSeo(path: string) {
   if (pages[path]) return pages[path];
+  const service = innerServices.find((item) => path === `service/${item.id}`);
+  if (service) return { title: service.title, description: service.description };
+  if (['features', 'solutions', 'partner'].includes(path)) {
+    const info = innerPageInfo(path);
+    return {
+      title: info.jp,
+      description: `合同会社YottaByteの${info.jp}。葉山・湘南を拠点に、システム・AI開発、モバイルアプリ開発、HP制作を支援します。`,
+    };
+  }
   if (path.startsWith('case/category/')) {
     const service = services.find((item) => item.id === path.split('/')[2]);
     return {

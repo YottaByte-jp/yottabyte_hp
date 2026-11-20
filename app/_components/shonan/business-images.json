@@ -1,0 +1,30 @@
+{
+  "development-empty": {
+    "width": 1536,
+    "height": 1200
+  },
+  "automation-empty": {
+    "width": 1536,
+    "height": 1200
+  },
+  "dev-discussion": {
+    "width": 460,
+    "height": 359
+  },
+  "dev-coding": {
+    "width": 359,
+    "height": 302
+  },
+  "automation-colleagues": {
+    "width": 419,
+    "height": 308
+  },
+  "automation-instructor": {
+    "width": 194,
+    "height": 402
+  },
+  "automation-analyst": {
+    "width": 145,
+    "height": 390
+  }
+}

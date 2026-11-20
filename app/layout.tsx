@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Lato, Noto_Sans_JP } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { SiteFooter } from '@/app/_components/SiteFooter';
-import { SiteHeader } from '@/app/_components/SiteHeader';
-import { RevealController } from '@/app/_components/Interactions';
 import { GoogleAnalytics } from '@/app/_components/GoogleAnalytics';
 import { siteDescription, siteName, siteTitle } from '@/app/_lib/seo';
 import './globals.css';
@@ -70,10 +67,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <a className="skip-link" href="#main-content">
           本文へ移動
         </a>
-        <SiteHeader />
-        <RevealController />
         {children}
-        <SiteFooter />
         <GoogleAnalytics />
       </body>
     </html>

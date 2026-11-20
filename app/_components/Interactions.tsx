@@ -49,7 +49,16 @@ export function FAQ() {
     </div>
   );
 }
-export function ContactForm() {
+export function ContactForm({
+  successHref = '/contact-thanks/',
+  privacyHref = '/privacypolicy/',
+}: { successHref?: string; privacyHref?: string } = {}) {
+  const topics = [
+    'システム開発・業務改善について',
+    'AI・技術設計について',
+    '協業について',
+    'その他',
+  ];
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -98,7 +107,7 @@ export function ContactForm() {
         return;
       }
       trackContactSubmission();
-      router.push('/contact-thanks/');
+      router.push(successHref);
     } catch {
       setError('送信結果を確認できませんでした。入力内容を変えずに再度お試しください。');
     } finally {
@@ -116,17 +125,17 @@ export function ContactForm() {
         <legend>
           お問い合わせ内容 <span className="required">*</span>
         </legend>
-        {['システム開発・業務改善について', 'AI・技術設計について', '協業について', 'その他'].map(
-          (topic, i) => (
-            <label key={topic}>
-              <input name="topic" value={topic} type="radio" required defaultChecked={i === 0} />
-              {topic}
-            </label>
-          ),
-        )}
+        {topics.map((topic, i) => (
+          <label key={topic}>
+            <input name="topic" value={topic} type="radio" required defaultChecked={i === 0} />
+            {topic}
+          </label>
+        ))}
       </fieldset>
       <label className="form-field">
-        法人名・団体名 <span className="required">*</span>
+        <span className="form-label">
+          法人名・団体名 <span className="required">*</span>
+        </span>
         <input
           name="organization"
           placeholder="例）株式会社サンプル"
@@ -136,11 +145,15 @@ export function ContactForm() {
         />
       </label>
       <label className="form-field">
-        お名前 <span className="required">*</span>
+        <span className="form-label">
+          お名前 <span className="required">*</span>
+        </span>
         <input name="name" placeholder="例）山田太郎" required autoComplete="name" maxLength={80} />
       </label>
       <label className="form-field">
-        ご連絡先メールアドレス <span className="required">*</span>
+        <span className="form-label">
+          ご連絡先メールアドレス <span className="required">*</span>
+        </span>
         <input
           name="email"
           type="email"
@@ -151,7 +164,7 @@ export function ContactForm() {
         />
       </label>
       <label className="form-field">
-        ご連絡先電話番号
+        <span className="form-label">ご連絡先電話番号</span>
         <input
           name="phone"
           type="tel"
@@ -161,7 +174,9 @@ export function ContactForm() {
         />
       </label>
       <label className="form-field">
-        お問い合わせ詳細 <span className="required">*</span>
+        <span className="form-label">
+          お問い合わせ詳細 <span className="required">*</span>
+        </span>
         <textarea
           name="message"
           placeholder="ご相談内容をご記入ください"
@@ -172,7 +187,7 @@ export function ContactForm() {
       <label className="form-consent">
         <input type="checkbox" name="consent" required />
         <span>
-          <a href="/privacypolicy/" target="_blank" rel="noopener noreferrer">
+          <a href={privacyHref} target="_blank" rel="noopener noreferrer">
             個人情報の取り扱い
           </a>
           を確認し、同意しました
