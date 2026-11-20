@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { createFooterScrollReveal } from './footerMotion';
 
 // All scroll scenes share one lifecycle so pause, resize and navigation restore
 // the same complete composition. Hero and business illustration timelines own
@@ -289,7 +290,7 @@ export function useScrollScenes(reduced: boolean, paused: boolean) {
         }
 
         if (footer) {
-          const t = scene(footer, 'footer', 'top 50%');
+          const t = scene(root.querySelector('main') ?? footer, 'footer', 'bottom 60%');
           t.fromTo(
             footer.querySelector('[data-footer-content]'),
             { y: 20, autoAlpha: 0 },
@@ -375,22 +376,8 @@ export function useScrollScenes(reduced: boolean, paused: boolean) {
                 scrollTrigger: { trigger: story, start: 'top bottom', end: 'top top', scrub: true },
               },
             );
-          if (footer)
-            gsap.fromTo(
-              footer,
-              { yPercent: -35 },
-              {
-                yPercent: 0,
-                ease: 'none',
-                scrollTrigger: {
-                  trigger: footer,
-                  start: 'top bottom',
-                  end: 'bottom bottom',
-                  scrub: true,
-                },
-              },
-            );
         });
+        createFooterScrollReveal(root);
         root.dataset.scrollMotion = 'ready';
       }, root);
       ScrollTrigger.refresh();

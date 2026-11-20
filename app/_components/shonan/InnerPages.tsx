@@ -282,6 +282,14 @@ function ServiceDetail({ service }: { service: InnerService }) {
 function Solutions() {
   return (
     <>
+      <Lead title={'つくる、つなぐ、\n使い続ける。'} className={styles.solutionsLead}>
+        <p>
+          システムやアプリの開発から、日々の業務改善、情報発信まで。
+          <br />
+          課題に合わせて、必要な技術を組み合わせます。
+        </p>
+        <p>今ある仕組みを生かしながら、使う人と仕事に合うかたちを一緒に考えます。</p>
+      </Lead>
       <nav className={styles.toc} aria-label="支援領域の目次" data-inner-section>
         {supportAreas.map((area, i) => (
           <Link href={`#${area.id}`} key={area.id} data-inner-part>
@@ -701,7 +709,7 @@ function Contact() {
           <p className={styles.wideIntro} data-inner-copy>
             必要事項をご入力のうえ、送信してください。
             <br />
-            アプリ開発・HP制作のご相談は「その他」を選び、詳しい内容をご記入ください。
+            ご相談に近い項目を選び、詳しい内容をご記入ください。
             <br />
             「*」は必須項目です。
           </p>

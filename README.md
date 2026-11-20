@@ -63,6 +63,8 @@ npm run build
 
 送信処理は`contact-worker/index.mjs`、設定は`contact-worker/wrangler.jsonc`です。Resendがメールを受け付けた応答を確認した場合だけ、フォームが`/contact-thanks/`へ遷移します。失敗・応答不明の場合は入力内容を保持します。
 
+フォームと受信APIの相談項目は`shared/contact-topics.json`で共通管理します。相談項目を追加したリリースでは、Workerを先に更新してからGitHub Pagesを公開してください。Workerは旧項目も受け付けるため、キャッシュに残った以前のフォームも送信できます。
+
 ビルド時に`NEXT_PUBLIC_CONTACT_ENDPOINT`を設定してください。ローカル開発には`.env.example`を参考に`.env.local`を作成します。GitHub Pagesのビルドには公開URLを設定済みです。`RESEND_API_KEY`はWorkerのシークレットとして保管し、フロントエンド、Git、公開ビルドに含めません。
 
 ```sh

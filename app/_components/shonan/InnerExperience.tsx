@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { SiteNavigation, MobileNavigation } from './SiteNavigation';
 import shared from './shonan.module.css';
 import styles from './inner.module.css';
+import { createFooterScrollReveal } from './footerMotion';
 
 function subscribeMotion(callback: () => void) {
   const media = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -199,8 +200,8 @@ export function InnerExperience({
         if (footerElement) {
           const timeline = gsap.timeline({
             scrollTrigger: {
-              trigger: footerElement,
-              start: 'top 90%',
+              trigger: element.querySelector('main'),
+              start: 'bottom 60%',
               toggleActions: 'play none none reverse',
             },
           });
@@ -224,6 +225,7 @@ export function InnerExperience({
               0.1,
             );
         }
+        createFooterScrollReveal(element);
         element.dataset.innerMotion = 'playing';
         ScrollTrigger.refresh();
       }, element);

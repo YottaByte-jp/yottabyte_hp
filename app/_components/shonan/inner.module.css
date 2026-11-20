@@ -1998,6 +1998,23 @@
     margin-top: 15px;
     overflow: hidden;
   }
+  .solutionsLead .leadCopy {
+    width: 65%;
+  }
+  .solutionsLead .leadCopy h2 {
+    font-size: clamp(20px, 5.35vw, 32px);
+  }
+  .solutionsLead .leadCopy p {
+    font-size: clamp(13px, 3.5vw, 17px);
+  }
+  .site .solutionsLead .leadArt[data-inner-image] {
+    position: absolute;
+    right: -11vw;
+    top: 19vw;
+    width: 48vw;
+    height: 42vw;
+    margin-top: 0;
+  }
   .leadArt .leadTown {
     top: 0;
     right: -9vw;

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { faqs, company } from '@/app/_data/site';
 import { trackContactSubmission } from '@/app/_lib/analytics';
+import contactTopics from '@/shared/contact-topics.json';
 import type { FormEvent } from 'react';
 export function RevealController() {
   const pathname = usePathname();
@@ -53,12 +54,7 @@ export function ContactForm({
   successHref = '/contact-thanks/',
   privacyHref = '/privacypolicy/',
 }: { successHref?: string; privacyHref?: string } = {}) {
-  const topics = [
-    'システム開発・業務改善について',
-    'AI・技術設計について',
-    '協業について',
-    'その他',
-  ];
+  const topics = contactTopics.current;
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
