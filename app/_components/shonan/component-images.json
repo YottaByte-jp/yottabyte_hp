@@ -1,0 +1,34 @@
+{
+  "development-studio": {
+    "width": 1473,
+    "height": 1011
+  },
+  "coastal-shop": {
+    "width": 1151,
+    "height": 1220
+  },
+  "it-campus": {
+    "width": 1360,
+    "height": 1043
+  },
+  "ai-learning-studio": {
+    "width": 1248,
+    "height": 1004
+  },
+  "people-bench": {
+    "width": 510,
+    "height": 468
+  },
+  "people-tablet": {
+    "width": 425,
+    "height": 493
+  },
+  "people-family": {
+    "width": 409,
+    "height": 479
+  },
+  "people-surfer": {
+    "width": 375,
+    "height": 487
+  }
+}

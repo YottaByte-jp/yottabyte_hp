@@ -85,6 +85,22 @@ export const services = [
   },
 ];
 
+export const websiteService = {
+  id: 'website',
+  en: 'WEBSITE DESIGN',
+  title: 'HP制作',
+  image: '/illustrations/service-website.svg',
+  description:
+    '伝えたい魅力や情報を整理し、事業に合うホームページを制作します。構成・デザインから実装、スマートフォン対応、公開後の改善まで、目的に合わせて一緒に考えます。',
+  items: [
+    'サイトの目的・掲載情報の整理',
+    'ページ構成・デザインの制作',
+    'スマートフォンに対応した実装',
+    'お問い合わせにつながる導線の設計',
+    '公開後の更新・改善のご相談',
+  ],
+};
+
 export const cases = caseStudies;
 
 export const newsCategories = [{ id: 'news', label: 'お知らせ' }];

@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { HomePage, RouteContent } from '@/app/_components/CorporatePages';
-import { routePaths } from '@/app/_data/site';
+import ShonanHome from '@/app/_components/shonan/ShonanHome';
+import { InnerExperience } from '@/app/_components/shonan/InnerExperience';
+import { InnerPages } from '@/app/_components/shonan/InnerPages';
+import { ShonanFooter } from '@/app/_components/shonan/ShonanFooter';
+import { innerPaths } from '@/app/_components/shonan/innerContent';
+import { shonanFonts } from '@/app/_components/shonan/typography';
 import { getPageSeo, siteName } from '@/app/_lib/seo';
+const paths = [...innerPaths, 'navigation'];
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return routePaths.map((path) => ({ slug: path.slice(1).split('/') }));
+  return paths.map((path) => ({ slug: path.split('/') }));
 }
 export async function generateMetadata({
   params,
@@ -36,11 +41,11 @@ export async function generateMetadata({
 export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
   const path = slug.join('/');
-  if (!routePaths.includes(`/${path}`)) notFound();
-  if (path === 'navigation') return <HomePage />;
+  if (!paths.includes(path)) notFound();
+  if (path === 'navigation') return <ShonanHome />;
   return (
-    <main id="main-content" className="inner-page">
-      <RouteContent path={path} />
-    </main>
+    <InnerExperience key={path} fontClass={shonanFonts} footer={<ShonanFooter />}>
+      <InnerPages path={path} />
+    </InnerExperience>
   );
 }

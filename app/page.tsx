@@ -1,4 +1,4 @@
-import { HomePage } from '@/app/_components/CorporatePages';
+import ShonanHome from '@/app/_components/shonan/ShonanHome';
 import { organizationData, websiteData } from '@/app/_lib/seo';
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
           __html: JSON.stringify(websiteData).replace(/</g, '\\u003c'),
         }}
       />
-      <HomePage />
+      <ShonanHome />
     </>
   );
 }
