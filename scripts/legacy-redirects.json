@@ -1,0 +1,13 @@
+{
+  "/news/company-information/": "/company/",
+  "/news/contact-guide/": "/contact/",
+  "/news/system-development/": "/service/development/",
+  "/news/automation-support/": "/service/automation/",
+  "/news/ai-solutions/": "/service/ai/",
+  "/news/category/company/": "/company/",
+  "/news/category/service/": "/service/",
+  "/case/web-development/": "/service/development/",
+  "/case/business-automation/": "/service/automation/",
+  "/case/ai-integration/": "/service/ai/",
+  "/case/technical-planning/": "/service/development/"
+}

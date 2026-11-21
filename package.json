@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build --webpack",
+    "postbuild": "node scripts/generate-legacy-redirects.mjs",
     "start": "next start",
     "lint": "eslint .",
     "format": "prettier --write --ignore-path .gitignore './**/*.{js,mjs,ts,tsx,json,css,md}'"

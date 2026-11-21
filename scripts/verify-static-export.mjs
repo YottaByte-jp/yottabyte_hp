@@ -66,6 +66,29 @@ assert(
   !sitemap.includes('contact-thanks') && !sitemap.includes('/404/'),
   'Private/utility sitemap entry',
 );
+const redirects = JSON.parse(
+  readFileSync(new URL('./legacy-redirects.json', import.meta.url), 'utf8'),
+);
+for (const [source, destination] of Object.entries(redirects)) {
+  const html = readFileSync(resolve(output, `.${source}index.html`), 'utf8');
+  const target = `https://yottabyte.jp${destination}`;
+  assert(
+    html.includes(`http-equiv="refresh" content="0;url=${target}"`),
+    `${source}: redirect missing`,
+  );
+  assert(
+    html.includes(`rel="canonical" href="${target}"`),
+    `${source}: redirect canonical mismatch`,
+  );
+  assert(
+    !/name="robots" content="[^"]*noindex/.test(html),
+    `${source}: redirect must remain crawlable`,
+  );
+  assert(
+    !sitemap.includes(`<loc>https://yottabyte.jp${source}</loc>`),
+    `${source}: legacy sitemap entry`,
+  );
+}
 assert.deepEqual(errors, [], errors.join('\n'));
 console.log(
   `Verified ${pages} HTML files and ${references} local references; production canonicals, indexing, site name, sitemap and new routes passed.`,
