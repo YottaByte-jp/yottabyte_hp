@@ -6,6 +6,8 @@ The current corporate pages are independently authored. Studio's public demo was
 
 Noto Sans JP and Lato are distributed under the SIL Open Font License 1.1. Copyright and license notices are included in `public/licenses/NotoSansJP-OFL.txt` and `public/licenses/Lato-OFL.txt`.
 
+The Noto Sans JP and Lato WOFF2 files in `public/fonts/corporate/` are byte-for-byte copies of the self-hosted Google Fonts files emitted by the previously successful Next.js build. `app/corporate-fonts.css` preserves the same weights, Unicode subsets, display and fallback metrics. This removes build-time Google Fonts API requests without changing the typefaces. File sizes and SHA-256 hashes are recorded in `public/fonts/corporate/manifest.json`.
+
 ## Hayama / Isshiki Beach photograph
 
 `public/images/shonan-hayama.webp` is derived from the Wikimedia Commons thumbnail of “晩秋の夕富士. 葉山一色海岸で撮影 Pcs34560 IMG9972.jpg”, photographed by Pcs34560 and released by the photographer into the public domain (PD-self). It was resized to 2400 pixels wide and encoded as WebP without changing its content. CSS adjusts the visible area. The photographer does not endorse YottaByte.
