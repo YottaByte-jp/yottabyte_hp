@@ -1,4 +1,5 @@
 import { cases, news, services, websiteService } from '@/app/_data/site';
+import { blogCategories, blogPosts } from '@/app/_data/blog';
 
 export type ServiceId = 'development' | 'website' | 'automation' | 'ai' | 'mobile';
 export type InnerService = {
@@ -164,6 +165,7 @@ export const innerPaths = [
   'solutions',
   'partner',
   'case',
+  'blog',
   'news',
   'contact',
   'contact-thanks',
@@ -172,6 +174,10 @@ export const innerPaths = [
   ...innerServices.map((s) => `service/${s.id}`),
   ...services.map((s) => `case/category/${s.id}`),
   ...cases.map((c) => `case/${c.id}`),
+  ...blogPosts.map((post) => `blog/${post.slug}`),
+  ...blogCategories
+    .filter((category) => blogPosts.some((post) => post.category === category.id))
+    .map((category) => `blog/category/${category.id}`),
   'news/category/news',
   ...news.map((n) => `news/${n.id}`),
 ];
@@ -182,6 +188,8 @@ export function innerPageInfo(path: string): { jp: string; en: string } {
     if (service) return { jp: service.title, en: service.en };
   }
   if (path.startsWith('case')) return { jp: '対応事例', en: 'WORK' };
+  if (path.startsWith('blog') || path.startsWith('preview/blog'))
+    return { jp: 'ブログ', en: 'BLOG' };
   if (path.startsWith('news')) return { jp: 'お知らせ', en: 'NEWS' };
   const pages: Record<string, { jp: string; en: string }> = {
     features: { jp: '特徴と強み', en: 'FEATURES' },

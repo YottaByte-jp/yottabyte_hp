@@ -1,5 +1,7 @@
 import { cases, company, news, newsCategories, services } from '@/app/_data/site';
 import { innerPageInfo, innerServices } from '@/app/_components/shonan/innerContent';
+import { blogCategories, blogPosts } from '@/app/_data/blog';
+import { blogPreviewPaths } from '@/app/_data/blog-preview';
 
 export const siteName = company.name;
 export const siteTitle = '葉山・湘南のシステム開発・AI活用 | 合同会社YottaByte';
@@ -32,6 +34,11 @@ const pages: Record<string, { title: string; description: string }> = {
     description:
       '葉山・湘南のIT企業、合同会社YottaByteからのお知らせ。ホームページの開設など、会社からのご案内を掲載しています。',
   },
+  blog: {
+    title: 'ブログ｜システム開発・AI活用・仕事のヒント',
+    description:
+      '合同会社YottaByteのブログ。システム開発、業務改善・自動化、AI活用、HP制作など、技術と仕事にまつわるヒントをお届けします。',
+  },
   contact: {
     title: 'お問い合わせ｜システム開発・AI活用のご相談',
     description:
@@ -56,6 +63,22 @@ const pages: Record<string, { title: string; description: string }> = {
 
 export function getPageSeo(path: string) {
   if (pages[path]) return pages[path];
+  if (blogPreviewPaths.includes(path))
+    return {
+      title: 'ブログのデザインプレビュー',
+      description: '公開記事には含まれないデザイン確認用のページです。',
+    };
+  if (path.startsWith('blog/category/')) {
+    const category = blogCategories.find((item) => item.id === path.split('/')[2]);
+    return {
+      title: `${category?.label ?? 'ブログ'}の記事一覧`,
+      description: `合同会社YottaByteの${category?.label ?? '技術と仕事'}に関する記事をご紹介します。`,
+    };
+  }
+  if (path.startsWith('blog/')) {
+    const post = blogPosts.find((item) => item.slug === path.split('/')[1]);
+    return post ? { title: post.title, description: post.description } : pages.blog;
+  }
   const service = innerServices.find((item) => path === `service/${item.id}`);
   if (service) return { title: service.title, description: service.description };
   if (['features', 'solutions', 'partner'].includes(path)) {

@@ -36,6 +36,7 @@ export function ShonanFooter() {
             <Link href="/features/">特徴と強み</Link>
             <Link href="/solutions/">支援領域</Link>
             <Link href="/case/">対応事例</Link>
+            <Link href="/blog/">ブログ</Link>
             <Link href="/company/">会社情報</Link>
             <Link href="/news/">お知らせ</Link>
           </nav>
