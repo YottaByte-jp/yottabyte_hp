@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-vWTve+i38vXj+HT1mZADf4K93OtieW4EJeBGU8AQq/8='; style-src 'unsafe-inline'; connect-src 'none'; form-action 'none'; base-uri 'none'; object-src 'none'" />
+    <title>Museへの接続準備 | 合同会社YottaByte</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 40px 20px; color: #202321; background: #f8f6ed; font: 16px/1.8 system-ui, sans-serif; }
+      main { max-width: 640px; margin: auto; }
+      h1 { font-size: 28px; line-height: 1.5; }
+      label { display: block; margin-top: 24px; font-weight: 700; }
+      input { width: 100%; padding: 12px; border: 1px solid #789481; border-radius: 8px; font: inherit; }
+      button { margin: 18px 8px 0 0; padding: 12px 18px; border: 1px solid #385b46; border-radius: 8px; color: #fff; background: #385b46; font: inherit; cursor: pointer; }
+      button:disabled { opacity: .5; cursor: default; }
+      .note { padding: 16px; background: #e2eee4; border-radius: 8px; }
+      small { display: block; color: #505e55; }
+      #status { min-height: 3.6em; }
+    </style>
+  </head>
+  <body>
+    <main id="main-content">
+      <h1>Museへの接続準備</h1>
+      <p class="note">この画面は入力値をブラウザー内だけで変換します。サーバー送信・保存・アクセス解析はありません。通常のログインパスワードではなく、投稿専用ユーザーの「アプリケーションパスワード」を使用してください。</p>
+      <form id="converter" autocomplete="off">
+        <label for="username">投稿専用ユーザー名</label>
+        <input id="username" value="muse_publisher" readonly />
+        <label for="app-password">WordPressのアプリケーションパスワード</label>
+        <input id="app-password" type="password" autocomplete="off" spellcheck="false" required />
+        <small>WordPressで「Muse HP Blog」の名前で発行した値を貼り付けます。間の空白は自動で除去します。</small>
+        <button type="submit">Muse用の値を作る</button>
+      </form>
+      <label for="authorization">Museの認証欄へ登録する値</label>
+      <input id="authorization" type="password" readonly autocomplete="off" spellcheck="false" />
+      <small>この値もパスワードと同じ秘密情報です。チャットや記事には貼らず、Museの専用認証入力画面だけへ貼り付けてください。</small>
+      <button id="copy" type="button" disabled>値をコピー</button>
+      <button id="clear" type="button">この画面の値を消す</button>
+      <p id="status" role="status" aria-live="polite"></p>
+      <p>コピー後、Museで <strong>custom.yottabyte-wordpress</strong> の認証登録画面へ貼り付けます。登録完了後はこのタブを閉じてください。</p>
+    </main>
+    <script>
+      'use strict';
+      const password = document.querySelector('#app-password');
+      const authorization = document.querySelector('#authorization');
+      const copy = document.querySelector('#copy');
+      const status = document.querySelector('#status');
+      function clearValues() {
+        password.value = '';
+        authorization.value = '';
+        copy.disabled = true;
+      }
+      document.querySelector('#converter').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const secret = password.value.replace(/\s+/g, '');
+        if (!/^[a-zA-Z0-9]{24}$/.test(secret)) {
+          authorization.value = '';
+          copy.disabled = true;
+          status.textContent = '24文字のアプリケーションパスワードを確認してください。通常のログインパスワードは使いません。';
+          return;
+        }
+        authorization.value = 'Basic ' + btoa('muse_publisher:' + secret);
+        password.value = '';
+        copy.disabled = false;
+        status.textContent = '変換できました。「値をコピー」を押してMuseの専用認証欄へ貼り付けてください。';
+      });
+      copy.addEventListener('click', async () => {
+        if (!authorization.value) return;
+        try {
+          await navigator.clipboard.writeText(authorization.value);
+          status.textContent = 'コピーしました。Museの専用認証欄に貼り付けてください。';
+        } catch {
+          status.textContent = 'コピーできませんでした。ブラウザーのクリップボード許可を確認してください。';
+        }
+      });
+      document.querySelector('#clear').addEventListener('click', () => {
+        clearValues();
+        status.textContent = 'この画面の入力値を消しました。コピー済みのクリップボード内容は変更していません。';
+      });
+      window.addEventListener('pagehide', clearValues);
+    </script>
+  </body>
+</html>
