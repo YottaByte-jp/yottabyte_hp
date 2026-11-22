@@ -7,12 +7,13 @@ Muse → WordPressの「HPブログ」→ GitHub Pages → `https://yottabyte.jp
 1. CMSにYottaByte Corporate Blog **1.1.0**を導入します。既存記事・既存のGitHub接続キーは維持します。
 2. WordPressに専用ユーザー `muse_publisher` を作り、役割を **HPブログ投稿者（自動連携用）** にします。管理者アカウントは使いません。登録メールは既存ユーザーと異なる本人管理のアドレスを使用します。
 3. 本人が新ユーザーのアプリケーションパスワードを **Muse HP Blog** の名前で発行し、パスワード管理アプリへ保存します。通常ログイン用パスワードとは別です。チャット・Git・記事本文には貼りません。
-4. Museに下の設定指示を渡し、カスタムコネクターを作成します。認証欄に本人がユーザー名とアプリケーションパスワードを登録します。MuseのSecure Credentials Storeを使用します。
-5. 許可はこのコネクターと `cms.yottabyte.jp` のブログ操作に限定します。管理者設定・ユーザー管理・削除操作は不要です。
+4. 本人が `https://yottabyte.jp/integrations/wordpress-authorization.html` を開き、発行したアプリケーションパスワードを貼り付け、「Muse用の値を作る」「値をコピー」を押します。ブラウザー内だけでBasicヘッダーへ変換し、送信・保存・解析は行いません。値はパスワードと同等の秘密情報です。
+5. Museに下の設定指示を渡し、カスタムコネクターを作成します。本人が専用認証入力画面にコピーした値を登録します。チャット欄には貼りません。MuseのSecure Credentials Storeを使用します。
+6. 許可はこのコネクターと `cms.yottabyte.jp` のブログ操作に限定します。管理者設定・ユーザー管理・削除操作は不要です。
 
 仕様: `https://yottabyte.jp/integrations/muse-wordpress.openapi.json`
 
-認証はHTTPSのHTTP Basic。ユーザー名は専用ユーザー、パスワードはそのユーザーのアプリケーションパスワードです。仕様書には実際の認証情報を含めません。
+WordPressへの認証はHTTPSのHTTP Basicです。Museの独自コネクターにはBasicのユーザー名・パスワード登録フォームがないため、**api_key / custom_header:Authorization / host cms.yottabyte.jp** を使用します。保存値は `Basic ` とBase64形式のユーザー名・アプリケーションパスワードの組み合わせです。Museは保存値をヘッダーへそのまま送信します。`bearer_header` は使用しません。仕様書には実際の認証情報を含めません。通常のHTTPクライアントは従来どおりBasic認証を利用できます。
 
 ## Museへ渡す接続・投稿指示
 
@@ -20,7 +21,10 @@ Muse → WordPressの「HPブログ」→ GitHub Pages → `https://yottabyte.jp
 合同会社YottaByteのHPブログをWordPress REST APIで管理するカスタムコネクターを作成してください。
 API仕様: https://yottabyte.jp/integrations/muse-wordpress.openapi.json
 APIサーバー: https://cms.yottabyte.jp/wp-json
-認証: HTTP Basic。専用ユーザーとアプリケーションパスワードをSecure Credentials Storeへ保存します。
+認証方式: api_key。placementはcustom_header:Authorization、ホストはcms.yottabyte.jp。
+コネクター名はcustom.yottabyte-wordpress。Secure Credentials Storeへの本人用入力画面を表示します。
+保存値はBasicから始まるAuthorizationヘッダーの値そのものです。Bearerなどは追加しません。
+これはWordPress標準のアプリケーションパスワードによるHTTP Basic認証です。
 通常のWordPress投稿 /wp/v2/posts は使わず、必ず /wp/v2/yottabyte-articles を使ってください。
 APIを呼ぶたびに認証情報をチャットや実行ログへ表示しないでください。
 

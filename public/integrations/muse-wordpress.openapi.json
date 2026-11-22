@@ -12,6 +12,9 @@
   ],
   "security": [
     {
+      "wordpressAuthorizationHeader": []
+    },
+    {
       "wordpressApplicationPassword": []
     }
   ],
@@ -508,6 +511,12 @@
         "type": "http",
         "scheme": "basic",
         "description": "専用ユーザー名とWordPressアプリケーションパスワードをSecure Credentials Storeへ登録。通常の管理者パスワードは使わない。"
+      },
+      "wordpressAuthorizationHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Muse custom connector: api_key, placement custom_header:Authorization, host cms.yottabyte.jp. Secure Credentials StoreへBasic + Base64(muse_publisher:アプリケーションパスワード)を登録。保存値をそのままヘッダーに送る。Bearerは追加しない。"
       }
     },
     "schemas": {
