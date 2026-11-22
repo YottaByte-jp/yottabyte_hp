@@ -28,6 +28,11 @@ final class YottaByte_Corporate_Blog {
         add_action('before_delete_post', array(__CLASS__, 'deleted'), 10, 2);
         add_action('shutdown', array(__CLASS__, 'dispatch_pending'));
         add_action('admin_menu', array(__CLASS__, 'menu'));
+        add_action('wp_dashboard_setup', array(__CLASS__, 'dashboard'));
+        add_action('admin_bar_menu', static function($bar) {
+            $bar->remove_node('new-post');
+            $bar->remove_node('new-page');
+        }, 100);
         add_action('admin_post_yb_blog_settings', array(__CLASS__, 'save_settings'));
         add_action('admin_post_yb_blog_dispatch', array(__CLASS__, 'manual_dispatch'));
         add_action('template_redirect', array(__CLASS__, 'redirect_frontend'));
@@ -141,7 +146,18 @@ final class YottaByte_Corporate_Blog {
     }
 
     public static function menu() {
+        // This is a dedicated CMS: avoid two different, easily confused article lists.
+        remove_menu_page('edit.php');
+        remove_menu_page('edit.php?post_type=page');
         add_submenu_page('edit.php?post_type=' . self::TYPE, 'HP公開連携', 'HP公開連携', 'manage_options', 'yb-blog-settings', array(__CLASS__, 'settings'));
+    }
+
+    public static function dashboard() {
+        remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
+        wp_add_dashboard_widget('yb_blog_dashboard', 'YottaByte HPブログ', static function() {
+            echo '<p>HPへ掲載する記事は「HPブログ」で作成してください。公開・更新するとHPへの反映を開始します。</p>';
+            echo '<p><a href="' . esc_url(admin_url('post-new.php?post_type=' . self::TYPE)) . '">記事を書く</a> / <a href="' . esc_url(admin_url('edit.php?post_type=' . self::TYPE)) . '">記事一覧</a></p>';
+        });
     }
 
     public static function settings() {
