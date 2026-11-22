@@ -6,7 +6,9 @@
     "node": ">=24.x"
   },
   "scripts": {
+    "predev": "node scripts/sync-wordpress-blog.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/sync-wordpress-blog.mjs",
     "build": "next build --webpack",
     "postbuild": "node scripts/generate-legacy-redirects.mjs",
     "start": "next start",
@@ -17,7 +19,8 @@
     "gsap": "^3.15.1",
     "next": "^16.3.0",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "sanitize-html": "2.18.2"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",

@@ -76,11 +76,22 @@ assert(
   'Private/utility sitemap entry',
 );
 const blog = readFileSync(resolve(output, 'blog/index.html'), 'utf8');
-assert(blog.includes('記事を準備しています'), 'Blog must start with the empty state');
+const posts = JSON.parse(readFileSync(resolve('app/_generated/blog-posts.json'), 'utf8'));
+if (posts.length === 0) {
+  assert(blog.includes('記事を準備しています'), 'Empty blog must show the empty state');
+}
 assert(
-  blog.replaceAll(/<!--[\s\S]*?-->/g, '').includes('0件の記事'),
-  'Blog must start with zero published articles',
+  blog.replaceAll(/<!--[\s\S]*?-->/g, '').includes(`${posts.length}件の記事`),
+  'Blog count must match the CMS snapshot',
 );
+for (const post of posts) {
+  for (const path of [`blog/${post.slug}/`, `blog/category/${post.category}/`]) {
+    const article = readFileSync(resolve(output, path, 'index.html'), 'utf8');
+    const url = new URL(path, 'https://yottabyte.jp/').href;
+    assert(article.includes(`rel="canonical" href="${url}"`), `${path}: incorrect canonical`);
+    assert(sitemap.includes(url), `${path}: missing sitemap entry`);
+  }
+}
 assert(!existsSync(resolve(output, 'preview/blog')), 'Blog layout fixtures must not be exported');
 assert(!sitemap.includes('/preview/'), 'Preview page must not appear in sitemap');
 const redirects = JSON.parse(

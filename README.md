@@ -29,17 +29,19 @@ npm run build
 
 `/blog/`にブログ一覧を追加しています。対応事例と同じカード・カテゴリーのバッジ・背景・スクロール演出を使用します。ヘッダー、モバイルメニュー、フッターからアクセスできます。新しいブログは記事0件で開始し、「記事を準備しています」と表示します。既存の`media.yottabyte.jp`の記事は移行・取得しません。
 
-公開する記事のデータ型と空の一覧は`app/_data/blog.ts`、カード・本文のひな形は`app/_components/shonan/BlogPages.tsx`です。記事本文は見出し・段落・箇条書き・図のブロックで表示します。記事が追加されると、対応する記事・カテゴリーのURLが静的生成の対象になります。
+公開する記事のデータ型は`app/_data/blog.ts`、カード・本文のひな形は`app/_components/shonan/BlogPages.tsx`です。`predev`/`prebuild`で`cms.yottabyte.jp`の専用APIから公開記事を取得し、生成データ`app/_generated/blog-posts.json`に保存します。記事が追加されると、対応する記事・カテゴリーのURLが静的生成の対象になります。WordPress本文の見出し・段落・箇条書き・画像・表は、ビルド時に許可したHTMLだけに変換して表示します。
 
 `npm run dev`で次のローカル専用ページを確認できます。
 
-- `/blog/`：実際の一覧。公開記事0件。
+- `/blog/`：実際の公開記事一覧。CMS未接続のローカル環境では0件。
 - `/preview/blog/`：サンプル3件を使ったカードのデザイン確認。
 - `/preview/blog/article/`：本文・図・関連サービス・お問い合わせの表示確認。
 
 プレビューのサンプルは`app/_data/blog-preview.ts`に分離し、公開記事に含めません。プレビューのURLと一覧からの確認用リンクは開発モード限定で、本番の静的出力・サイトマップには出力せず、開発画面にも`noindex, nofollow`を付けます。
 
-この段階ではWordPressの取得・投稿・自動公開連携は未接続です。次の段階で新規記事だけを対象にする取得方法と、公開・更新に合わせてHPを再ビルドする連携を設定します。既存のWordPress、DNS、旧ブログの転送設定は変更していません。
+`.env.example`の`BLOG_CMS_ORIGIN`をローカル環境に設定すると実際のCMS記事を取得します。未設定ならローカル用の空一覧を生成します。設定したCMSの取得に失敗した場合はビルドを失敗させ、古い一覧を空に置き換えません。GitHub PagesではCMS URLを必ず設定し、取得・出力の検証が通った場合のみ公開します。生成JSONはGitに含めません。検証は`node --test scripts/sync-wordpress-blog.test.mjs`、ビルド後の確認は`node scripts/verify-static-export.mjs`です。
+
+管理側の設定・投稿方法・公開連携・復旧手順は[WordPress連携](docs/wordpress-blog.md)を参照してください。プラグインは`wordpress-plugin/yottabyte-corporate-blog/`です。
 
 ## 画像と書体
 

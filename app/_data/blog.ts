@@ -1,3 +1,5 @@
+import publishedPosts from '@/app/_generated/blog-posts.json';
+
 export const blogCategories = [
   { id: 'development', label: 'システム開発', badge: 'システム\n開発' },
   { id: 'automation', label: '業務改善・自動化', badge: '業務改善\n自動化' },
@@ -10,6 +12,7 @@ export type BlogBlock =
   | { type: 'heading'; text: string }
   | { type: 'paragraph'; text: string }
   | { type: 'list'; items: readonly string[] }
+  | { type: 'html'; html: string }
   | { type: 'image'; src: string; alt: string; caption?: string };
 
 export type BlogPost = {
@@ -22,9 +25,8 @@ export type BlogPost = {
   blocks: readonly BlogBlock[];
 };
 
-// New articles only. Existing media.yottabyte.jp articles are deliberately not imported.
-// WordPress ingestion and publication-triggered builds will be connected in a later phase.
-export const blogPosts: readonly BlogPost[] = [];
+// Generated before dev/build from the dedicated CMS endpoint. Legacy media posts are never queried.
+export const blogPosts = publishedPosts as readonly BlogPost[];
 
 export function blogCategory(id: BlogCategory) {
   return blogCategories.find((category) => category.id === id)!;

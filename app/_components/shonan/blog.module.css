@@ -134,10 +134,14 @@
   line-height: 2.2;
 }
 .body > p,
-.body > ul {
+.body > ul,
+.prose > p,
+.prose > ul,
+.prose > ol {
   margin: 0 0 1.75em;
 }
-.body > h3 {
+.body > h3,
+.prose > :is(h3, h4, h5, h6) {
   margin: 2.4em 0 1em;
   padding-bottom: 0.65em;
   border-bottom: 1px solid #9ebca7;
@@ -146,14 +150,16 @@
   font-weight: 700;
   line-height: 1.7;
 }
-.body > ul {
+.body > ul,
+.prose > :is(ul, ol) {
   padding-left: 1.5em;
   list-style: disc;
 }
 .body li + li {
   margin-top: 0.4em;
 }
-.body > figure {
+.body > figure,
+.prose > figure {
   margin: 2.5em 0;
 }
 .body figcaption {
@@ -161,6 +167,43 @@
   text-align: center;
   font-size: 14px;
   line-height: 1.8;
+}
+.prose a {
+  color: #b53008;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.prose > :is(ol, ul) {
+  list-style-position: outside;
+}
+.prose > ol {
+  list-style-type: decimal;
+}
+.prose :is(pre, table) {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.prose pre {
+  padding: 20px;
+  border: 1px solid #9ebca7;
+  border-radius: 12px;
+  background: #eefbff;
+  white-space: pre;
+  font-size: 0.85em;
+}
+.prose code {
+  font-family: monospace;
+  overflow-wrap: anywhere;
+}
+.prose blockquote {
+  margin: 2em 0;
+  padding: 12px 24px;
+  border-left: 3px solid #9ebca7;
+}
+.prose :is(th, td) {
+  padding: 12px;
+  border: 1px solid #9ebca7;
 }
 .related {
   margin-top: 3em;

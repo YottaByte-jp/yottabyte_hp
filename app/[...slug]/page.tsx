@@ -19,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const path = slug.join('/');
+  const path = slug.map(decodeURIComponent).join('/');
   const { title, description } = getPageSeo(path);
   return {
     title,
@@ -41,7 +41,7 @@ export async function generateMetadata({
 }
 export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
-  const path = slug.join('/');
+  const path = slug.map(decodeURIComponent).join('/');
   if (!paths.includes(path)) notFound();
   if (path === 'navigation') return <ShonanHome />;
   return (

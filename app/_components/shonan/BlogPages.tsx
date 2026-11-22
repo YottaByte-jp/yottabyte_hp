@@ -154,6 +154,14 @@ export function BlogArticle({ post, preview = false }: { post: BlogPost; preview
         </figure>
         <div className={styles.body}>
           {post.blocks.map((block, index) => {
+            if (block.type === 'html')
+              return (
+                <div
+                  className={styles.prose}
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: block.html }}
+                />
+              );
             if (block.type === 'heading') return <h3 key={index}>{block.text}</h3>;
             if (block.type === 'paragraph') return <p key={index}>{block.text}</p>;
             if (block.type === 'list')
