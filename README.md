@@ -49,6 +49,8 @@ npm run build
 
 ## 地域と検索向けの情報
 
+トップページの`Organization`構造化データには、同一法人であることを法人名・法人番号・所在地で確認した[Gビズインフォの法人ページ](https://info.gbiz.go.jp/hojin/ichiran?hojinBango=2021003018001)を`sameAs`で関連付けています。設定は`app/_lib/seo.ts`で管理します。会社の識別情報を補強するための設定で、検索順位や検索結果の表示を保証するものではありません。参考: [GoogleのOrganization構造化データ仕様](https://developers.google.com/search/docs/appearance/structured-data/organization)。
+
 削除済みの旧お知らせ・サービス紹介URLは、`scripts/legacy-redirects.json`で内容に対応する現行ページへ関連付けています。`npm run build`の後処理で、`scripts/generate-legacy-redirects.mjs`が`out/`に転送用HTMLを生成します。GitHub Pagesの静的配信に合わせ、Googleが恒久転送として扱う0秒のmeta refreshとcanonicalを使用しています（HTTP 301ではありません）。JavaScriptが有効な場合はクエリとフラグメントも引き継ぎます。旧URLはサイトマップへ追加せず、転送先が実在する現行の掲載ページであることをビルド時に検証します。`node scripts/verify-static-export.mjs`で、現行ページと旧URLの転送をまとめて確認できます。
 
 葉山・湘南を拠点とする会社紹介を中心に、サービス欄では支援内容を伝えます。地域名と対応範囲の列挙は繰り返さず、横須賀・三浦半島の案内はお問い合わせページに集約しています。全国から依頼できることは問い合わせ案内と必要な検索説明文で簡潔に伝え、構造化データの対応範囲も日本全国としています。実在しない支店・顧客実績・地域内での独占性は記載しません。

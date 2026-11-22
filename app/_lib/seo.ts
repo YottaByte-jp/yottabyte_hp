@@ -92,6 +92,7 @@ export const organizationData = {
   name: company.name,
   alternateName: 'YottaByte',
   url: 'https://yottabyte.jp/',
+  sameAs: ['https://info.gbiz.go.jp/hojin/ichiran?hojinBango=2021003018001'],
   logo: 'https://yottabyte.jp/yottabyte_logo-removebg-preview.png',
   description: siteDescription,
   email: company.email,
