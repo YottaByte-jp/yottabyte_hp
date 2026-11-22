@@ -6,6 +6,9 @@ import { ActionLink, Arrow, Stand } from './ReferenceParts';
 import { BusinessIllustration } from './BusinessIllustration';
 import { CoastIllustration } from './CoastIllustration';
 import { caseArtwork } from './caseArtwork';
+import { blogPosts } from '@/app/_data/blog';
+import { blogPreviewPosts } from '@/app/_data/blog-preview';
+import { BlogArticle, BlogList } from './BlogPages';
 import { ITPerson } from './ScrollScenery';
 import {
   strengths,
@@ -862,7 +865,9 @@ export function InnerPages({ path }: { path: string }) {
       ? [{ label: '対応事例', href: '/case/' }]
       : path.startsWith('news/')
         ? [{ label: 'お知らせ', href: '/news/' }]
-        : [];
+        : path.startsWith('blog/') || path.startsWith('preview/blog/article')
+          ? [{ label: 'ブログ', href: '/blog/' }]
+          : [];
   let content;
   if (path === 'features') content = <Features />;
   else if (path === 'company') content = <Company />;
@@ -875,7 +880,20 @@ export function InnerPages({ path }: { path: string }) {
   else if (path === 'case' || path.startsWith('case/category/'))
     content = <CaseList category={path.split('/')[2]} />;
   else if (path.startsWith('case/')) content = <CaseArticle id={path.split('/')[1]} />;
-  else if (path === 'news' || path.startsWith('news/category/'))
+  else if (path === 'blog' || path.startsWith('blog/category/'))
+    content = <BlogList posts={blogPosts} category={path.split('/')[2]} />;
+  else if (path.startsWith('blog/')) {
+    const post = blogPosts.find((item) => item.slug === path.split('/')[1]);
+    content = post ? <BlogArticle post={post} /> : <Missing />;
+  } else if (process.env.NODE_ENV === 'development' && path === 'preview/blog')
+    content = <BlogList posts={blogPreviewPosts} preview />;
+  else if (process.env.NODE_ENV === 'development' && path.startsWith('preview/blog/article')) {
+    const post =
+      path === 'preview/blog/article'
+        ? blogPreviewPosts[0]
+        : blogPreviewPosts.find((item) => item.slug === path.split('/')[3]);
+    content = post ? <BlogArticle post={post} preview /> : <Missing />;
+  } else if (path === 'news' || path.startsWith('news/category/'))
     content = <NewsList category={path !== 'news'} />;
   else if (path.startsWith('news/')) content = <NewsArticle id={path.split('/')[1]} />;
   else if (path === 'contact') content = <Contact />;

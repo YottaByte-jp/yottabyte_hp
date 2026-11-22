@@ -35,9 +35,13 @@ jobs:
 
       - name: Build static site
         env:
+          BLOG_CMS_ORIGIN: https://cms.yottabyte.jp
           NEXT_PUBLIC_CONTACT_ENDPOINT: https://yottabyte-contact.raio20061114.workers.dev/contact
           NEXT_PUBLIC_GA_MEASUREMENT_ID: G-HY3D6EJ7XP
         run: npm run build
+
+      - name: Verify exported site
+        run: node scripts/verify-static-export.mjs
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4

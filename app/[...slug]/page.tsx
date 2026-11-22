@@ -7,7 +7,8 @@ import { ShonanFooter } from '@/app/_components/shonan/ShonanFooter';
 import { innerPaths } from '@/app/_components/shonan/innerContent';
 import { shonanFonts } from '@/app/_components/shonan/typography';
 import { getPageSeo, siteName } from '@/app/_lib/seo';
-const paths = [...innerPaths, 'navigation'];
+import { blogPreviewPaths } from '@/app/_data/blog-preview';
+const paths = [...innerPaths, 'navigation', ...blogPreviewPaths];
 export const dynamicParams = false;
 export function generateStaticParams() {
   return paths.map((path) => ({ slug: path.split('/') }));
@@ -18,7 +19,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const path = slug.join('/');
+  const path = slug.map(decodeURIComponent).join('/');
   const { title, description } = getPageSeo(path);
   return {
     title,
@@ -33,14 +34,14 @@ export async function generateMetadata({
       siteName,
       images: [{ url: '/yottabyte_logo.png', width: 1254, height: 1254, alt: 'YottaByte' }],
     },
-    ...(['navigation', '404', 'contact-thanks'].includes(path)
+    ...(['navigation', '404', 'contact-thanks', ...blogPreviewPaths].includes(path)
       ? { robots: { index: false, follow: false } }
       : {}),
   };
 }
 export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params;
-  const path = slug.join('/');
+  const path = slug.map(decodeURIComponent).join('/');
   if (!paths.includes(path)) notFound();
   if (path === 'navigation') return <ShonanHome />;
   return (

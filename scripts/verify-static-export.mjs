@@ -21,6 +21,7 @@ function inspect(file) {
   const path = file.slice(output.length).replace(/index\.html$/, '');
   const base = new URL(path, 'https://yottabyte.jp');
   assert(!html.includes('/preview/shonan/'), `${path}: preview URL in production HTML`);
+  assert(!html.includes('/preview/blog/'), `${path}: blog preview URL in production HTML`);
   assert(html.includes('id="main-content"'), `${path}: missing main content target`);
   for (const [, raw] of html.matchAll(/(?:href|src|poster)="([^"]+)"/g)) {
     if (/^(?:data:|mailto:|tel:|javascript:)/.test(raw)) continue;
@@ -41,6 +42,7 @@ for (const path of [
   'service/website/',
   'service/mobile/',
   'case/',
+  'blog/',
   'company/',
   'partner/',
   'contact/',
@@ -59,13 +61,39 @@ for (const path of [
 const thanks = readFileSync(resolve(output, 'contact-thanks/index.html'), 'utf8');
 assert(/name="robots" content="[^"]*noindex/.test(thanks), 'Thanks page must remain noindex');
 const sitemap = readFileSync(resolve(output, 'sitemap.xml'), 'utf8');
-for (const path of ['features', 'solutions', 'partner', 'service/website', 'service/mobile']) {
+for (const path of [
+  'features',
+  'solutions',
+  'partner',
+  'service/website',
+  'service/mobile',
+  'blog',
+]) {
   assert(sitemap.includes(`https://yottabyte.jp/${path}/`), `Missing sitemap entry: ${path}`);
 }
 assert(
   !sitemap.includes('contact-thanks') && !sitemap.includes('/404/'),
   'Private/utility sitemap entry',
 );
+const blog = readFileSync(resolve(output, 'blog/index.html'), 'utf8');
+const posts = JSON.parse(readFileSync(resolve('app/_generated/blog-posts.json'), 'utf8'));
+if (posts.length === 0) {
+  assert(blog.includes('記事を準備しています'), 'Empty blog must show the empty state');
+}
+assert(
+  blog.replaceAll(/<!--[\s\S]*?-->/g, '').includes(`${posts.length}件の記事`),
+  'Blog count must match the CMS snapshot',
+);
+for (const post of posts) {
+  for (const path of [`blog/${post.slug}/`, `blog/category/${post.category}/`]) {
+    const article = readFileSync(resolve(output, path, 'index.html'), 'utf8');
+    const url = new URL(path, 'https://yottabyte.jp/').href;
+    assert(article.includes(`rel="canonical" href="${url}"`), `${path}: incorrect canonical`);
+    assert(sitemap.includes(url), `${path}: missing sitemap entry`);
+  }
+}
+assert(!existsSync(resolve(output, 'preview/blog')), 'Blog layout fixtures must not be exported');
+assert(!sitemap.includes('/preview/'), 'Preview page must not appear in sitemap');
 const redirects = JSON.parse(
   readFileSync(new URL('./legacy-redirects.json', import.meta.url), 'utf8'),
 );
