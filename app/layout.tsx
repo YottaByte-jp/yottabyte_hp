@@ -1,22 +1,18 @@
 import type { Metadata, Viewport } from 'next';
-import { Lato, Noto_Sans_JP } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { GoogleAnalytics } from '@/app/_components/GoogleAnalytics';
 import { siteDescription, siteName, siteTitle } from '@/app/_lib/seo';
+import './corporate-fonts.css';
 import './globals.css';
 
-const notoSansJp = Noto_Sans_JP({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '900'],
-  display: 'swap',
-  variable: '--font-noto-sans-jp',
-});
-const lato = Lato({
-  subsets: ['latin'],
-  weight: ['100', '400', '700', '900'],
-  display: 'swap',
-  variable: '--font-lato',
-});
+// Preserve the previous latin-subset preloads and font binaries without a build-time API request.
+const fontPreloads = [
+  '/fonts/corporate/4de1fea1a954a5b6-s.p.woff2',
+  '/fonts/corporate/55c20a7790588da9-s.p.woff2',
+  '/fonts/corporate/6d664cce900333ee-s.p.woff2',
+  '/fonts/corporate/7ff6869a1704182a-s.p.woff2',
+  '/fonts/corporate/fea9bcfa8bc9e724-s.p.woff2',
+];
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://yottabyte.jp'),
@@ -62,7 +58,19 @@ type RootLayoutProps = Readonly<{
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="ja" className={`${notoSansJp.variable} ${lato.variable}`}>
+    <html lang="ja">
+      <head>
+        {fontPreloads.map((href) => (
+          <link
+            key={href}
+            rel="preload"
+            href={href}
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+        ))}
+      </head>
       <body>
         <a className="skip-link" href="#main-content">
           本文へ移動

@@ -11,6 +11,22 @@ function visit(directory) {
     const file = resolve(directory, entry.name);
     if (entry.isDirectory()) visit(file);
     else if (entry.name.endsWith('.html')) inspect(file);
+    else if (entry.name.endsWith('.css')) inspectCss(file);
+  }
+}
+function inspectCss(file) {
+  const css = readFileSync(file, 'utf8');
+  const path = file.slice(output.length);
+  const base = new URL(path, 'https://yottabyte.jp');
+  for (const [, raw] of css.matchAll(/url\(([^)]+)\)/g)) {
+    const value = raw.trim().replace(/^['"]|['"]$/g, '');
+    if (value.startsWith('data:')) continue;
+    const url = new URL(value, base);
+    if (url.origin !== base.origin) continue;
+    references++;
+    if (!existsSync(resolve(output, `.${decodeURIComponent(url.pathname)}`))) {
+      errors.push(`${path}: missing CSS asset ${url.pathname}`);
+    }
   }
 }
 function inspect(file) {
