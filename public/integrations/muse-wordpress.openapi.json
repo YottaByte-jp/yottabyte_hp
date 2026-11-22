@@ -1,0 +1,572 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "YottaByte HP Blog API",
+    "version": "1.1.0",
+    "description": "HPブログ専用。ユーザーごとのアプリケーションパスワードで認証。記事公開後のHP反映は非同期。"
+  },
+  "servers": [
+    {
+      "url": "https://cms.yottabyte.jp/wp-json"
+    }
+  ],
+  "security": [
+    {
+      "wordpressApplicationPassword": []
+    }
+  ],
+  "paths": {
+    "/wp/v2/users/me": {
+      "get": {
+        "operationId": "getCurrentUser",
+        "description": "認証ユーザーのIDと名前を確認。",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        }
+      }
+    },
+    "/wp/v2/yb_category": {
+      "get": {
+        "operationId": "listBlogCategories",
+        "description": "既存4カテゴリーを取得。記事のyb_categoryフィールドへ数値IDを指定。",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "development, automation, ai, website のいずれか"
+          }
+        ]
+      }
+    },
+    "/wp/v2/yottabyte-articles": {
+      "get": {
+        "operationId": "listArticles",
+        "description": "slugで重複を検索。context=editなら自分の下書きも確認。",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          {
+            "name": "context",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "edit"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "draft または publish"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": ""
+          },
+          {
+            "name": "author",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": ""
+          }
+        ]
+      },
+      "post": {
+        "operationId": "createArticle",
+        "description": "HPブログ記事を作成。先にdraftで保存してIDを保持。",
+        "responses": {
+          "201": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArticleInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/wp/v2/yottabyte-articles/{id}": {
+      "get": {
+        "operationId": "getArticle",
+        "description": "IDで保存状態を確認。context=editで自分の下書きも取得。",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          {
+            "name": "context",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "edit"
+          }
+        ]
+      },
+      "post": {
+        "operationId": "updateArticle",
+        "description": "自分の記事を更新。status=publishでHPの再生成を開始。",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArticleInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/wp/v2/media": {
+      "get": {
+        "operationId": "listOwnMedia",
+        "description": "自分がアップロードした画像だけを一覧。",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        },
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": ""
+          },
+          {
+            "name": "post",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": ""
+          }
+        ]
+      },
+      "post": {
+        "operationId": "uploadImage",
+        "description": "画像ファイルをアップロード。JPEG/PNG/GIF/WebP/AVIF対応。返却source_urlを本文へ。",
+        "responses": {
+          "201": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "required": ["file"],
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "alt_text": {
+                    "type": "string"
+                  },
+                  "post": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/wp/v2/media/{id}": {
+      "get": {
+        "operationId": "getOwnMedia",
+        "description": "自分の画像を確認。",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ]
+      },
+      "post": {
+        "operationId": "updateOwnMedia",
+        "description": "自分の画像の代替テキストと記事ID等を更新。",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MediaInput"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/yottabyte/v1/publication-status": {
+      "get": {
+        "operationId": "getPublicationStatus",
+        "description": "直近のGitHub再生成要求の受付。accepted=trueはHP反映完了を意味しない。公開URLを別途確認。",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        }
+      }
+    },
+    "/yottabyte/v1/articles": {
+      "get": {
+        "operationId": "getPublicArticles",
+        "description": "HP向けの公開記事フィードを確認。",
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "認証が必要"
+          },
+          "403": {
+            "description": "権限なし"
+          },
+          "422": {
+            "description": "公開前検証に失敗"
+          }
+        },
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": ""
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "description": ""
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "wordpressApplicationPassword": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "専用ユーザー名とWordPressアプリケーションパスワードをSecure Credentials Storeへ登録。通常の管理者パスワードは使わない。"
+      }
+    },
+    "schemas": {
+      "ArticleInput": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 300
+          },
+          "content": {
+            "type": "string",
+            "description": "HTML。本文画像はHTTPSのcms.yottabyte.jp/wp-content/uploads/に限定。"
+          },
+          "excerpt": {
+            "type": "string",
+            "maxLength": 1000
+          },
+          "slug": {
+            "type": "string",
+            "maxLength": 180,
+            "description": "先頭は文字/数字、以後は文字/数字/_/-。categoryは不可。"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["draft", "publish"]
+          },
+          "yb_category": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 1,
+            "items": {
+              "type": "integer"
+            }
+          },
+          "featured_media": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      },
+      "MediaInput": {
+        "type": "object",
+        "properties": {
+          "alt_text": {
+            "type": "string"
+          },
+          "caption": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "post": {
+            "type": "integer",
+            "description": "親HPブログ記事のID"
+          }
+        }
+      }
+    }
+  }
+}
