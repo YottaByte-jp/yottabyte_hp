@@ -33,3 +33,27 @@ generate_leadをキーイベントとして登録済み（コードで作成、�
 node --test tests/analytics.test.mjs：3件成功
 npm run lint、npm run build、Prettier、git diff --checkで確認
 本番のデータ受信確認記録と画面はDownloads/YottaByte_GoogleAnalytics設定_2026-10-09へ保存
+
+2026-11-24: 問い合わせフォームの詳細計測
+- contact_form_view: フォームが画面に表示された（1画面1回）
+- contact_form_start: 最初の入力変更（1画面1回。自動入力時は有効な送信操作時にも補完）
+- contact_field_complete: 有効な入力がある項目からフォーカスを外した（項目ごとに1画面1回）
+- contact_validation_error: ブラウザの入力検証で送信が止まった（項目・エラー種別ごとに1画面1回）
+- contact_form_submit: ブラウザ検証を通過して送信を試行
+- contact_submit_error: API/通信/設定エラー。送信成功は含まない
+- contact_form_leave: 入力開始後、成功前に画面を離れた。後から戻る場合を含む
+- generate_lead: 問い合わせAPIが成功と受付IDを返した。以前の計測を維持
+
+GA4イベントスコープのカスタムディメンション:
+form_field / form_error_type / contact_topic / form_entry_page
+既存定義を変更せず、同名パラメータが未登録の場合のみ登録する。
+form_entry_pageは直前のサイト内の公開ページパスのみ。クエリ文字列や任意URLを送らない。
+相談内容は列挙コードのみ。名前・組織名・メール・電話・本文・同意内容の入力値はGA4へ送信しない。
+詳細計測は公開後からのみ。過去の入力開始やエラーは再構成しない。
+
+Googleスプレッドシート連携:
+- 順序付きファネルはData API runFunnelReport（v1alpha）で取得。
+- 閉じたファネル: 表示 → 入力開始 → 送信操作 → generate_lead、各段階30分以内。
+- イベント回数や独立した人数を割り算してファネル変換率にしない。
+- 未反映のカスタム項目・データ待ちは明示する。
+- ChromeのプレビューやlocalhostからはGA4を読み込まない。
