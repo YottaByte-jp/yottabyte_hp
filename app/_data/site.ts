@@ -7,6 +7,12 @@ export const company = {
   email: 'contact@yottabyte.jp',
 };
 
+export const socialLinks = [
+  { label: 'note', href: 'https://note.com/raio_kato' },
+  { label: 'Instagram', href: 'https://www.instagram.com/yottabyte_llc/' },
+  { label: 'X', href: 'https://x.com/RaioKato' },
+];
+
 export const photos = {
   coast: '/images/shonan-hayama.webp',
   portrait: '/images/company-message.webp',
