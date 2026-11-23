@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { company } from '@/app/_data/site';
+import { company, socialLinks } from '@/app/_data/site';
 import { CoastalTown } from './CoastalTown';
 import { Arrow } from './ReferenceParts';
 import { Cloud, PaperPlane } from './ScrollScenery';
@@ -39,6 +39,31 @@ export function ShonanFooter() {
             <Link href="/blog/">ブログ</Link>
             <Link href="/company/">会社情報</Link>
             <Link href="/news/">お知らせ</Link>
+          </nav>
+        </div>
+        <div className={styles.footerSocial}>
+          <p>SNS</p>
+          <nav aria-label="SNS">
+            {socialLinks.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${label}（新しいタブで開く）`}
+              >
+                <span>{label}</span>
+                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path
+                    d="M5 15 15 5M5 5h10v10"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            ))}
           </nav>
         </div>
         <div className={styles.footerActions}>
