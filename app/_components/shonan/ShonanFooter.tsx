@@ -42,26 +42,18 @@ export function ShonanFooter() {
           </nav>
         </div>
         <div className={styles.footerSocial}>
-          <p>SNS</p>
           <nav aria-label="SNS">
-            {socialLinks.map(({ label, href }) => (
+            {socialLinks.map(({ label, href, logo }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${label}（新しいタブで開く）`}
+                title={label}
+                data-social={label.toLowerCase()}
               >
-                <span>{label}</span>
-                <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                  <path
-                    d="M5 15 15 5M5 5h10v10"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <Image src={logo} alt="" width={56} height={56} />
               </a>
             ))}
           </nav>
