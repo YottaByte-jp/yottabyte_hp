@@ -657,6 +657,7 @@ function NewsArticle({ id }: { id: string }) {
           </figure>
           <div className={styles.articleBody} data-inner-copy>
             <p>{item.body}</p>
+            {item.link && <ActionLink href={item.link.href} text={item.link.label} />}
           </div>
           <div className={styles.articleFooter}>
             <Link href="/news/" className={styles.newsReturn}>
