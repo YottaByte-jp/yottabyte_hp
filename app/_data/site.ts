@@ -8,9 +8,13 @@ export const company = {
 };
 
 export const socialLinks = [
-  { label: 'note', href: 'https://note.com/raio_kato' },
-  { label: 'Instagram', href: 'https://www.instagram.com/yottabyte_llc/' },
-  { label: 'X', href: 'https://x.com/RaioKato' },
+  { label: 'note', href: 'https://note.com/raio_kato', logo: '/brands/note.svg' },
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/yottabyte_llc/',
+    logo: '/brands/instagram.svg',
+  },
+  { label: 'X', href: 'https://x.com/RaioKato', logo: '/brands/x.png' },
 ];
 
 export const photos = {
