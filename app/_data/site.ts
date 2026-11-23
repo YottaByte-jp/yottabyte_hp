@@ -105,7 +105,24 @@ export const cases = caseStudies;
 
 export const newsCategories = [{ id: 'news', label: 'お知らせ' }];
 
-export const news = [
+type NewsItem = {
+  id: string;
+  date: string;
+  category: string;
+  title: string;
+  body: string;
+  link?: { href: string; label: string };
+};
+
+export const news: NewsItem[] = [
+  {
+    id: 'blog-launch',
+    date: '2026.11.23',
+    category: 'news',
+    title: 'ブログを開設しました',
+    body: 'このたび、合同会社YottaByteのホームページにブログを開設しました。システム開発、AI活用、業務改善・自動化、HP制作など、技術と仕事にまつわる情報を発信していきます。日々の仕事や、新しい取り組みを考えるときのヒントになるよう、わかりやすくお届けしていきます。ぜひご覧ください。',
+    link: { href: '/blog/', label: 'ブログを見る' },
+  },
   {
     id: 'website-launch',
     date: '2026.10',
