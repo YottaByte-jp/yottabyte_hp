@@ -12,7 +12,7 @@ export const socialLinks = [
   {
     label: 'Instagram',
     href: 'https://www.instagram.com/yottabyte_llc/',
-    logo: '/brands/instagram.svg',
+    logo: '/brands/instagram-gradient.png',
   },
   { label: 'X', href: 'https://x.com/RaioKato', logo: '/brands/x.png' },
 ];
