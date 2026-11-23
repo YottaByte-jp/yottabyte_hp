@@ -2,9 +2,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { faqs, company } from '@/app/_data/site';
-import { trackContactSubmission } from '@/app/_lib/analytics';
+import {
+  contactFields,
+  contactTopicCodes,
+  createContactTracker,
+  readContactEntryPage,
+  trackContactSubmission,
+} from '@/app/_lib/analytics';
 import contactTopics from '@/shared/contact-topics.json';
-import type { FormEvent } from 'react';
+import type { FormEvent, SyntheticEvent } from 'react';
 export function RevealController() {
   const pathname = usePathname();
   useEffect(() => {
@@ -60,12 +66,83 @@ export function ContactForm({
   const [error, setError] = useState('');
   const pending = useRef(false);
   const lastRequest = useRef<{ payload: string; id: string } | null>(null);
+  const form = useRef<HTMLFormElement>(null);
+  const tracking = useRef<ReturnType<typeof createContactTracker> | null>(null);
+  useEffect(() => {
+    const tracker = createContactTracker({
+      form_entry_page: readContactEntryPage(),
+      contact_topic: contactTopicCodes[0],
+    });
+    tracking.current = tracker;
+    let visible = false;
+    const recordVisible = () => {
+      if (visible && tracker.view()) observer.disconnect();
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          visible = true;
+          recordVisible();
+        }
+      },
+      { threshold: 0.1 },
+    );
+    if (form.current) observer.observe(form.current);
+    window.addEventListener('yb-analytics-ready', recordVisible);
+    const leave = () => tracker.leave();
+    window.addEventListener('pagehide', leave);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('yb-analytics-ready', recordVisible);
+      window.removeEventListener('pagehide', leave);
+      tracker.leave();
+    };
+  }, []);
+  function fieldTarget(event: SyntheticEvent<HTMLFormElement>) {
+    const target = event.target;
+    return (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) &&
+      contactFields.some((name) => name === target.name)
+      ? target
+      : null;
+  }
+  function started(event: FormEvent<HTMLFormElement>) {
+    const target = fieldTarget(event);
+    if (!target) return;
+    if (target.name === 'topic') {
+      const index = topics.indexOf(target.value);
+      if (index >= 0) tracking.current?.topic(contactTopicCodes[index]);
+    }
+    tracking.current?.start();
+  }
+  function fieldCompleted(event: SyntheticEvent<HTMLFormElement>) {
+    const target = fieldTarget(event);
+    if (!target) return;
+    const filled =
+      target instanceof HTMLInputElement && ['checkbox', 'radio'].includes(target.type)
+        ? target.checked
+        : Boolean(target.value.trim());
+    if (filled && target.validity.valid) tracking.current?.field(target.name);
+  }
+  function invalidField(event: SyntheticEvent<HTMLFormElement>) {
+    const target = fieldTarget(event);
+    if (!target) return;
+    const type = target.validity.valueMissing
+      ? 'required'
+      : target.validity.typeMismatch || target.validity.patternMismatch
+        ? 'format'
+        : target.validity.tooLong
+          ? 'too_long'
+          : 'invalid';
+    tracking.current?.invalid(target.name, type);
+  }
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (pending.current) return;
+    tracking.current?.submit();
     const data = new FormData(event.currentTarget);
     const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
     if (!endpoint) {
+      tracking.current?.error('configuration');
       setError(`現在フォームをご利用いただけません。${company.email}へご連絡ください。`);
       return;
     }
@@ -95,6 +172,15 @@ export function ContactForm({
       });
       const result = await response.json().catch(() => null);
       if (!response.ok || result?.ok !== true || typeof result?.id !== 'string') {
+        tracking.current?.error(
+          response.status === 429
+            ? 'rate_limited'
+            : response.status >= 500
+              ? 'http_5xx'
+              : response.status >= 400
+                ? 'http_4xx'
+                : 'invalid_response',
+        );
         setError(
           typeof result?.error === 'string'
             ? result.error
@@ -102,9 +188,13 @@ export function ContactForm({
         );
         return;
       }
-      trackContactSubmission();
+      if (tracking.current) tracking.current.success();
+      else trackContactSubmission();
       router.push(successHref);
-    } catch {
+    } catch (cause) {
+      tracking.current?.error(
+        cause instanceof DOMException && cause.name === 'TimeoutError' ? 'timeout' : 'network',
+      );
       setError('送信結果を確認できませんでした。入力内容を変えずに再度お試しください。');
     } finally {
       pending.current = false;
@@ -112,7 +202,16 @@ export function ContactForm({
     }
   }
   return (
-    <form id="form" className="contact-form" onSubmit={submit} aria-busy={isSubmitting}>
+    <form
+      ref={form}
+      id="form"
+      className="contact-form"
+      onSubmit={submit}
+      onChangeCapture={started}
+      onBlurCapture={fieldCompleted}
+      onInvalidCapture={invalidField}
+      aria-busy={isSubmitting}
+    >
       <label className="form-honeypot" aria-hidden="true">
         Website
         <input name="website" tabIndex={-1} autoComplete="off" />
